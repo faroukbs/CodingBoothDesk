@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bouss/OneDrive/Documents/NetBeansProjects/PidevDesk/src/utils/MyDb.java</file>
-            <file>file:/C:/Users/bouss/OneDrive/Documents/NetBeansProjects/PidevDesk/src/entities/Product.java</file>
-            <file>file:/C:/Users/bouss/OneDrive/Documents/NetBeansProjects/PidevDesk/src/pidevdesk/PidevDesk.java</file>
-            <file>file:/C:/Users/bouss/OneDrive/Documents/NetBeansProjects/PidevDesk/src/entities/category.java</file>
-            <file>file:/C:/Users/bouss/OneDrive/Documents/NetBeansProjects/PidevDesk/src/service/ProductService.java</file>
-            <file>file:/C:/Users/bouss/OneDrive/Documents/NetBeansProjects/PidevDesk/src/service/IProduit.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Lignecommande.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Eventl.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Reponse.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Utilisateur.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Commande.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/category.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Ticket.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Reclamation.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Salle.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Product.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Reservation.java</file>
+            <file>file:/C:/Users/bouss/Desktop/piDesk/PidevDeskM/src/entities/Categorie.java</file>
         </group>
     </open-files>
 </project-private>
