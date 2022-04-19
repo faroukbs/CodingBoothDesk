@@ -1,0 +1,27 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.profile-layout{
+-fx-background-color:#ED0000;
+-fx-background-radius:0 0 50 50;
+}
+.Button{
+-fx-background-color:#ED0000;
+-fx-background-radius:50;
+}
+.white_backgroud{
+    
+   -fx-background-color:#fff; 
+    
+}
+.CONTACTED{
+   -fx-background-radius:0 50 50 50; 
+   
+    
+}
+.transparent{
+  -fx-background-color:rgba(0,0,0,0); 
+   
+    
+}
