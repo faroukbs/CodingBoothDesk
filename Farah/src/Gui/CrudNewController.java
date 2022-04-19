@@ -261,13 +261,7 @@ public class CrudNewController implements Initializable {
 
     }
 
-    @FXML
-    private void Recherche(KeyEvent event) {
-        ServiceEventl bs = new ServiceEventl();
-        Eventl b = new Eventl();
-        ObservableList<Eventl> filter = bs.chercherTitreplat(Recherche.getText());
-        populateTable(filter);
-    }
+
 
     private void populateTable(ObservableList<Eventl> branlist) {
         tableevenement.setItems(branlist);
