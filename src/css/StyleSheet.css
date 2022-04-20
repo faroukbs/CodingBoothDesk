@@ -1,0 +1,176 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21 avr. 2022, 01:24:15
+    Author     : ahmed
+*/
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313 0%, #ffffff 100%);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #424242;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button, 
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}
+
+.profile-layout{
+-fx-background-color:#ED0000;
+-fx-background-radius:0 0 50 50;
+}
+.Button{
+-fx-background-color:#ED0000;
+-fx-background-radius:50;
+}
+.white_backgroud{
+    
+   -fx-background-color:#fff; 
+    
+}
+.CONTACTED{
+   -fx-background-radius:0 50 50 50; 
+   
+    
+}
+.transparent{
+  -fx-background-color:rgba(0,0,0,0); 
+   
+    
+}
+
+.white-bg{
+    -fx-background-color: white;
+}
+.blue-bg{
+    -fx-background-color: #3F51B5;
+}
+.cyan-bg{
+    -fx-background-color: #00AEFF;
+}
+.get-started-btn{
+    -fx-background-color: #00AEFF;
+    -fx-background-radius: 3px;
+    -fx-border-color: white;
+    -fx-border-radius: 3px;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+.text-field{
+    -fx-background-color:white;
+}
+.loginButton{
+    -fx-background-color:#00AEFF;
+    -fx-text-fill:white; 
+}
+.button1{
+   -fx-background-color: #3F51B5;
+    -fx-text-fill:#ffffff;  
+}
+.button1:hover
+{
+    -fx-background-color:#371897;
+}
+.button2{
+   -fx-background-color: #D5CBEB;
+   -fx-background-radius:5;
+    -fx-text-fill:#371897;  
+    -fx-border-color:#3F51B5;
+    -fx-border-radius:5;   
+}
+.button2:hover
+{
+    -fx-background-color:#E4EEFD;
+}
+.grey-bg{
+    
+     -fx-background-color: #EAEAEA;
+
+}
+.sidebar{
+     -fx-background-color: white;
+     -fx-border-color: #EAEAEA;
+    -fx-border-radius: 2px;
+    -fx-border-width: 0.5px;
+}
+
+.nav {
+        -fx-background-color: white;
+     -fx-border-color: #EAEAEA;
+    -fx-border-radius: 2px;
+    -fx-border-width: 0.5px; 
+    
+}
+.head-background
+{
+    -fx-background-color: linear-gradient(to left,#795AF3 ,#76FFFB);
+}
+.head-backgroundww
+{
+    -fx-background-color:aliceblue;
+}
+
+.text-field, .text-area {
+    -fx-border-color: #cccccc;
+    -fx-background-color: white;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-effect: innershadow(gaussian, transparent, 0, 0, 0, 0);
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #66afe9;
+    -fx-effect: dropshadow(gaussian, #66afe9, 10, 0, 0, 0);
+}
+
+.button:focused, .toggle-button:focused,
+.split-menu-button:focused, .menu-button:focused,
+.number-button:focused,
+.combo-box:focused .text-field, .choice-box:focused, .color-picker:focused, .date-picker:focused .text-field
+{
+    -fx-effect: dropshadow(gaussian, #b4d1f3, 3, 3, 0, 0);
+}
