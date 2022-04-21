@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="188.0" prefWidth="390.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PasseController">
+   <children>
+      <Label layoutX="33.0" layoutY="35.0" prefHeight="15.0" prefWidth="336.0" text="Nous avons envoyé un code de réinitialisation par email :" textFill="#1b056b">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lab_email" layoutX="84.0" layoutY="64.0" text="Label" />
+      <TextField fx:id="txt_code" layoutX="112.0" layoutY="94.0" prefHeight="25.0" prefWidth="167.0" promptText="Entrez le code" />
+      <Label layoutX="50.0" layoutY="134.0" />
+      <Button fx:id="btn_confirm" layoutX="261.0" layoutY="143.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" styleClass="button1" text="Confirmer ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="lab_code" disable="true" layoutX="70.0" layoutY="143.0" text="Label" visible="false" />
+      <Label fx:id="lab_msg" layoutX="112.0" layoutY="127.0" textFill="#cd0909">
+         <font>
+            <Font name="Arial" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="lab_id" disable="true" layoutX="19.0" layoutY="14.0" text="Label" visible="false" />
+   </children>
+</AnchorPane>

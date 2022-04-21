@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="283.0" prefWidth="470.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ChangerPasseController">
+   <children>
+      <AnchorPane layoutY="-6.0" prefHeight="81.0" prefWidth="470.0" style="-fx-background-color: #0A0232;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="57.0" layoutY="29.0" text="Choisissez un nouveau mot de passe" textFill="#fcfcfc">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <PasswordField fx:id="mdp" layoutX="76.0" layoutY="123.0" prefHeight="25.0" prefWidth="305.0" promptText="Nouveau mot de passe ">
+         <padding>
+            <Insets left="12.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="cofirmMdp" layoutX="76.0" layoutY="175.0" prefHeight="25.0" prefWidth="305.0" promptText="Confirmer le mot de passe">
+         <padding>
+            <Insets left="12.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="btn_valid" layoutX="336.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" styleClass="button1" text="Valider">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="lab_id" disable="true" layoutX="28.0" layoutY="97.0" text="Label" visible="false" />
+   </children>
+</AnchorPane>
