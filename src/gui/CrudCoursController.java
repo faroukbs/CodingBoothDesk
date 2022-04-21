@@ -11,6 +11,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.SortEvent;
@@ -176,12 +178,19 @@ public class CrudCoursController implements Initializable {
 
     @FXML
     private void SupprimerCours(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure !");
+        //alert.show();
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == (ButtonType.OK)) {
         CoursService cs = new CoursService();
         cs.supprimer(tablecours.getSelectionModel().getSelectedItem().getIdcours());
         System.out.println(tablecours.getSelectionModel().getSelectedItem().getIdsalle());
         ShowCours(); //// raifrach table view ///
         tablecours.getItems().removeAll(tablecours.getSelectionModel().getSelectedItem());
-    }
+    }}
 
     @FXML
     private void list_cours(MouseEvent event) {

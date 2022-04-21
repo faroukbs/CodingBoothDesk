@@ -27,10 +27,10 @@ public class GUImain extends Application {
 
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("CrudCategorie.fxml"));
+            root = FXMLLoader.load(getClass().getResource("CrudCours.fxml"));
             Scene scene = new Scene(root);
 
-            primaryStage.setTitle("Crud categorie!");
+            primaryStage.setTitle("");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

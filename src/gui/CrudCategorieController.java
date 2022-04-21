@@ -21,10 +21,12 @@ import javafx.scene.image.ImageView;
 import entities.Categorie;
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -113,13 +115,20 @@ public class CrudCategorieController implements Initializable {
 
     @FXML
     private void SupprimerCat(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure !");
+        //alert.show();
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == (ButtonType.OK)) {
         CategorieService cs = new CategorieService();
         cs.supprimer(tablecategories.getSelectionModel().getSelectedItem().getIdcategorie());
         System.out.println(tablecategories.getSelectionModel().getSelectedItem().getIdcategorie());
         ShowCat(); //// raifrach table view ///
         tablecategories.getItems().removeAll(tablecategories.getSelectionModel().getSelectedItem());
 
-    }
+    }}
 
     @FXML
     private void Liste_categories(MouseEvent event) {

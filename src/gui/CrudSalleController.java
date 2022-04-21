@@ -9,6 +9,7 @@ import entities.Categorie;
 import entities.Salle;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +17,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
@@ -137,12 +140,19 @@ public class CrudSalleController implements Initializable {
 
     @FXML
     private void SupprimerSalle(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure !");
+        //alert.show();
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == (ButtonType.OK)) {
             SalleService ss = new SalleService();
         ss.supprimer(tablesalles.getSelectionModel().getSelectedItem().getIdsalle());
         System.out.println(tablesalles.getSelectionModel().getSelectedItem().getIdsalle());
         ShowSalles(); //// raifrach table view ///
         tablesalles.getItems().removeAll(tablesalles.getSelectionModel().getSelectedItem());
-    }
+    }}
     private  void raifraichir(){
         nomsalletx.setText("");
         descriptiontx.setText("");
