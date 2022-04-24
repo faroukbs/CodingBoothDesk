@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="head-backgroundww" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CrudSalleController">
+<AnchorPane id="AnchorPane" prefHeight="359.0" prefWidth="600.0" styleClass="head-backgroundww" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CrudSalleController">
    <children>
       <Label layoutX="42.0" layoutY="41.0" text="nom salle" />
       <TextField fx:id="nomsalletx" layoutX="42.0" layoutY="58.0" />
@@ -16,7 +16,7 @@
       <Label layoutX="42.0" layoutY="92.0" text="description" />
       <Label layoutX="42.0" layoutY="142.0" text="id categorie" />
       <ComboBox fx:id="categoriebox" layoutX="42.0" layoutY="169.0" prefWidth="150.0" />
-      <TableView fx:id="tablesalles" layoutX="239.0" layoutY="34.0" onMouseClicked="#liste_salle" onSort="#ShowSalles" prefHeight="200.0" prefWidth="342.0" stylesheets="@../css/StyleSheet.css">
+      <TableView fx:id="tablesalles" layoutX="239.0" layoutY="69.0" onMouseClicked="#liste_salle" onSort="#ShowSalles" prefHeight="200.0" prefWidth="342.0" stylesheets="@../css/StyleSheet.css">
         <columns>
           <TableColumn fx:id="idsallev" prefWidth="59.0" text="id salle" />
           <TableColumn fx:id="nomsallev" prefWidth="115.0" text="nom salle" />
@@ -24,8 +24,9 @@
             <TableColumn fx:id="categoriev" prefWidth="74.0" text="categorie id" />
         </columns>
       </TableView>
-      <Button fx:id="Add" layoutX="274.0" layoutY="269.0" mnemonicParsing="false" onAction="#Add" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="ajouter" />
-      <Button fx:id="ModSalle" layoutX="353.0" layoutY="269.0" mnemonicParsing="false" onAction="#ModSalle" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="modifier" />
-      <Button fx:id="SupprimerSalle" layoutX="433.0" layoutY="269.0" mnemonicParsing="false" onAction="#SupprimerSalle" styleClass="Button" stylesheets="@../css/StyleSheet.css" text="supprimer" textFill="WHITE" />
+      <Button fx:id="Add" layoutX="274.0" layoutY="304.0" mnemonicParsing="false" onAction="#Add" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="ajouter" />
+      <Button fx:id="ModSalle" layoutX="353.0" layoutY="304.0" mnemonicParsing="false" onAction="#ModSalle" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="modifier" />
+      <Button fx:id="SupprimerSalle" layoutX="433.0" layoutY="304.0" mnemonicParsing="false" onAction="#SupprimerSalle" styleClass="Button" stylesheets="@../css/StyleSheet.css" text="supprimer" textFill="WHITE" />
+      <TextField fx:id="filterField" layoutX="239.0" layoutY="37.0" promptText="chercher" />
    </children>
 </AnchorPane>

@@ -13,6 +13,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -61,6 +63,8 @@ public class CrudSalleController implements Initializable {
     private TableColumn<Salle, String> nomsallev;
     @FXML
     private TableColumn<Salle, Integer> categoriev;
+    @FXML
+    private TextField filterField;
 
     /**
      * Initializes the controller class.
@@ -70,6 +74,7 @@ public class CrudSalleController implements Initializable {
         categoriebox.setItems(ss.affectercategorie());
         categoriebox.getSelectionModel().selectFirst();
         ShowSalles();
+        rechercher();
     }    
 
     @FXML
@@ -150,12 +155,57 @@ public class CrudSalleController implements Initializable {
             SalleService ss = new SalleService();
         ss.supprimer(tablesalles.getSelectionModel().getSelectedItem().getIdsalle());
         System.out.println(tablesalles.getSelectionModel().getSelectedItem().getIdsalle());
-        ShowSalles(); //// raifrach table view ///
+        ShowSalles(); 
         tablesalles.getItems().removeAll(tablesalles.getSelectionModel().getSelectedItem());
     }}
     private  void raifraichir(){
         nomsalletx.setText("");
         descriptiontx.setText("");
     }
+    private void rechercher(){
+      
+      SalleService cs = new SalleService();
+        List<Salle> salles = cs.recuperer();
+      ObservableList<Salle> dataList = FXCollections.observableArrayList(salles);
+        // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Salle> filteredData = new FilteredList<>(dataList, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(salle -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				 if (salle.getNomsalle().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom salle.
+				}
+				else if (String.valueOf(salle.getIdsalle()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id salle.
+				}
+                                else if (String.valueOf(salle.getIdcategorie()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id categorie.
+				}
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Salle> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tablesalles.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tablesalles.setItems(sortedData);
+     
+      }
     
 }

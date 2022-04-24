@@ -15,6 +15,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -80,6 +82,9 @@ public class CrudCoursController implements Initializable {
     private Button SupprimerCours;
 
     CoursService cs = new CoursService();
+    @FXML
+    private TextField filterField;
+   
 
     /**
      * Initializes the controller class.
@@ -95,6 +100,7 @@ public class CrudCoursController implements Initializable {
         coachbox.setItems(cs.affecterCoach());
         coachbox.getSelectionModel().selectFirst();
         ShowCours();
+        rechercher();
     }
 
     @FXML
@@ -110,9 +116,66 @@ public class CrudCoursController implements Initializable {
         idcoachv.setCellValueFactory(new PropertyValueFactory<>("idcoach"));
         idsallev.setCellValueFactory(new PropertyValueFactory<>("idsalle"));
         datedebutv.setCellValueFactory(new PropertyValueFactory<>("start"));
-        datefinv.setCellValueFactory(new PropertyValueFactory<>("end"));
+        datefinv.setCellValueFactory(new PropertyValueFactory<>("end"));  
     }
-
+     private void raifraichir(){
+      titletx.setText("");
+      descriptiontx.setText("");
+      
+    }
+    
+      private void rechercher(){
+      
+      CoursService cs = new CoursService();
+        List<Cours> courses = cs.recuperer();
+      ObservableList<Cours> dataList = FXCollections.observableArrayList(courses);
+        // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Cours> filteredData = new FilteredList<>(dataList, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(cours -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				 if (cours.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches title.
+				}
+				else if (String.valueOf(cours.getIdcours()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id cours.
+				}
+                                else if (String.valueOf(cours.getIdcoach()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id coach.
+				}
+                                else if (String.valueOf(cours.getIdsalle()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id salle.
+				}
+                                else if (String.valueOf(cours.getIdcategorie()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id salle.
+				}
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Cours> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tablecours.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tablecours.setItems(sortedData);
+     
+      }
+     
     @FXML
     private void Add(ActionEvent event) {
         if (titletx.getText().isEmpty() || descriptiontx.getText().isEmpty()) {
@@ -139,7 +202,7 @@ public class CrudCoursController implements Initializable {
             Cours c = new Cours(titre, categorieId, coachid, salleid, description, java.sql.Date.valueOf(dateDebut), java.sql.Date.valueOf(dateFin));
             cs.ajouter(c);
             ShowCours();
-            //raifraichir();
+            raifraichir();
         }
 
     }
@@ -172,7 +235,7 @@ public class CrudCoursController implements Initializable {
             c.setEnd(java.sql.Date.valueOf(datefin.getValue()));
             cs.modifier(c);
             ShowCours();
-            //raifraichir();
+            raifraichir();
         }
     }
 
@@ -190,6 +253,7 @@ public class CrudCoursController implements Initializable {
         System.out.println(tablecours.getSelectionModel().getSelectedItem().getIdsalle());
         ShowCours(); //// raifrach table view ///
         tablecours.getItems().removeAll(tablecours.getSelectionModel().getSelectedItem());
+        raifraichir();
     }}
 
     @FXML

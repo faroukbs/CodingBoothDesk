@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -55,6 +57,8 @@ public class CrudCategorieController implements Initializable {
     private Button SupprimerCat;
 
     ObservableList<Categorie> List = FXCollections.observableArrayList();
+    @FXML
+    private TextField filterField;
 
     /**
      * Initializes the controller class.
@@ -62,6 +66,7 @@ public class CrudCategorieController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ShowCat();
+        rechercher();
     }
 
     @FXML
@@ -145,5 +150,48 @@ public class CrudCategorieController implements Initializable {
         nomcategorietx.setText("");
 
     }
+    private void rechercher(){
+      
+      CategorieService cs = new CategorieService();
+        List<Categorie> categories = cs.recuperer();
+      ObservableList<Categorie> dataList = FXCollections.observableArrayList(categories);
+        // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Categorie> filteredData = new FilteredList<>(dataList, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(categorie -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				 if (categorie.getNomcategorie().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom categorie.
+				}
+				else if (String.valueOf(categorie.getIdcategorie()).indexOf(lowerCaseFilter)!=-1){
+					return true; // Filter matches id categorie.
+				}
+                               
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Categorie> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tablecategories.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tablecategories.setItems(sortedData);
+     
+      }
 
 }

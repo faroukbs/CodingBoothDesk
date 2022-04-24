@@ -10,15 +10,17 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="head-backgroundww" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CrudCategorieController">
    <children>
       <Label layoutX="17.0" layoutY="83.0" prefHeight="17.0" prefWidth="105.0" text="nomCategorie" />
-      <TextField fx:id="nomcategorietx" layoutX="100.0" layoutY="79.0" />
-      <TableView fx:id="tablecategories" layoutX="294.0" layoutY="14.0" onMouseClicked="#Liste_categories" onSort="#ShowCat" prefHeight="200.0" prefWidth="269.0" stylesheets="@../css/StyleSheet.css">
+      <TextField fx:id="nomcategorietx" layoutX="17.0" layoutY="100.0" />
+      <TableView fx:id="tablecategories" layoutX="266.0" layoutY="79.0" onMouseClicked="#Liste_categories" onSort="#ShowCat" prefHeight="200.0" prefWidth="213.0" stylesheets="@../css/StyleSheet.css">
         <columns>
           <TableColumn fx:id="idcategoriev" prefWidth="90.0" text="idCategorie" />
           <TableColumn fx:id="nomcategoriev" prefWidth="121.0" text="nomCategorie" />
         </columns>
       </TableView>
-      <Button fx:id="Add" layoutX="274.0" layoutY="256.0" mnemonicParsing="false" onAction="#Add" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Ajouter" />
-      <Button fx:id="ModCat" layoutX="368.0" layoutY="256.0" mnemonicParsing="false" onAction="#ModCat" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Modifier" />
-      <Button fx:id="SupprimerCat" layoutX="473.0" layoutY="256.0" mnemonicParsing="false" onAction="#SupprimerCat" styleClass="Button" stylesheets="@../css/StyleSheet.css" text="Supprimer" textFill="WHITE" />
+      <Button fx:id="Add" layoutX="311.0" layoutY="283.0" mnemonicParsing="false" onAction="#Add" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Ajouter" />
+      <Button fx:id="ModCat" layoutX="378.0" layoutY="283.0" mnemonicParsing="false" onAction="#ModCat" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Modifier" />
+      <Button fx:id="SupprimerCat" layoutX="449.0" layoutY="284.0" mnemonicParsing="false" onAction="#SupprimerCat" styleClass="Button" stylesheets="@../css/StyleSheet.css" text="Supprimer" textFill="WHITE" />
+      <Label layoutX="273.0" layoutY="6.0" text="crud categorie" />
+      <TextField fx:id="filterField" layoutX="267.0" layoutY="45.0" promptText="recherche" />
    </children>
 </AnchorPane>

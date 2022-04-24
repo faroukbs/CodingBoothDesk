@@ -41,5 +41,6 @@
       <Button fx:id="Add" layoutX="345.0" layoutY="294.0" mnemonicParsing="false" onAction="#Add" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Ajouter" />
       <Button fx:id="ModCours" layoutX="428.0" layoutY="294.0" mnemonicParsing="false" onAction="#ModCours" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Modifier" />
       <Button fx:id="SupprimerCours" layoutX="520.0" layoutY="294.0" mnemonicParsing="false" onAction="#SupprimerCours" styleClass="Button" stylesheets="@../css/StyleSheet.css" text="Supprimer" textFill="WHITE" />
+      <TextField fx:id="filterField" layoutX="220.0" layoutY="36.0" promptText="recherche" />
    </children>
 </AnchorPane>
