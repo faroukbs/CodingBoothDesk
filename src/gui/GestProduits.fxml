@@ -66,5 +66,6 @@
         <Button fx:id="AddP" layoutX="33.0" layoutY="441.0" mnemonicParsing="false" onAction="#AddP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Ajouter Produit" textFill="WHITE" />
         <Button fx:id="DelP" layoutX="33.0" layoutY="493.0" mnemonicParsing="false" onAction="#DelP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Supprimer Produit" textFill="WHITE" />
         <Button fx:id="EdP" layoutX="33.0" layoutY="546.0" mnemonicParsing="false" onAction="#EdP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Modifier" textFill="WHITE" />
+      <TextField fx:id="search" layoutX="52.0" layoutY="639.0" prefHeight="26.0" prefWidth="278.0" promptText="Search here" />
     </children>
 </AnchorPane>

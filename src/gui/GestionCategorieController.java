@@ -8,6 +8,7 @@ package gui;
 import entities.category;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +20,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -63,10 +66,20 @@ public class GestionCategorieController implements Initializable {
     }
      @FXML
     private void AddC(ActionEvent event) {
-                //DataValidation validator = new DataValidation();
+                DataValidation validator = new DataValidation();
+            if (tfNom.getText().isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erreur!");
+            alert.setHeaderText(null);
+            alert.setContentText(" Champ vide!");
+            alert.show();
+        } else {
+                
+                
                 category cat = new category(tfNom.getText());
     
 //            if (validator.isNotEmpty(tfNom) ) 
+
             
             Sc.Add(cat);
             tblCat.setItems(FXCollections.observableArrayList(Sc.GetAll()));
@@ -76,7 +89,7 @@ public class GestionCategorieController implements Initializable {
             tblCat.refresh();
         
     }
-    
+    }
 
 //    @FXML
 //    private void AddC(ActionEvent event) {
@@ -95,6 +108,13 @@ public class GestionCategorieController implements Initializable {
 
     @FXML
     private void DelC(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure !");
+        //alert.show();
+        Optional<ButtonType> action = alert.showAndWait();
+         if (action.get() == (ButtonType.OK)) {
         final category selectedItem = tblCat.getSelectionModel().getSelectedItem();
         category cat = Sc.GetById(selectedItem.getIdcategory());
         Sc.Delete(cat.getIdcategory());
@@ -103,9 +123,19 @@ public class GestionCategorieController implements Initializable {
         tblCat.setItems(FXCollections.observableArrayList(Sc.GetAll()));
         tblCat.refresh();
     }
+    }
 
     @FXML
     private void EdC(ActionEvent event) {
+        if (tfNom.getText().isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erreur!");
+            alert.setHeaderText(null);
+            alert.setContentText(" Champ vide!");
+            alert.show();
+        } else {
+            
+      
         final category selectedItem = tblCat.getSelectionModel().getSelectedItem();
         category cat = Sc.GetById(selectedItem.getIdcategory());
         cat.setNom(tfNom.getText());
@@ -114,6 +144,7 @@ public class GestionCategorieController implements Initializable {
         tblCat.setItems(FXCollections.observableArrayList(Sc.GetAll()));
         tblCat.refresh();
     }
+          }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
       list = FXCollections.observableArrayList(Sc.GetAll());

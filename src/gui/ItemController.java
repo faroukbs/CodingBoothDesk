@@ -9,8 +9,14 @@ import javafx.scene.input.MouseEvent;
 
 import gui.MyListener;
 import entities.Product;
+import entities.RateProduct;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import org.controlsfx.control.Rating;
+import service.RateService;
 
-public class ItemController {
+public class ItemController implements Initializable {
     @FXML
     private Label nameLabel;
 
@@ -19,6 +25,10 @@ public class ItemController {
 
     @FXML
     private ImageView img;
+    @FXML
+    private Rating rate;
+    
+    RateService Rs = new RateService();
 
     @FXML
     private void click(MouseEvent mouseEvent) {
@@ -33,7 +43,27 @@ public class ItemController {
         this.myListener = myListener;
         nameLabel.setText(product.getNomprod());
         priceLable.setText(String.valueOf( product.getPrix()));
-//        Image image = new Image(getClass().getResourceAsStream(product.getImage()));
-//        img.setImage(image);
+        String path = "/img/" + product.getImage();
+        Image image = new Image(getClass().getResourceAsStream(path));
+        img.setImage(image);
+        rate.setRating(Rs.GetByProduct(product.getId_produit()).getNote());
+    }
+
+    @FXML
+    private void addRate(MouseEvent event) {
+        RateProduct r = new RateProduct(product.getId_produit(), rate.getRating());
+           System.out.println("hgg");
+        System.out.println(Rs.GetByProduct(product.getId_produit()));
+        if (Rs.GetByProduct(product.getId_produit()) != null){
+            
+        Rs.Add(r);
+        } else {
+        Rs.Update(r);
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        rate.setPartialRating(true);
     }
 }

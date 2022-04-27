@@ -24,6 +24,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.scene.control.TextField;
 import org.controlsfx.control.Rating;
 import service.ProductService;
 import service.RateService;
@@ -42,8 +47,7 @@ public class MarketController implements Initializable {
     @FXML
     private ImageView fruitImg;
 
-    @FXML
-    private Rating rate;
+   
 
     @FXML
     private ScrollPane scroll;
@@ -57,6 +61,8 @@ public class MarketController implements Initializable {
     private Image image;
     private MyListener myListener;
     private List<Product> products = new ArrayList<>();
+    @FXML
+    private TextField search;
 
     private List<Product> getData() {
         return service.GetAll();
@@ -66,22 +72,13 @@ public class MarketController implements Initializable {
     private void setChosenProduct(Product product) {
         fruitNameLable.setText(product.getNomprod());
         fruitPriceLabel.setText(String.valueOf(product.getPrix()));
-//        image = new Image(getClass().getResourceAsStream(product.getImage()));
-//        fruitImg.setImage(image);
+       String path = "/img/" + product.getImage();
+        Image image = new Image(getClass().getResourceAsStream(path));
+       fruitImg.setImage(image);
 //        chosenFruitCard.setStyle("-fx-background-color: #" + fruit.getColor() + ";\n" +
 //                "    -fx-background-radius: 30;");
         System.out.println(product);
-        rate.ratingProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                try {
-                    rates.Add(new RateProduct(product.getId_produit(), newValue.doubleValue()));
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-
-        });
+      
 
     }
 
@@ -131,5 +128,50 @@ public class MarketController implements Initializable {
             e.printStackTrace();
         }
     }
+//     private void rechercher() {
+//
+//        ProductService cs = new ProductService();
+//        List<Product> products = cs.GetAll();
+//        ObservableList<Product> dataList = FXCollections.observableArrayList(products);
+//        // Wrap the ObservableList in a FilteredList (initially display all data).
+//        FilteredList<Product> filteredData = new FilteredList<>(dataList, b -> true);
+//
+//        // 2. Set the filter Predicate whenever the filter changes.
+//        search.textProperty().addListener((observable, oldValue, newValue) -> {
+//            filteredData.setPredicate(Product -> {
+//                // If filter text is empty, display all persons.
+//
+//                if (newValue == null || newValue.isEmpty()) {
+//                    return true;
+//                }
+//
+//                // Compare first name and last name of every person with filter text.
+//                String lowerCaseFilter = newValue.toLowerCase();
+//
+//                if (Product.getNomprod().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+//                    return true; // Filter matches nom .
+//                } else if (String.valueOf(Product.getId_produit()).indexOf(lowerCaseFilter) != -1) {
+//                    return true; // Filter matches id .
+//                } else if (String.valueOf(Product.getCategoryprod_id()).indexOf(lowerCaseFilter) != -1) {
+//                    return true; // Filter matches id .
+//                } else {
+//                    return false; // Does not match.
+//                }
+//            });
+//        });
+//
+//        // 3. Wrap the FilteredList in a SortedList. 
+//        SortedList<Product> sortedData = new SortedList<>(filteredData);
+//
+//        // 4. Bind the SortedList comparator to the TableView comparator.
+//        // 	  Otherwise, sorting the TableView would have no effect.
+//        sortedData.comparatorProperty().bind(tblProd.comparatorProperty());
+//
+//        // 5. Add sorted (and filtered) data to the table.
+//        tblProd.setItems(sortedData);
+//
+//    }
+
+    
 
 }

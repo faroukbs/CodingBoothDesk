@@ -14,10 +14,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,9 +31,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SortEvent;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -38,6 +43,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import service.CategoryProdService;
@@ -51,6 +57,8 @@ public class GestionProduitController implements Initializable {
 
     ProductService Sp = new ProductService();
     @FXML
+    private TextField search;
+    @FXML
     private Button retour;
     @FXML
     private TableView<Product> tblProd;
@@ -61,7 +69,7 @@ public class GestionProduitController implements Initializable {
     @FXML
     private TableColumn<Product, Integer> tbQuant;
     @FXML
-    private TableColumn<Product, Integer> tbCat;
+    private TableColumn<Product, String> tbCat;
 
     @FXML
     private TextField tfNom;
@@ -79,8 +87,6 @@ public class GestionProduitController implements Initializable {
 
     @FXML
     private ComboBox<String> combCat;
-
-
 
     ObservableList<Product> list;
 
@@ -100,7 +106,8 @@ public class GestionProduitController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       showproduit();
+        showproduit();
+        rechercher();
 
         tblProd.setRowFactory(tv -> {
 
@@ -151,30 +158,35 @@ public class GestionProduitController implements Initializable {
     @FXML
     private void AddP(ActionEvent event) throws FileNotFoundException, IOException {
         DataValidation validator = new DataValidation();
-        int idCategory = servCat.getIdByCategoryName(combCat.getValue());
-        if (validator.dataLength(tfNom,"4") && validator.dataLength(tfdescription,"10") 
-                && validator.textNumeric(tfPrix) && validator.textNumeric(tfQuant) ) {
 
-            
+        if (tfNom.getText().isEmpty() || tfdescription.getText().isEmpty() || tfPrix.getText().isEmpty() || tfQuant.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur!");
+            alert.setHeaderText(null);
+            alert.setContentText(" Champ vide!");
+            alert.show();
+        } else {
+            if (validator.textNumeric(tfPrix) && validator.textNumeric(tfQuant)) {
+
+                int idCategory = servCat.getIdByCategoryName(combCat.getValue());
+
+                FileInputStream fl = new FileInputStream(file);
+
+                byte[] data = new byte[(int) file.length()];
+                String fileName = file.getName();
+                String path = fileName;
+                fl.read(data);
+                fl.close();
+                Product l = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
+                Sp.Add(l);
+                tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Product added");
+                alert.setContentText("Product added succesfuuly!");
+                tblProd.refresh();
+            }
         }
-        else{
-        
-
-            FileInputStream fl = new FileInputStream(file);
-
-            byte[] data = new byte[(int) file.length()];
-            String fileName = file.getName();
-            String path = fileName;
-            fl.read(data);
-            fl.close();
-            Product l = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
-            Sp.Add(l);
-            tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Product added");
-            alert.setContentText("Product added succesfuuly!");
-            tblProd.refresh();
-       }
     }
 
 //    @FXML
@@ -197,43 +209,60 @@ public class GestionProduitController implements Initializable {
 //    }
     @FXML
     private void DelP(ActionEvent event) {
-        final Product selectedItem = tblProd.getSelectionModel().getSelectedItem();
-        Product prod = Sp.GetById(selectedItem.getId_produit());
-        Sp.Delete(prod.getId_produit());
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure !");
+        //alert.show();
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == (ButtonType.OK)) {
+            final Product selectedItem = tblProd.getSelectionModel().getSelectedItem();
+            Product prod = Sp.GetById(selectedItem.getId_produit());
+            Sp.Delete(prod.getId_produit());
 
-        list.remove(selectedItem);
-        tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
-        tblProd.refresh();
+            list.remove(selectedItem);
+            tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
+            tblProd.refresh();
+        }
     }
 
     @FXML
     private void EdP(ActionEvent event) throws IOException {
-        final int idCategory = servCat.getIdByCategoryName(combCat.getValue());
+        if (tfNom.getText().isEmpty() || tfdescription.getText().isEmpty() || tfPrix.getText().isEmpty() || tfQuant.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur!");
+            alert.setHeaderText(null);
+            alert.setContentText(" Champ vide!");
+            alert.show();
+        } else {
 
-        // FIXME: change the id user from 1 to the current logged in user.
-        final Product selectedItem = tblProd.getSelectionModel().getSelectedItem();
-        Product prod = Sp.GetById(selectedItem.getId_produit());
-        System.out.println(selectedItem.getId_produit());
-        prod.setNomprod(tfNom.getText());
-        prod.setPrix(Float.parseFloat(tfPrix.getText()));
-        prod.setQuantity(Integer.parseInt(tfQuant.getText()));
-        prod.setDescription(tfdescription.getText());
+            final int idCategory = servCat.getIdByCategoryName(combCat.getValue());
+
+            // FIXME: change the id user from 1 to the current logged in user.
+            final Product selectedItem = tblProd.getSelectionModel().getSelectedItem();
+            Product prod = Sp.GetById(selectedItem.getId_produit());
+            System.out.println(selectedItem.getId_produit());
+            prod.setNomprod(tfNom.getText());
+            prod.setPrix(Float.parseFloat(tfPrix.getText()));
+            prod.setQuantity(Integer.parseInt(tfQuant.getText()));
+            prod.setDescription(tfdescription.getText());
 //        prod.setImage(tfimg.getText());
-        prod.setCategoryprod_id(idCategory);
+            prod.setCategoryprod_id(idCategory);
 
-        FileInputStream fl = new FileInputStream(file);
+            FileInputStream fl = new FileInputStream(file);
 
-        byte[] data = new byte[(int) file.length()];
-        String fileName = file.getName();
-        String path = fileName;
-        fl.read(data);
-        fl.close();
-        prod.setImage(path);
+            byte[] data = new byte[(int) file.length()];
+            String fileName = file.getName();
+            String path = fileName;
+            fl.read(data);
+            fl.close();
+            prod.setImage(path);
 
-        Sp.Update(prod);
-        tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
-        tblProd.refresh();
+            Sp.Update(prod);
+            tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
+            tblProd.refresh();
 
+        }
     }
 
     @FXML
@@ -299,7 +328,35 @@ public class GestionProduitController implements Initializable {
         tbNom.setCellValueFactory(new PropertyValueFactory<>("nomprod"));
         tbPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));
         tbQuant.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        tbCat.setCellValueFactory(new PropertyValueFactory<>("categoryprod_id"));
+        // tbCat.setCellValueFactory(new PropertyValueFactory<>("categoryprod_id"));
+        Callback<TableColumn<Product, String>, TableCell<Product, String>> cellFactoryU
+                = (TableColumn<Product, String> param) -> {
+                    TableCell<Product, String> cell = new TableCell<Product, String>() {
+
+                Label btn = new Label();
+                String pe = "";
+
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+
+                        pe = servCat.GetById(getTableView().getItems().get(getIndex()).getCategoryprod_id()).getNom();
+                        btn.setText(pe);
+
+                        setGraphic(btn);
+                        setText(null);
+                    }
+                }
+
+            };
+                    return cell;
+                };
+        //editer update
+        tbCat.setCellFactory(cellFactoryU);
         tbDes.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         tblProd.setItems(list);
@@ -320,6 +377,48 @@ public class GestionProduitController implements Initializable {
 //        //tblProd.setItems(list);
 //    }
 
+    private void rechercher() {
 
+        ProductService cs = new ProductService();
+        List<Product> products = cs.GetAll();
+        ObservableList<Product> dataList = FXCollections.observableArrayList(products);
+        // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Product> filteredData = new FilteredList<>(dataList, b -> true);
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(Product -> {
+                // If filter text is empty, display all persons.
+
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (Product.getNomprod().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches nom .
+                } else if (String.valueOf(Product.getId_produit()).indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches id .
+                } else if (String.valueOf(Product.getCategoryprod_id()).indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches id .
+                } else {
+                    return false; // Does not match.
+                }
+            });
+        });
+
+        // 3. Wrap the FilteredList in a SortedList. 
+        SortedList<Product> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        // 	  Otherwise, sorting the TableView would have no effect.
+        sortedData.comparatorProperty().bind(tblProd.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        tblProd.setItems(sortedData);
+
+    }
 
 }

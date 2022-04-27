@@ -6,6 +6,7 @@
 package pidevdesk;
 
 import entities.Product;
+import entities.RateProduct;
 import entities.category;
 import java.io.IOException;
 import javafx.application.Application;
@@ -19,6 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import service.CategoryProdService;
 import service.ProductService;
+import service.RateService;
 
 /**
  *
@@ -29,25 +31,25 @@ public class PidevDesk extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-	    
-	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/GestProduits.fxml")); //load view
 
-	    Parent root = loader.load();
-	    Scene scene = new Scene(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/market.fxml")); //load view
 
-	    primaryStage.setTitle("GoGym");
-	    primaryStage.setScene(scene);
-	    primaryStage.show();
-	} catch (Exception ex) {
-	    System.out.println(ex.getMessage());
-	}
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            primaryStage.setTitle("GoGym");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         launch(args);
+        launch(args);
         //product crud test
         //  ProductService ps = new ProductService();
 //        Product p1 = new Product("pc", "msi", "iiiiiiii", 1234, 32, 1);
@@ -65,6 +67,7 @@ public class PidevDesk extends Application {
         //  cs.Delete(2);
         //System.out.println(cs.GetAll());
         //   System.out.println(cs.GetById(1));
+        //rate test
     }
 
 }
