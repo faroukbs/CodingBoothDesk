@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import service.CategoryProdService;
 import service.ProductService;
 import service.RateService;
+import utils.Smsapi;
 
 /**
  *
@@ -32,7 +33,7 @@ public class PidevDesk extends Application {
     public void start(Stage primaryStage) {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/market.fxml")); //load view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/GestProduits.fxml")); //load view
 
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -58,6 +59,9 @@ public class PidevDesk extends Application {
         // ps.Delete(8);
         // System.out.println(ps.GetAll());
         // System.out.println(ps.GetById(3));
+        //test smsapi
+        
+       // Smsapi.sendSMS("Test SMS");
 
         //category crud test
         // CategoryProdService cs = new CategoryProdService();

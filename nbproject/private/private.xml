@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/market.fxml</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/GestionProduitController.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/pidevdesk/PidevDesk.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/entities/Product.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/utils/Smsapi.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/MarketController.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/GestProduits.fxml</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/GestionCategorieController.java</file>
+        </group>
     </open-files>
 </project-private>

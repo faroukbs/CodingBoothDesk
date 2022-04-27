@@ -48,6 +48,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import service.CategoryProdService;
 import service.ProductService;
+import utils.Smsapi;
 
 /**
  *
@@ -100,6 +101,7 @@ public class GestionProduitController implements Initializable {
     @FXML
     private TableColumn<Product, String> tbDes;
     ObservableList<Product> List = FXCollections.observableArrayList();
+    
 
     /**
      * Initializes the controller class.
@@ -178,8 +180,10 @@ public class GestionProduitController implements Initializable {
                 String path = fileName;
                 fl.read(data);
                 fl.close();
-                Product l = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
-                Sp.Add(l);
+                Product p = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
+                Sp.Add(p);
+                Smsapi.sendSMS("Nous avons ajouté un produit"+p.getNomprod().toString()+"\n" +p.getDescription().toString()+" \n avec un prix de "+p.getPrix()+
+                        " \n disponible en une quantité de "+p.getQuantity() );
                 tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Product added");

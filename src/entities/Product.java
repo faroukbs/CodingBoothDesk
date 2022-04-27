@@ -20,6 +20,9 @@ public class Product {
     protected int categoryprod_id;
     //constructor 
 
+    public Product() {
+    }
+
     public Product(int id_produit, String nomprod, String description, String image, float prix, int quantity, int categoryprod_id) {
         this.id_produit = id_produit;
         this.nomprod = nomprod;
