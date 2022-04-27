@@ -72,6 +72,7 @@ public class PidevDesk extends Application {
         //System.out.println(cs.GetAll());
         //   System.out.println(cs.GetById(1));
         //rate test
+        //
     }
 
 }
