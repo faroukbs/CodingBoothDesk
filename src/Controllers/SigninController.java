@@ -42,7 +42,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
- * @author GhAlone
+ * @author hp
  */
 public class SigninController implements Initializable{
     public static int idu;
@@ -59,8 +59,8 @@ public class SigninController implements Initializable{
     @FXML
     private Label account;
 
-    @FXML
-    private ComboBox type;
+   // @FXML
+   // private ComboBox type;
 
     @FXML
     private ImageView cancel;
@@ -80,41 +80,64 @@ public class SigninController implements Initializable{
         Connection conn = null;
         ResultSet rs =null;
         PreparedStatement pst = null;
+    @FXML
+    private ComboBox<?> type;
 
    @FXML
     private void Login (ActionEvent event) throws Exception{   
       conn= mysqlconnect.ConnectDb();
         String ch;
-        String sql = "Select * from utilisateur where email = ? and roles = ?";    
+        String sql = "Select * from utilisateur where email = ? ";    
         try{
             pst = conn.prepareStatement(sql);
             pst.setString(1, email.getText());
             
-            pst.setString(2, type.getValue().toString());
+//            pst.setString(2, type.getValue().toString());
             rs = pst.executeQuery();
             
             if(rs.next() && BCrypt.checkpw(ppasse.getText(), rs.getString("password"))){
                 JOptionPane.showMessageDialog(null, "Usermane and Password is Correct");        
               
-                if(type.getValue().equals("[\"ROLE_ADMIN\"]")){
+                if(rs.getString("roles").equals("[\"ROLE_ADMIN\"]")){
                     idu=rs.getInt("id");
                     PHOTOU=rs.getString("image");
-                   Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/Acceuil.fxml"));
+                
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/Acceuil.fxml"));
         Scene scene = new Scene(page1);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Go Gym");
+        stage.setTitle("Go Camp");
         stage.setScene(scene);
         stage.show();
-                }else if(type.getValue().equals("[\"ROLE_USER\"]")){
+                    
+                }
+                
+                
+                
+                else if(rs.getString("roles").equals("[\"ROLE_USER\"]")){
                     idu=rs.getInt("id");
                     PHOTOU=rs.getString("image");
 
-               Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
+                    
+        Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
         Scene scene = new Scene(page1);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Go Gym");
+        stage.setTitle("Go Camp");
         stage.setScene(scene);
         stage.show();
+                    
+                    
+                    
+                    
+                    
+                    
+              
+                    
+                /*Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));    
+                Stage mainStage = new Stage();
+                
+                Scene scene = new Scene(root);
+                mainStage.setScene(scene);
+                mainStage.show();*/
                 }
                 
             }else
@@ -148,13 +171,9 @@ public class SigninController implements Initializable{
     
    
     
-    @FXML 
-    private void signup(ActionEvent event){
-        
-    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        type.getItems().addAll("[\"ROLE_ADMIN\"]","[\"ROLE_USER\"]");
+      //  type.getItems().addAll("[\"ROLE_ADMIN\"]","[\"ROLE_USER\"]");
                //aff mdp
        txt_pass.setVisible(false);
        sheck.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean old_value, Boolean newValue) -> {
@@ -186,8 +205,8 @@ public class SigninController implements Initializable{
              }
                System.out.println(o);
               try {
-                  FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interfaces/codepasse.fxml"));
-        
+                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interfaces/codepasse.fxml"));
+      
             Parent root = loader.load();
               PasseController cont = loader.getController();
             cont.setEmail(o);

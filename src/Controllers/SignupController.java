@@ -171,7 +171,7 @@ public class SignupController implements Initializable{
               //  RadioButton selectedRadioButton = (RadioButton) groupGender.getSelectedToggle();
             //String toogleGroupValue = selectedRadioButton.getText();
                 Path from = Paths.get(selectedFile.toURI());
-                Path to = Paths.get("C:\\Users\\MSI\\Desktop\\MainJavaFX\\src\\Images/"+selectedFile.getName());
+                Path to = Paths.get("C:\\Users\\MSI\\Desktop\\montasser-pidevDesktop\\montasser-pidevDesktop\\src\\Images/"+selectedFile.getName());
                 
                 //Files.copy(from,to);
                 Utilisateur user = new Utilisateur(nom.getText(),prenom.getText(),Integer.parseInt(num.getText()),hashPassword(mdp.getText()) , email.getText(), to.normalize().toString());
@@ -179,12 +179,14 @@ public class SignupController implements Initializable{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("Formateur insérée avec succés!");
-        alert.setOnCloseRequest(event -> { 
+        alert.setContentText("succés!");
+                 Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/Sign_in.fxml"));
+        email.getScene().setRoot(page1);
+        //alert.setOnCloseRequest(event -> { 
             
-                System.exit(0);
+             //   System.exit(0);
                 
-        });
+       // });
         alert.showAndWait();
                 
             } catch (Exception e) {

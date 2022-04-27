@@ -31,6 +31,16 @@ public class AcceuilController {
     private Label l;
     @FXML
     private Pane acpane;
+    @FXML
+    private Button gererRes;
+    @FXML
+    private Button gererEve;
+    @FXML
+    private Button gererREC;
+    @FXML
+    private Button GererPub;
+    @FXML
+    private Button GererCat;
 
     
   

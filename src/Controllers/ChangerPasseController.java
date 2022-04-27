@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
@@ -52,7 +53,7 @@ public class ChangerPasseController implements Initializable {
              
              if (mdp.getText().equals(cofirmMdp.getText())){
                    ServiceUtilisateur o =new ServiceUtilisateur();
-                   o.update((mdp.getText()), Integer.parseInt(lab_id.getText()));
+                   o.update(hashPassword(mdp.getText()) , Integer.parseInt(lab_id.getText()));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
@@ -60,7 +61,7 @@ public class ChangerPasseController implements Initializable {
         alert.show();
         
              try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
+                Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/Sign_in.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
@@ -87,5 +88,10 @@ public class ChangerPasseController implements Initializable {
       
         
     }
+    
+    private static String hashPassword(String txtpassword){
+    return BCrypt.hashpw(txtpassword, BCrypt.gensalt());
+    
+}
     
 }

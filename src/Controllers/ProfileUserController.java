@@ -93,11 +93,11 @@ public class ProfileUserController implements Initializable {
         user.getNom();
         System.out.println(lid.getText());
         affichu();
-              /*  Path to = Paths.get(PHOTOU);
+             /*   Path to = Paths.get(PHOTOU);
         System.out.println(to);
        image1 = new Image(String.valueOf(to));
-imageView.setImage(image1);
-     // System.out.println(image1);*/
+       imageView.setImage(image1);
+      System.out.println(image1);*/
        
     }
 
@@ -122,10 +122,14 @@ imageView.setImage(image1);
                 
                 email=rs.getString("email");
                 LAdress.setText(email);
+                //image=rs.getImage();
+       // Image image = new Image(getClass().getResourceAsStream(path));
+        //imageView.setImage(image);
                 
-              // image=rs.getString("image");
+               //image=rs.getString("image");
         
-            //  imageView.setImage(image);
+          //    imageView.setImage(image);
+              
                 
                 
                 

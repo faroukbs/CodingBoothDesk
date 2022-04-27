@@ -125,8 +125,8 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
                // pst.setInt(9, u.getisVerified());
                 pst.executeUpdate();
                 System.out.println("s'inscrire");*/
-                  String req = "insert into utilisateur (email,roles,password,date_naissance,num_tel,image,nom,prenom,is_verified)"
-                    + "values( '" + u.getEmail() + "', '" + u.getRoles() + "','" + u.getPassword() + "','" + u.getDate_naissance() + "','" + u.getNum_tel() + "','" + u.getImage() + "','" + u.getNom() + "','" + u.getPrenom() + "'," + u.getisVerified() + ")";
+                  String req = "insert into utilisateur (email,roles,password,date_naissance,num_tel,image,nom,prenom,is_verified,code)"
+                    + "values( '" + u.getEmail() + "', '" + u.getRoles() + "','" + u.getPassword() + "','" + u.getDate_naissance() + "','" + u.getNum_tel() + "','" + u.getImage() + "','" + u.getNom() + "','" + u.getPrenom() + "'," + u.getisVerified() + "," + u.getCode() + ")";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("utilisateur ajoutée");
@@ -227,9 +227,9 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
         return res; 
     }
      
-      public boolean update(String pwd,int id) {
+      public boolean update(String password,int id) {
          
-        String qry = "UPDATE utilisateur SET password = '"+pwd+"' WHERE id = "+id;
+        String qry = "UPDATE utilisateur SET password = '"+password+"' WHERE id = "+id;
          
         try {
                 PreparedStatement pst=cnx.prepareStatement(qry);
@@ -245,7 +245,7 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
     }
       
     public Utilisateur getById() {
-        String req = "select * from user where id =" + MainJavaFX.loggedInID;
+        String req = "select * from utilisateur where id =" + MainJavaFX.loggedInID;
         Utilisateur p = new Utilisateur();
         try {
             Statement st = cnx.createStatement();
@@ -262,7 +262,7 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
             p.setNum_tel(rs.getInt("num_tel"));
             p.setImage(rs.getString("image"));
             p.setIsVerified(rs.getInt("is_verified"));
-            
+            p.setCode(rs.getString("code"));
 
             //}  
         } catch (SQLException ex) {

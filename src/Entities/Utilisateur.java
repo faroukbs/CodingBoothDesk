@@ -20,6 +20,7 @@ public class Utilisateur {
     private String roles="[\"ROLE_USER\"]";
     private String image ; 
     private int is_verified=1;
+    private String code;
 
     public Utilisateur(int id, String password, String email) {
         this.id = id;
@@ -180,6 +181,13 @@ public class Utilisateur {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public String getRoles() {
         return roles;
@@ -206,7 +214,7 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return "Utilisateur{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ",is_verified=" + is_verified + ", num_tel=" + num_tel + ", password=" + password + ", date_naissance=" + date_naissance + ", email=" + email + ", roles=" + roles + ", image=" + image + '}';
+        return "Utilisateur{" + "id=" + id + ", nom=" + nom + ", code=" + code + ", prenom=" + prenom + ",is_verified=" + is_verified + ", num_tel=" + num_tel + ", password=" + password + ", date_naissance=" + date_naissance + ", email=" + email + ", roles=" + roles + ", image=" + image + '}';
     }
     
     
