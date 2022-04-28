@@ -6,8 +6,11 @@
 package Gui;
 
 import Entities.Eventl;
+import Services.Pdf;
 import Services.ServiceEventl;
+
 import Utils.MyDB;
+import com.itextpdf.text.DocumentException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -18,24 +21,36 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,7 +63,17 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+import utils.BadWordFilter;
 
 /**
  * FXML Controller class
@@ -56,12 +81,8 @@ import javafx.stage.FileChooser;
  * @author Home
  */
 public class CrudNewController implements Initializable {
-
+  private AnchorPane report88;
     Connection cnx;
-    @FXML
-    private ImageView ImageP;
-    @FXML
-    private ImageView ImageP1;
     @FXML
     private TextField titretx;
     @FXML
@@ -104,24 +125,56 @@ public class CrudNewController implements Initializable {
     private Statement ste;
     private Eventl v;
     String query = null;
-
+   
+    Double latitude;
+    Double   longitude ;
     Eventl e = null;
     ResultSet resultSet = null;
     private Eventl event;
-    @FXML
-    private AnchorPane comboxevenemnt;
     ObservableList<Eventl> List = FXCollections.observableArrayList();
     @FXML
     private TextField Recherche;
+   @FXML
+    private WebView webmap;
+    private WebEngine webengine;
+    @FXML
+    private Pagination pagination;
+        private final static int dataSize = 100;
 
+
+    
+    private final static int rowsPerPage = 10;    
+   private volatile boolean stop=false;
+    @FXML
+    private Button stat1;
+    @FXML
+    private Button Notif;
+    @FXML
+    private Button pdf;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+   
+             pagination.setPageFactory(this::createPage);   
+            webengine = webmap.getEngine();
+
+        url = this.getClass().getResource("map/index.html");
+        webengine.load(url.toString());
 
         showAzer(); //// raifrach table view ///
 
+    }
+ 
+     
+       //method to create page inside pagination view
+    private Node createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+       // int toIndex = Math.min(fromIndex + rowsPerPage);
+    //    tableevenement.setItems(FXCollections.observableArrayList(data.subList(fromIndex, toIndex)));
+        return tableevenement;
     }
 
     @FXML
@@ -146,6 +199,7 @@ public class CrudNewController implements Initializable {
     }
 
     public void delete() {
+        
         ServiceEventl SV = new ServiceEventl();
         SV.supprimer(tableevenement.getSelectionModel().getSelectedItem().getIdevent());
         System.out.println(tableevenement.getSelectionModel().getSelectedItem().getIdevent());
@@ -154,12 +208,19 @@ public class CrudNewController implements Initializable {
 
     @FXML
     private void SupprimerVoyage(ActionEvent event) {
+               Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure !");
+        //alert.show();
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == (ButtonType.OK)) {
         delete();
         showAzer(); //// raifrach table view ///
         tableevenement.getItems().removeAll(tableevenement.getSelectionModel().getSelectedItem());
         System.out.println(tableevenement);
 //      tableevenement.refresh();
-
+        }
     }
 
     @FXML
@@ -200,6 +261,15 @@ public class CrudNewController implements Initializable {
 
     @FXML
     private void Add(ActionEvent event) {
+//        latitude =  Double.parseDouble(webmap.getEngine().executeScript("lat").toString());
+//             
+//            longitude =  Double.parseDouble(webmap.getEngine().executeScript("lon").toString());
+//             
+//             
+//                     System.out.println("Lat AjoutCom: " + latitude);
+//                System.out.println("LOn AjoutCom" + longitude);
+
+       int nombreAleatoire = 1000 + (int) (Math.random() * ((1000000 - 1000) + 1));
         if (titretx.getText().isEmpty()
                 || descriptiontx.getText().isEmpty() || villetx.getText().isEmpty()) {
 
@@ -228,7 +298,7 @@ public class CrudNewController implements Initializable {
 
             ServiceEventl ps = new ServiceEventl();
             System.out.println(URLImage.getText());
-            Eventl v = new Eventl(titre, description, datedebut, datefin, ville, URLImage.getText());
+            Eventl v = new Eventl(titre, description, datedebut, datefin, ville, URLImage.getText(),latitude, longitude);
 
             ps.ajouter(v);
             showAzer(); //// raifrach table view ///
@@ -256,12 +326,18 @@ public class CrudNewController implements Initializable {
         voy.setDatefin(java.sql.Date.valueOf(datefintx.getValue()));
         voy.setPhoto(URLImage.getText());
 
-        sv.modifier(voy);
+       sv.modifier(voy);
         showAzer(); //// raifrach table view ///
 
     }
 
-
+    @FXML
+    private void Recherche(KeyEvent event) {
+        ServiceEventl bs = new ServiceEventl();
+        Eventl b = new Eventl();
+        ObservableList<Eventl> filter = bs.chercherTitreplat(Recherche.getText());
+        populateTable(filter);
+    }
 
     private void populateTable(ObservableList<Eventl> branlist) {
         tableevenement.setItems(branlist);
@@ -288,20 +364,22 @@ public class CrudNewController implements Initializable {
     }
 
     private boolean TestDescription() {
-        Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9]*");
-        Matcher m = p.matcher(descriptiontx.getText());
-        if (m.find() && m.group().equals(descriptiontx.getText())) {
-            return true;
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Syntaxe Email");
-            alert.setHeaderText(null);
-            alert.setContentText("S'il vous plait saisir une description  valide");
-            alert.showAndWait();
+             if (descriptiontx.getText().isEmpty()) {
+                descriptiontx.setText("Erreur, Champ vide!");
+            }else if(BadWordFilter.filterText(descriptiontx.getText())) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Commentaire refusé!");
+                alert.setContentText("Votre commentaire contient des mots vulguéres!");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Commenter?");
+                alert.setHeaderText("Passer votre commentaire?");
+                alert.setContentText("Acceptez pour passer votre commentaire");
 
-            return false;
-        }
-    }
+    } return false;
+}
 
     private boolean TestVille() {
         Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9]*");
@@ -400,5 +478,77 @@ public class CrudNewController implements Initializable {
         Vimage.setCellValueFactory(new PropertyValueFactory<>("photo"));
     }
 
+private void notiff()
+    {
+        ServiceEventl sv = new ServiceEventl();
+        Eventl v = new Eventl();
+                String ville = villetx.getText();
+        int y=sv.calculnb((villetx.getText()));
+        TrayNotification tray = new TrayNotification();
+        AnimationType type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle("attention");
+        tray.setMessage("il existe "+y+ " evenement a "+ville+"");
+tray.setNotificationType(NotificationType.INFORMATION);
+tray.showAndDismiss(Duration.millis(2000));
+    }
+   
+    @FXML
+    private void notif(ActionEvent event) {
+            notiff();
+    }
+    @FXML
+    private void OnStatClicked(ActionEvent event) {
+                try {
+                   
+            Parent parent = FXMLLoader.load(getClass().getResource("EventStat.fxml"));
+            Scene scene = new Scene(parent);
+            
+            Stage stage = new Stage();
+            //stage.getIcons().add(new Image("/images/logo.png"));
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
-}
+    @FXML
+    private void pdf(ActionEvent event) throws FileNotFoundException, SQLException, DocumentException {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Modification");
+                alert.setHeaderText("Voulez vous recevoir la liste des produits par mail?");
+                //alert.setContentText("");
+
+                Optional<ButtonType> option = alert.showAndWait();
+                //confirmation 
+                if (option.get() == ButtonType.OK) {
+                    Pdf.createAndSendList("farah.hasnaoui22@gmail.com");
+                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                    alert2.setTitle("Information!");
+                    alert2.setHeaderText(null);
+                    alert2.setContentText("Mail et pdf envoyés");
+                    alert2.show();
+                } else {
+                    Alert alert3 = new Alert(Alert.AlertType.ERROR);
+                    alert3.setTitle("Erreur!");
+                    alert3.setHeaderText(null);
+                    alert3.setContentText("Erreur d'envoi!");
+                    alert3.show();
+                }
+        
+
+    
+        
+   
+ }
+       
+
+  
+    }
+    
+    
+
+ 
+

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="eventCardContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="338.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.EventCardController">
+   <children>
+      <VBox fx:id="box" alignment="CENTER" layoutX="18.0" layoutY="14.0" prefHeight="404.0" prefWidth="260.0" spacing="5.0" styleClass="chosen-fruit-card3" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="130.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/blog-img-4-6219334dcb702.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="nom" prefHeight="46.0" prefWidth="258.0" text="How To Make Money From Free Bets Using Matched Be" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="villetxt" prefHeight="17.0" prefWidth="70.0" text="ville: bizerte" textAlignment="JUSTIFY" />
+            <Label fx:id="description" prefHeight="45.0" prefWidth="258.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur ligula at quam congue pellentesque. Maecenas dignissim consequat erat, a condimentum libero lobortis et. Nulla condimentum pharetra scelerisque.Maecenas dignissim consequa" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="8.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" right="15.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="31.0" prefWidth="278.0" spacing="5.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="S_RESIZE" />
+               </cursor>
+               <children>
+                  <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="12.0" prefWidth="278.0">
+                     <children>
+                        <GridPane alignment="CENTER" layoutX="70.0" prefHeight="30.0" prefWidth="208.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="80.0" />
+                              <ColumnConstraints maxWidth="238.0" minWidth="10.0" prefWidth="98.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="157.0" text="Date fin" textAlignment="CENTER" />
+                              <Label prefHeight="17.0" prefWidth="157.0" text="Date début" textAlignment="CENTER" GridPane.columnIndex="1" />
+                              <Label fx:id="date_fin" prefHeight="17.0" prefWidth="157.0" text="02/07/2022" textAlignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date_debut" prefHeight="17.0" prefWidth="157.0" text="03/07/2022" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="15.0" prefWidth="290.0" spacing="1.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="16.0" text="   " />
+                  <Label fx:id="nb_applyed" text="15" />
+                  <Label text=" / ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombre_participant" text="100" />
+                  <Label prefHeight="12.0" prefWidth="179.0" text="  personnes participent dans cet évenement">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="290.0" spacing="2.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="10.0" />
+                  <Button fx:id="applyButton" mnemonicParsing="false" onMouseClicked="#apply" prefHeight="17.0" prefWidth="194.0" styleClass="Button2" stylesheets="@dashboard.css" text="Reserver ticket" textFill="#fcf6f6">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="283.0" spacing="2.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="10.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label fx:id="id" disable="true" layoutX="-4.0" layoutY="393.0" prefHeight="17.0" prefWidth="55.0" text="Label" textFill="#110808" />
+   </children>
+</AnchorPane>

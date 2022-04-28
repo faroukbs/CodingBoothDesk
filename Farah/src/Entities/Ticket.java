@@ -10,18 +10,45 @@ package Entities;
  * @author Home
  */
 public class Ticket {
-       private  int idticket;
 
-    public Ticket(String typeticket, int idevent, int prix, String description,int nbrticket) {
+    private int idticket;
+    private String titre;
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    
+    public Ticket(int idticket, String titre, String typeticket, String description, int prix) {
+        this.idticket = idticket;
+        this.titre = titre;
         this.typeticket = typeticket;
-        this.idevent = idevent;
-        this.nbrticket = nbrticket;
         this.prix = prix;
         this.description = description;
     }
-      private  String typeticket;
-private int idevent;
-private int nbrticket;
+
+    public Ticket(String titre, String typeticket, int prix, String description) {
+        this.titre = titre;
+        this.typeticket = typeticket;
+        this.prix = prix;
+        this.description = description;
+    }
+
+    public Ticket(int idevent, String typeticket, int prix, String description,int nbrticket) {
+        this.titre = titre;
+        this.typeticket = typeticket;
+        this.idevent = idevent;
+        this.prix = prix;
+            this.nbrticket= nbrticket;
+        this.description = description;
+    }
+    private String typeticket;
+    private int idevent;
+    private int nbrticket;
 
     public int getNbrticket() {
         return nbrticket;
@@ -31,10 +58,18 @@ private int nbrticket;
         this.nbrticket = nbrticket;
     }
 
+    public Ticket(int idticket, String typeticket, int idevent, int prix, String description) {
+        this.idticket = idticket;
+        this.typeticket = typeticket;
+        this.idevent = idevent;
+        this.prix = prix;
+        this.description = description;
+    }
+
     public Ticket() {
     }
-private int prix;
-private String description;
+    private int prix;
+    private String description;
 
     public Ticket(String typeticket, int idevent, int prix, String description) {
         this.typeticket = typeticket;
@@ -96,15 +131,8 @@ private String description;
 
     @Override
     public String toString() {
-        return "Ticket{" + "idticket=" + idticket + ", typeticket=" + typeticket + ", idevent=" + idevent + ", nbrticket=" + nbrticket + ", prix=" + prix + ", description=" + description + '}';
+        return "Ticket{" + "idticket=" + idticket + ", titre=" + titre + ", typeticket=" + typeticket + ", idevent=" + idevent + ", nbrticket=" + nbrticket + ", prix=" + prix + ", description=" + description + '}';
     }
-
-   
-
- 
-    
-
-  
 
    
 

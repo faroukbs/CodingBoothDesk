@@ -20,6 +20,8 @@ public class Eventl {private  int idevent;
                private  Date datefin;
                   private  String photo;
                    private  String heure;
+                    private double latitude;
+    private double longitude;
                private  int evaluation;
                private  int view;
                private  int nombreParticipants;
@@ -32,6 +34,22 @@ public class Eventl {private  int idevent;
 
     public Eventl() {
         
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
      public Eventl(int idevent) {
         this.idevent = idevent;
@@ -54,6 +72,8 @@ public class Eventl {private  int idevent;
         this.photo = photo;
         
     }
+
+  
 
    
     public int getIdevent() {
@@ -179,6 +199,29 @@ public class Eventl {private  int idevent;
         this.photo = photo;
     }
 
+    public Eventl(int idevent, String titre, String ville, String description, Date datedebut, Date datefin, String photo, double latitude, double longitude) {
+        this.idevent = idevent;
+        this.titre = titre;
+        this.ville = ville;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.photo = photo;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+       public Eventl( String titre, String description, Date datedebut, Date datefin,String ville,  String photo, double latitude, double longitude) {
+   
+        this.titre = titre;
+        this.ville = ville;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.photo = photo;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public Eventl(String titre, String ville, String description, Date datedebut, Date datefin, String photo) {
         this.titre = titre;
         this.ville = ville;
@@ -204,12 +247,25 @@ public class Eventl {private  int idevent;
     
     }
 
- 
-
     @Override
     public String toString() {
-        return "Eventl{" + "idevent=" + idevent + ", titre=" + titre + ", ville=" + ville + ", adresse=" + adresse + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", photo=" + photo + ", heure=" + heure + ", evaluation=" + evaluation + ", view=" + view + ", nombreParticipants=" + nombreParticipants + '}';
+        return "Eventl{" + "idevent=" + idevent + ", titre=" + titre + ", ville=" + ville + ", adresse=" + adresse + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", photo=" + photo + ", heure=" + heure + ", latitude=" + latitude + ", longitude=" + longitude + ", evaluation=" + evaluation + ", view=" + view + ", nombreParticipants=" + nombreParticipants + '}';
     }
+
+    public Eventl(int idevent, String titre, String ville, String description, Date datedebut, Date datefin, String photo) {
+        this.idevent = idevent;
+        this.titre = titre;
+        this.ville = ville;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.photo = photo;
+    }
+
+ 
+
+  
+    
 
     public Eventl(int idevent, String titre, String ville, String adresse, String description, Date datedebut, Date datefin, String photo) {
         this.idevent = idevent;

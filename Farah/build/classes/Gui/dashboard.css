@@ -20,8 +20,34 @@
    
     
 }
+.Button1{
+-fx-background-color:#E0CDA9;
+-fx-background-radius:50;
+}
+.Button2{
+-fx-background-color: #606060;
+-fx-background-radius:50;
+}
 .transparent{
   -fx-background-color:rgba(0,0,0,0); 
    
     
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-background-color: #F4F8E7;
+    -fx-text-background-color: red;
+}
+.table-row-cell:odd{
+    -fx-background-color: #F4F8E7;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color:#F4F8E7 ;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
 }

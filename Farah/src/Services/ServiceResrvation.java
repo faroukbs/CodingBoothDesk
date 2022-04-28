@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -29,8 +30,8 @@ public class ServiceResrvation implements IService<Reservation>{
 
     @Override
     public void ajouter(Reservation t) {
-     if (verifNbrTicket(t.getIdticket())) {
-     String req ="insert into reservation(idticket,quantity)"+"values("+t.getIdticket()+","+t.getQuantity()+")";
+     if (verifNbrTicket(t.getIdticket()) ) {
+     String req ="insert into reservation(iduser,idticket)"+"values("+t.getIduser()+","+t.getIdticket()+")";
      try {
          Statement st = cnx.createStatement();
          st.executeUpdate(req);
@@ -39,6 +40,11 @@ public class ServiceResrvation implements IService<Reservation>{
   System.out.println(ex.getMessage());
      }
      } else {
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Resrvation");
+            alert2.setHeaderText("le nombre des tickets sont occupées");
+            alert2.show();
+
             System.out.println("le nombre des tickets sont occupées");
         }
     }
@@ -92,6 +98,46 @@ public class ServiceResrvation implements IService<Reservation>{
             System.err.println(e.getMessage());
         }
         return false;
+    }
+     
+    // vérifier si le client a participer deja ou bien nn 
+    public boolean verifReservation(int iduser,int idticket) {
+        String req = "SELECT * FROM reservation WHERE iduser = ? ";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, iduser);
+            ResultSet rs = pst.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public void reserver(int iduser, int idticket) {
+        if (verifReservation(iduser,idticket)) {
+            System.out.println("le client a reservé deja ");
+        } else {
+            Reservation p = new Reservation(iduser, idticket);
+            ajouter(p);
+        }
+    }
+    public List<String> getParticipEmails(int iduser) {
+        List<String> myList = new ArrayList();
+        String req = "SELECT email FROM utilisateur WHERE iduser = ?";
+        try {
+
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, iduser);
+            ResultSet rs;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                myList.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
     }
 
 }

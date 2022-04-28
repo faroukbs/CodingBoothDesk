@@ -3,22 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AjouterEvenementController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/RatingController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventCardController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/rating.fxml</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/Classe.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Evaluation.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceEventl.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/DashboardController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventFrondItemController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EvenementFront.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/pdf.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudticketController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventStatController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/UpdateventController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/Dashboard.fxml</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Test/Main.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/dashboard.css</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AjouterEvenement.fxml</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EvenementFrontController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudNewController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/Crudticket.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AllEventsListController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudNEWticketController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventCard.fxml</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/clickListener.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/PostFXcommentaireController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/Updatevent.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceEvaluation.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceResrvation.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Eventl.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventFrondItem.fxml</file>
         </group>
     </open-files>
 </project-private>

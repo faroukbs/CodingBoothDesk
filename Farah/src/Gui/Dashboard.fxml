@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,16 +21,16 @@
    <children>
       <BorderPane layoutX="10.0" layoutY="11.0" prefHeight="713.0" prefWidth="1080.0" styleClass="white_backgroud">
          <left>
-            <VBox prefHeight="100.0" prefWidth="280.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="90.0" prefWidth="210.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER" prefHeight="300.0" prefWidth="80.0" styleClass="profile-layout" stylesheets="@dashboard.css">
+                  <VBox alignment="CENTER" prefHeight="160.0" prefWidth="210.0" styleClass="profile-layout" stylesheets="@dashboard.css">
                      <children>
-                        <ImageView fitHeight="118.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="92.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/manage.png" />
+                              <Image url="@../image/author.png" />
                            </image>
                         </ImageView>
-                        <Label text="Farah hasnaoui ">
+                        <Label text="Ahmed  melki">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -48,9 +47,9 @@
                               <Font name="Corbel" size="22.0" />
                            </font>
                         </Label>
-                        <Pane prefHeight="100.0" prefWidth="300.0">
+                        <Pane prefHeight="80.0" prefWidth="210.0">
                            <children>
-                              <Label layoutX="49.0" layoutY="14.0" prefHeight="17.0" prefWidth="155.0" text="+ farah.hasnaoui@esprit.tn" textFill="#1a0b0ba0" />
+                              <Label layoutX="49.0" layoutY="14.0" prefHeight="17.0" prefWidth="155.0" text="+ Ahmed.jebri@esprit.tn" textFill="#1a0b0ba0" />
                               <Label layoutX="72.0" layoutY="39.0" text="Mobile Number" textFill="#1b1919">
                                  <font>
                                     <Font name="Corbel" size="18.0" />
@@ -62,13 +61,33 @@
                                  </font>
                               </Label>
                            </children></Pane>
-                        <Pane prefHeight="106.0" prefWidth="320.0">
+                        <Pane prefHeight="267.0" prefWidth="220.0">
                            <children>
-                              <Button layoutX="40.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" styleClass="Button" text="Edit" textFill="#e4d3d3">
+                              <Button layoutX="1.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="193.0" styleClass="Button" text="Edit" textFill="#e4d3d3">
                                  <font>
                                     <Font name="Corbel" size="18.0" />
                                  </font>
                               </Button>
+                              <JFXButton layoutX="-4.0" layoutY="94.0" onAction="#event" prefHeight="38.0" prefWidth="191.0" styleClass="Button2" stylesheets="@dashboard.css" text="gestion evenement" textFill="#ebe3e3">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton layoutY="145.0" onAction="#ticket" prefHeight="34.0" prefWidth="184.0" styleClass="Button2" stylesheets="@dashboard.css" text="gestion ticket" textFill="#fcf0f0">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <Button layoutX="-3.0" layoutY="189.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="187.0" styleClass="Button2" stylesheets="@dashboard.css" text="gestion produit" textFill="#fcf9f9">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <JFXButton layoutX="2.0" layoutY="232.0" prefHeight="36.0" prefWidth="183.0" styleClass="Button2" stylesheets="@dashboard.css" text="gestion commande" textFill="#fcf6f6">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                              </JFXButton>
                            </children></Pane>
                      </children>
                   </VBox>
@@ -88,7 +107,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="236.0" styleClass="Button" text="Create Contact">
+                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="220.0" styleClass="Button" text="Create Contact">
                            <HBox.margin>
                               <Insets left="200.0" />
                            </HBox.margin>
@@ -97,7 +116,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="220.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="122.0" prefWidth="162.0" style="-fx-background-color: #E0CDA9;" styleClass="CONTACTED" text="PRODUCT">
+                        <Label alignment="CENTER" prefHeight="68.0" prefWidth="107.0" style="-fx-background-color: #E0CDA9;" styleClass="CONTACTED" text="PRODUCT">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -105,7 +124,7 @@
                               <Font name="Corbel Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="125.0" prefWidth="151.0" style="-fx-background-color: #A89874;" styleClass="CONTACTED" text="EVENT">
+                        <Label alignment="CENTER" prefHeight="67.0" prefWidth="107.0" style="-fx-background-color: #A89874;" styleClass="CONTACTED" text="EVENT">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -113,7 +132,7 @@
                               <Font name="Corbel Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="127.0" prefWidth="151.0" style="-fx-background-color: #606060;" styleClass="CONTACTED" text="COURS">
+                        <Label alignment="CENTER" prefHeight="65.0" prefWidth="97.0" style="-fx-background-color: #606060;" styleClass="CONTACTED" text="COURS">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -122,7 +141,7 @@
                            </font>
                         </Label>
                        
-                        <Label alignment="CENTER" prefHeight="127.0" prefWidth="160.0" style="-fx-background-color: #A5260A;" styleClass="CONTACTED" text="SALLE">
+                        <Label alignment="CENTER" prefHeight="66.0" prefWidth="111.0" style="-fx-background-color: #A5260A;" styleClass="CONTACTED" text="SALLE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -132,63 +151,65 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="429.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets left="50.0" />
-                     </VBox.margin>
+                  <HBox prefHeight="171.0" prefWidth="870.0">
                      <children>
-                        <HBox prefHeight="471.0" prefWidth="750.0">
+                        <HBox prefHeight="171.0" prefWidth="241.0">
                            <children>
-                              <Pane prefHeight="493.0" prefWidth="207.0">
-                                 <children>
-                                    <Button fx:id="ajout" layoutX="3.0" layoutY="33.0" mnemonicParsing="false" onAction="#AJOUTER" prefHeight="37.0" prefWidth="85.0" styleClass="Button" text="AJOUTER" textFill="#d3caca" />
-                                    <Button fx:id="MODIF" layoutX="4.0" layoutY="79.0" mnemonicParsing="false" onAction="#modifier" prefHeight="35.0" prefWidth="84.0" styleClass="Button" text="MODIFIER" textFill="#ddd1d1">
-                                       <font>
-                                          <Font name="Corbel Bold" size="12.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="SUPP" layoutX="3.0" layoutY="141.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="38.0" prefWidth="86.0" styleClass="Button" text="SUPPRIMER" textFill="#e1cece" />
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="493.0" prefWidth="0.0" />
-                              <HBox prefHeight="620.0" prefWidth="718.0">
-                                 <children>
-                                    <Pane prefHeight="620.0" prefWidth="70.0" style="-fx-background-color: #606060;" styleClass="profile-layout" />
-                                    <TableView fx:id="evenementtable" prefHeight="385.0" prefWidth="585.0" style="-fx-background-color: #fff;" stylesheets="@dashboard.css">
-                                      <columns>
-                                        <TableColumn prefWidth="75.0">
-                                             <columns>
-                                                <TableColumn fx:id="titre" prefWidth="75.0" text="titre" />
-                                             </columns></TableColumn>
-                                        <TableColumn prefWidth="75.0">
-                                             <columns>
-                                                <TableColumn fx:id="description" prefWidth="75.0" text="description" />
-                                             </columns></TableColumn>
-                                          <TableColumn fx:id="ville" prefWidth="75.0" text="ville" />
-                                          <TableColumn fx:id="photo" prefWidth="75.0" text="photo" />
-                                          <TableColumn fx:id="datedebut" prefWidth="75.0" text="datedebut" />
-                                          <TableColumn fx:id="datefin" prefWidth="75.0" text="datefin" />
-                                      </columns>
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </TableView>
-                                    <Pane prefHeight="620.0" prefWidth="66.0" style="-fx-background-color: #606060;" styleClass="profile-layout" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets top="50.0" />
-                                 </HBox.margin>
-                              </HBox>
+                              <ImageView fitHeight="157.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/images.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
-                           <padding>
-                              <Insets left="50.0" top="20.0" />
-                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="207.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/pict--dot-plot-1-time-series-charts---vector-stencils-library.png--diagram-flowchart-example.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="172.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/images%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
                         </HBox>
                      </children>
                   </HBox>
+                  <VBox prefHeight="269.0" prefWidth="174.0" stylesheets="@dashboard.css">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="163.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="250.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/pict--dot-plot-1-time-series-charts---vector-stencils-library.png--diagram-flowchart-example.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <ImageView fitHeight="260.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/images%20(3).png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="178.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </center>
       </BorderPane>
+      <HBox prefHeight="100.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

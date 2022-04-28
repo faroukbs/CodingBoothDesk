@@ -6,7 +6,6 @@
 package Gui;
 
 import Entities.Eventl;
-import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -14,11 +13,7 @@ import javafx.scene.input.MouseEvent;
  */
 class MyListener {
 
-    void onClickListener(MouseEvent event) {
-       
-    }
-
-    void onClickListener(Eventl eventl) {
+    void onClickListener(Eventl e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

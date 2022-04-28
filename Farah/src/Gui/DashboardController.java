@@ -34,6 +34,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -42,58 +43,44 @@ import javafx.stage.Stage;
  */
 public class DashboardController implements Initializable {
 
-    @FXML
-    private Button SUPP;
-    @FXML
     private TableView<Eventl> evenementtable;
-    @FXML
       private TableColumn<Eventl,String> titre;
     
   
 
 
   
-    @FXML
-    private Button ajout;
    ServiceEventl ec = new ServiceEventl();
-    @FXML
     private TableColumn<Eventl,String> description;
-      @FXML
     private TableColumn<Eventl,String> ville;
-    @FXML
     private TableColumn<Eventl,String> photo;
-    @FXML
     private TableColumn<Eventl,Date> datedebut;
-    @FXML
     private TableColumn<Eventl,Date> datefin;
-    @FXML
-    private Button MODIF;
   
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ServiceEventl ps =new ServiceEventl () ;
-         List<Eventl>  events =ps.recuperer();
-         ObservableList list= FXCollections.observableArrayList(events);
-         evenementtable.setItems(list);
-         titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
-                 description.setCellValueFactory(new PropertyValueFactory<>("description"));
-                 
-                        ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
-                       
-       photo.setCellValueFactory(new PropertyValueFactory<>("photo"));
-                      datedebut.setCellValueFactory(new PropertyValueFactory<>("datedebut"));
-                       
-       datefin.setCellValueFactory(new PropertyValueFactory<>("datefin"));
-        // list.remove(p)
+//        ServiceEventl ps =new ServiceEventl () ;
+//         List<Eventl>  events =ps.recuperer();
+//         ObservableList list= FXCollections.observableArrayList(events);
+//         evenementtable.setItems(list);
+//         titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+//                 description.setCellValueFactory(new PropertyValueFactory<>("description"));
+//                 
+//                        ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
+//                       
+//       photo.setCellValueFactory(new PropertyValueFactory<>("photo"));
+//                      datedebut.setCellValueFactory(new PropertyValueFactory<>("datedebut"));
+//                       
+//       datefin.setCellValueFactory(new PropertyValueFactory<>("datefin"));
+//        // list.remove(p)
     }    
      
     
 
 
-    @FXML
     private void AJOUTER(ActionEvent event) {
                 Stage primaryStage = new Stage();
         
@@ -111,18 +98,7 @@ public class DashboardController implements Initializable {
         }
     }
 
-    @FXML
-    private void modifier(ActionEvent event) {
-        
-        
-        
-        
-        
-        
-    }
 
-    @FXML
-     
     private void supprimer(ActionEvent event) {
         
         Eventl e = evenementtable.getSelectionModel().getSelectedItem();
@@ -139,5 +115,41 @@ public class DashboardController implements Initializable {
          }
         
     }
+
+    @FXML
+    private void event(ActionEvent event) {
+                     try {
+                   
+            Parent parent = FXMLLoader.load(getClass().getResource("CrudNew.fxml"));
+            Scene scene = new Scene(parent);
+            
+            Stage stage = new Stage();
+            //stage.getIcons().add(new Image("/images/logo.png"));
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+
+    @FXML
+    private void ticket(ActionEvent event) {
+             try {
+                   
+            Parent parent = FXMLLoader.load(getClass().getResource("CrudNEWticket.fxml"));
+            Scene scene = new Scene(parent);
+            
+            Stage stage = new Stage();
+            //stage.getIcons().add(new Image("/images/logo.png"));
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
 
 }

@@ -26,6 +26,10 @@ import javafx.collections.ObservableList;
  * @author Home
  */
 public class ServiceEventl implements IService<Eventl>  {
+
+    public static void ajouter(int parsedId, double rating) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  Connection cnx;
  public ServiceEventl(){
  cnx = MyDB.getInstance().getConnection();
@@ -33,7 +37,7 @@ public class ServiceEventl implements IService<Eventl>  {
  }
     @Override
     public void ajouter(Eventl t) {
-               String req ="insert into eventl(titre,ville,description,datedebut,datefin,photo)"+"values('"+t.getTitre()+"','"+t.getVille()+"','"+t.getDescription()+"','"+t.getDatedebut()+"','"+t.getDatefin()+"','"+t.getPhoto()+"')";
+               String req ="insert into eventl(titre,ville,description,datedebut,datefin,photo,latitude,longitude)"+"values('"+t.getTitre()+"','"+t.getVille()+"','"+t.getDescription()+"','"+t.getDatedebut()+"','"+t.getDatefin()+"','"+t.getPhoto()+"',"+t.getLatitude()+","+t.getLongitude()+")";
      try {
          Statement st = cnx.createStatement();
          st.executeUpdate(req);
@@ -43,7 +47,7 @@ public class ServiceEventl implements IService<Eventl>  {
      }
     }
 
-    @Override
+
     public void modifier(Eventl t) {
                 String req ="update eventl set titre= ? , datefin =?, description = ?,ville= ? ,datedebut = ?,photo = ? where idevent = ?";     
      try {
@@ -200,5 +204,75 @@ public class ServiceEventl implements IService<Eventl>  {
         return myList;
       }
    
+    public Eventl getEventById(int id) {
+        Eventl e = new Eventl();
+        String req = "select * from eventl where idevent=?";
+        try {
+             PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+
+                e.setIdevent(rs.getInt("idevent"));
+                       e.setTitre(rs.getString("titre"));
+                e.setDescription(rs.getString("description"));
+            
+             
+                   e.setVille(rs.getString("ville"));
+                  e.setPhoto(rs.getString("photo"));
+    e.setDatedebut(rs.getDate("datedebut"));
+                  e.setDatefin(rs.getDate("datefin"));
+                 
+            }
+
+        } catch (SQLException err) {
+            System.out.println("sala7  geteventby id");
+            err.printStackTrace();
+        }
+        System.out.println(e);
+        return e;
+    }
+
+     public int calculnb(String ville) {
+
+        PreparedStatement pre;
+        int count = 19;
+        try {
+            Statement stmt = cnx.createStatement();
+
+            String query = "SELECT COUNT(*) FROM eventl WHERE ville='"+ville+"'";
+
+            ResultSet rs = stmt.executeQuery(query);
+
+            rs.next();
+            count = rs.getInt(1);
+            return count;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return 0;
+
+    }
+     
+
+public List<String> getAll() {
+        List<String> list = new ArrayList<String>();
+        try {
+            String requetee = "SELECT titre FROM eventl";
+            PreparedStatement pst = cnx.prepareStatement(requetee);
+            ResultSet rs = pst.executeQuery();
+            System.out.println(rs.toString());
+
+            while (rs.next()) {
+                list.add(rs.getString("titre"));
+            }
+
+            return list;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return list;
+    }
+  
  }
 

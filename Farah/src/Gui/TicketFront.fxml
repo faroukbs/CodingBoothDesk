@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="234.0" prefWidth="525.0" styleClass="white_backgroud" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.TicketFrontController">
+   <children>
+      <TableView fx:id="ticketclient" layoutX="-6.0" layoutY="-9.0" prefHeight="348.0" prefWidth="587.0" styleClass="table-cell" stylesheets="@dashboard.css" />
+   </children>
+</AnchorPane>

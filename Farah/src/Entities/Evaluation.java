@@ -13,8 +13,7 @@ public class Evaluation {
      private int  id;
     private double  note;
     private int idevent;
- 
-
+     private Eventl c ;
 
     public int getId() {
         return id;
@@ -32,29 +31,6 @@ public class Evaluation {
         this.note = note;
     }
 
-    public Evaluation(int idevent) {
-        this.idevent = idevent;
-    }
-
-    public Evaluation() {
-    }
-
-    public Evaluation(int id, double note, int idevent) {
-        this.id = id;
-        this.note = note;
-        this.idevent = idevent;
-    }
-
-    public Evaluation(double note, int idevent) {
-        this.note = note;
-        this.idevent = idevent;
-    }
-
-    @Override
-    public String toString() {
-        return "Evaluation{" + "id=" + id + ", note=" + note + ", idevent=" + idevent + '}';
-    }
-
     public int getIdevent() {
         return idevent;
     }
@@ -63,6 +39,36 @@ public class Evaluation {
         this.idevent = idevent;
     }
 
+    public Eventl getC() {
+        return c;
+    }
+
+    public void setC(Eventl c) {
+        this.c = c;
+    }
+
+    public Evaluation() {
+    }
+
+    public Evaluation(int id, double note, Eventl c) {
+        this.id = id;
+        this.note = note;
+        this.c = c;
+    }
+
+    public Evaluation(double note, Eventl c) {
+        this.note = note;
+        this.c = c;
+    }
+
+    @Override
+    public String toString() {
+        return "Evaluation{" + "id=" + id + ", note=" + note + ", idevent=" + idevent + ", c=" + c + '}';
+    }
+ 
+
+
+    
   
 
  

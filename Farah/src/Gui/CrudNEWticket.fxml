@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1000.0" styleClass="white_backgroud" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.CrudNEWticketController">
+   <children>
+      <Pagination fx:id="pagination" layoutX="498.0" layoutY="184.0" prefHeight="507.0" prefWidth="808.0" stylesheets="@style.css" />
+      <ComboBox fx:id="eventbox" layoutX="223.0" layoutY="223.0" prefWidth="150.0" styleClass="Button2" stylesheets="@dashboard.css" />
+      <Label layoutX="103.0" layoutY="227.0" prefHeight="22.0" prefWidth="72.0" text="Event:" textFill="#e41515">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font></Label>
+      <ComboBox fx:id="typeticketbox" layoutX="225.0" layoutY="268.0" prefWidth="150.0" styleClass="Button1" />
+      <Label layoutX="101.0" layoutY="272.0" prefHeight="22.0" prefWidth="102.0" text="Typeticket:" textFill="#fc0808">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font></Label>
+      <JFXTextField fx:id="descriptiontx" layoutX="214.0" layoutY="314.0" prefHeight="115.0" prefWidth="186.0" />
+      <Label layoutX="103.0" layoutY="333.0" text="Description:" textFill="#f50707">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font></Label>
+      <JFXTextField fx:id="prixtx" layoutX="214.0" layoutY="445.0" prefHeight="25.0" prefWidth="186.0" />
+      <Label layoutX="103.0" layoutY="446.0" prefHeight="17.0" prefWidth="52.0" text="Prix:" textFill="#eb0303">
+         <font>
+            <Font name="Corbel Bold" size="19.0" />
+         </font></Label>
+      <TableView fx:id="tabletickets" layoutX="519.0" layoutY="231.0" onMouseClicked="#liste_ticket" onSort="#ShowTicket" prefHeight="413.0" prefWidth="770.0" styleClass="table-row-cell" stylesheets="@style.css">
+         <columns>
+            <TableColumn fx:id="idticketv" minWidth="0.0" />
+            <TableColumn fx:id="eventv" prefWidth="13.0" text="event" />
+            <TableColumn fx:id="descriptionv" prefWidth="100.0" text="description" />
+            <TableColumn fx:id="typev" prefWidth="215.0" text="type" />
+            <TableColumn fx:id="prixv" prefWidth="178.0" text="prix" />
+            <TableColumn fx:id="nbrticketv" prefWidth="75.0" text="Nombreticket" />
+         </columns>
+      </TableView>
+      <Button fx:id="Add" layoutX="289.0" layoutY="538.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="173.0" styleClass="Button2" stylesheets="@dashboard.css" text="Ajouter" textFill="#fcf7f7">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="Modticket" layoutX="289.0" layoutY="588.0" mnemonicParsing="false" onAction="#Modticket" prefHeight="25.0" prefWidth="173.0" styleClass="Button2" text="Modifier" textFill="#fcf5f5">
+         <font>
+            <Font name="Corbel Bold" size="17.0" />
+         </font></Button>
+      <Button fx:id="Supprimerticket" layoutX="289.0" layoutY="630.0" mnemonicParsing="false" onAction="#Supprimerticket" prefHeight="25.0" prefWidth="173.0" styleClass="Button" text="Supprimer" textFill="#f8f8f8">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font></Button>
+      <HBox layoutX="17.0" prefHeight="32.0" prefWidth="1293.0" styleClass="Button2" stylesheets="@dashboard.css" />
+      <HBox layoutY="-6.0" prefHeight="895.0" prefWidth="40.0" styleClass="profile-layout" stylesheets="@dashboard.css" />
+      <TextField fx:id="Recherche" layoutX="1037.0" layoutY="159.0" onKeyReleased="#Recherche" prefHeight="25.0" prefWidth="247.0" promptText="Recherche" />
+      <JFXTextField fx:id="nbrticketx" layoutX="218.0" layoutY="498.0" prefHeight="25.0" prefWidth="186.0" />
+      <Button fx:id="reserver" layoutX="139.0" layoutY="103.0" mnemonicParsing="false" text="reserver" />
+   </children>
+</AnchorPane>

@@ -12,15 +12,27 @@ import java.util.Date;
  * @author Home
  */
 public class Reservation {
+
            private  int idreser;
       private  int idticket;
 private int quantity;
+    private int iduser;
+
+    public int getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
+    }
 private Date datereser;
 
     @Override
     public String toString() {
-        return "Reservation{" + "idreser=" + idreser + ", idticket=" + idticket + ", quantity=" + quantity + ", datereser=" + datereser + '}';
+        return "Reservation{" + "iduser=" + iduser + ", idreser=" + idreser + ", idticket=" + idticket + ", quantity=" + quantity + ", datereser=" + datereser + '}';
     }
+
+
 
     public int getIdreser() {
         return idreser;
@@ -54,14 +66,15 @@ private Date datereser;
         this.datereser = datereser;
     }
 
-    public Reservation(int idticket, int quantity) {
+    public Reservation(int idticket, int iduser) {
         this.idticket = idticket;
-        this.quantity = quantity;
+        this.iduser = iduser;
     }
 
-    public Reservation(int idreser, int idticket, int quantity) {
+    public Reservation(int idreser, int idticket, int iduser) {
         this.idreser = idreser;
         this.idticket = idticket;
-        this.quantity = quantity;
+        this.iduser = iduser;
     }
+    
 }

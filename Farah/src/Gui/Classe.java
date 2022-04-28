@@ -29,7 +29,10 @@ public class Classe extends Application {
         
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("CrudNew.fxml"));
+        root = FXMLLoader.load(getClass().getResource("CrudNew.fxml"));
+           
+                //  root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
+                  // root = FXMLLoader.load(getClass().getResource("CrudNewticket.fxml"));
                         Scene scene = new Scene(root, 1310, 845);
         
         primaryStage.setTitle("Hello World!");
