@@ -89,10 +89,11 @@ public class ProfileUserController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         user.getNom();
         System.out.println(lid.getText());
         affichu();
+        
+       
              /*   Path to = Paths.get(PHOTOU);
         System.out.println(to);
        image1 = new Image(String.valueOf(to));
@@ -122,13 +123,14 @@ public class ProfileUserController implements Initializable {
                 
                 email=rs.getString("email");
                 LAdress.setText(email);
+               
                 //image=rs.getImage();
        // Image image = new Image(getClass().getResourceAsStream(path));
         //imageView.setImage(image);
                 
-               //image=rs.getString("image");
-        
-          //    imageView.setImage(image);
+              // image=rs.getString("image");
+              
+            // imageView.setImage(image);
               
                 
                 
@@ -139,6 +141,7 @@ public class ProfileUserController implements Initializable {
             System.out.println(e.getMessage());
         }
 
+        
     }
 
     public void setuser() {
@@ -174,9 +177,9 @@ public class ProfileUserController implements Initializable {
 
     @FXML
     void modifier(ActionEvent event) throws IOException {
-      /*  Path from = Paths.get(selectedFile.toURI());
-        Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/" + selectedFile.getName());
-        Utilisateur upuser = new Utilisateur(Integer.parseInt(lid.getText()), Lnom.getText(), Lprenom.getText(),Integer.parseInt(Lnum.getText()),Lgenre.getText(),LAdress.getText(), to.normalize().toString());
+       /* Path from = Paths.get(selectedFile.toURI());
+        Path to = Paths.get("C:\\Users\\MSI\\Desktop\\montasser-pidevDesktop\\montasser-pidevDesktop\\src\\Images/" + selectedFile.getName());
+        Utilisateur upuser = new Utilisateur(Integer.parseInt(lid.getText()), Lnom.getText(), Lprenom.getText(),Integer.parseInt(Lnum.getText()),LAdress.getText(), to.normalize().toString());
         userser.profil(upuser);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");

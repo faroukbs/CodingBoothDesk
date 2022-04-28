@@ -14,9 +14,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import utils.DataSource;
 
@@ -122,6 +124,33 @@ public class ServiceAdmin implements AService<Utilisateur> {
                 }
                 
                 }
+    public List<Utilisateur> rechercher(String index) {
+	List<Utilisateur> result = afficher().stream().filter(line -> index.equals(line.getEmail())).collect(Collectors.toList());
+	System.out.println("----------");
+	result.forEach(System.out::println);
+	return result;
+    }
+    public List<Utilisateur> trier() {
+	List<Utilisateur> sortedByName = afficher().stream().sorted(Comparator.comparing(Utilisateur::getNom)).collect(Collectors.toList());
+	sortedByName.forEach(System.out::println);
+	return sortedByName;
+    }
+
+    public List<Utilisateur> trierMulti() {
+	Comparator<Utilisateur> compareByName = Comparator.comparing(Utilisateur::getNom).thenComparing(Utilisateur::getNum_tel);
+
+	List<Utilisateur> sortedByNameAndTel = afficher().stream()
+		.sorted(compareByName)
+		.collect(Collectors.toList());
+
+	sortedByNameAndTel.forEach(System.out::println);
+	return sortedByNameAndTel;
+    }
+    public List<Utilisateur> trierID() {
+	List<Utilisateur> sortedByName = afficher().stream().sorted(Comparator.comparing(Utilisateur::getId)).collect(Collectors.toList());
+	sortedByName.forEach(System.out::println);
+	return sortedByName;
+    }
     }
    
     

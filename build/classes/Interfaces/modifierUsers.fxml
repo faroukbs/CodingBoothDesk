@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -100,6 +101,9 @@
                               <TextField fx:id="txt_search" prefHeight="30.0" prefWidth="257.0" promptText="Rechercher" />
                            </children>
                         </HBox>
+                        <TextField fx:id="rechercherMembre" layoutX="118.0" layoutY="436.0" onAction="#affichageTabMembre" onKeyReleased="#affichageTabMembre" prefHeight="31.0" prefWidth="316.0" promptText=" rehchercher par email " />
+                        <CheckBox fx:id="trierNomMembre" layoutX="8.0" layoutY="441.0" mnemonicParsing="false" onAction="#affichageTabMembre" text="Nom" textFill="#da5454" />
+                        <CheckBox fx:id="trierTelMembre" layoutX="8.0" layoutY="472.0" mnemonicParsing="false" onAction="#affichageTabMembre" text="Tel" textFill="#eb6f6f" />
                      </children>
                   </AnchorPane>
                </content>

@@ -26,6 +26,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -50,7 +51,10 @@ public class UserController implements Initializable {
 
     @FXML
     private TableColumn<Utilisateur, String> nom;
-
+    
+    @FXML
+    private TextField rechercherMembre;
+    
     @FXML
     private TableColumn<Utilisateur, String> nomp;
 
@@ -71,6 +75,10 @@ public class UserController implements Initializable {
 
     @FXML
     private TableColumn<Utilisateur, String> image;
+     @FXML
+    private CheckBox trierNomMembre;
+    @FXML
+    private CheckBox trierTelMembre;
 
     @FXML
     private Button btn_supp;
@@ -92,13 +100,13 @@ public class UserController implements Initializable {
         iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
         nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
-       //    passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+          passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
         num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
       
-     //   genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
         email.setCellValueFactory(new PropertyValueFactory<>("email")); 
         role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
-      //  image.setCellValueFactory(new PropertyValueFactory<>("image"));  
+       image.setCellValueFactory(new PropertyValueFactory<>("image"));  
         
         
         
@@ -182,5 +190,105 @@ public class UserController implements Initializable {
     }
     
     
-    
+    @FXML
+    public void affichageTabMembre() {
+	if (rechercherMembre.getText() == null || rechercherMembre.getText().trim().isEmpty()) {
+	    if (trierNomMembre.isSelected() == false && trierTelMembre.isSelected() == false) {
+		ServiceAdmin sa = new ServiceAdmin();
+		ObservableList<Utilisateur> list = FXCollections.observableArrayList(sa.afficher());
+		iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
+        nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
+           passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+        num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
+      
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        email.setCellValueFactory(new PropertyValueFactory<>("email")); 
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
+		apprenants.setItems(list);
+                System.out.println(rechercherMembre.getText() + "test");
+
+	    } else if (trierNomMembre.isSelected() == true) {
+		if (trierTelMembre.isSelected() == false) {
+		 //   ServiceAdmin se = new ServiceAdmin();
+		    ServiceAdmin sa = new ServiceAdmin();
+		    ObservableList<Utilisateur> list = FXCollections.observableArrayList(sa.trier());
+		   iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
+        nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
+           passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+        num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
+      
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        email.setCellValueFactory(new PropertyValueFactory<>("email")); 
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
+		apprenants.setItems(list);
+	System.out.println(rechercherMembre.getText() + "test");
+		} else {
+		    ServiceAdmin sa = new ServiceAdmin();
+		    ObservableList<Utilisateur> list = FXCollections.observableArrayList(sa.trier());
+		   iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
+        nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
+           passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+        num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
+      
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        email.setCellValueFactory(new PropertyValueFactory<>("email")); 
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
+		
+        apprenants.setItems(list);
+System.out.println(rechercherMembre.getText() + "test");
+		}
+	    } else if (trierTelMembre.isSelected() == true) {
+		if (trierNomMembre.isSelected() == false) {
+		    ServiceAdmin sa = new ServiceAdmin();
+		    ObservableList<Utilisateur> list = FXCollections.observableArrayList(sa.trierID());
+		  iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
+        nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
+           passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+        num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
+      
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        email.setCellValueFactory(new PropertyValueFactory<>("email")); 
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
+		apprenants.setItems(list);
+                System.out.println(rechercherMembre.getText() + "test");
+		} else {
+		    ServiceAdmin sa = new ServiceAdmin();
+		    ObservableList<Utilisateur> list = FXCollections.observableArrayList(sa.trierID());
+		   iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
+        nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
+           passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+        num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
+      
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        email.setCellValueFactory(new PropertyValueFactory<>("email")); 
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
+		apprenants.setItems(list);
+                System.out.println(rechercherMembre.getText() + "test");
+		}
+	    }
+
+	} else {
+
+	    ServiceAdmin sa = new ServiceAdmin();
+	    ObservableList<Utilisateur> list = FXCollections.observableArrayList(sa.rechercher(rechercherMembre.getText()));
+	       iduser.setCellValueFactory(new PropertyValueFactory<>("id"));       
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));        
+        nomp.setCellValueFactory(new PropertyValueFactory<>("prenom"));   
+           passe.setCellValueFactory(new PropertyValueFactory<>("password")); 
+        num.setCellValueFactory(new PropertyValueFactory<>("num_tel"));        
+      
+        genre.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));  
+        email.setCellValueFactory(new PropertyValueFactory<>("email")); 
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));  
+		apprenants.setItems(list);
+                System.out.println(rechercherMembre.getText() + "test");
+
+	}
+
+    }
 }

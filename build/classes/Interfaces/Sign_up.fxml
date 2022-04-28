@@ -50,7 +50,7 @@
             <Font name="Arial Bold" size="12.0" />
          </font>
       </PasswordField>
-      <Button layoutX="120.0" layoutY="485.0" mnemonicParsing="false" onAction="#onChoseFile" prefHeight="31.0" prefWidth="383.0" style="-fx-background-color: #e4e0e0;" text="DOWNLOAD IMAGE" textFill="#110303" />
+      <Button fx:id="pic" layoutX="120.0" layoutY="485.0" mnemonicParsing="false" onAction="#onChoseFile" prefHeight="31.0" prefWidth="383.0" style="-fx-background-color: #e4e0e0;" text="DOWNLOAD IMAGE" textFill="#110303" />
       <ImageView fx:id="imageView" fitHeight="122.0" fitWidth="133.0" layoutX="434.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="img" layoutX="117.0" layoutY="230.0" prefHeight="21.0" prefWidth="224.0" />
       <TextField fx:id="email" layoutX="121.0" layoutY="344.0" prefHeight="44.0" prefWidth="376.0" promptText="EMAIL">
