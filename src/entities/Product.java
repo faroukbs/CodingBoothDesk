@@ -7,88 +7,138 @@ package entities;
 
 /**
  *
- * @author bouss
+ * @author doghm
  */
 public class Product {
+    private int id;
+    private String product_name;
+    private String img,desc;
+    private int stock;
+    private double price;
+    private int quantity=1;
+    private int bought=0;
 
-    public static Product valuesOf(String productName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+   
+    
+    public Product(){
+        
+    }
+    
+    public Product(int id,String product_name,String img,int stock,double price,int quantity,int bought){
+        this.id=id;
+        this.product_name=product_name;
+        this.img=img;
+        this.stock=stock;
+        this.price=price;
+        this.quantity=quantity;
+        this.bought=bought;
+    }
+    
+    public Product(int id,String product_name,String img,int stock,double price,int quantity){
+        this.id=id;
+        this.product_name=product_name;
+        this.img=img;
+        this.stock=stock;
+        this.price=price;
+        this.quantity=quantity;
+    }
+    
+    
+    
+    public Product(String product_name,String img,int stock,double price,int quantity){
+        this.product_name=product_name;
+        this.img=img;
+        this.stock=stock;
+        this.price=price;
+        this.quantity=quantity;
     }
 
     
-    // attribut
-    protected int id_produit;
-    protected String nomprod ; 
-    protected String description;
-    protected String image;
-    protected float prix;
-    protected int quantity ; 
-    protected int categoryprod_id;
-    //constructor 
-
-    public Product(int id_produit, String nomprod, String description, String image, float prix, int quantity, int categoryprod_id) {
-        this.id_produit = id_produit;
-        this.nomprod = nomprod;
-        this.description = description;
-        this.image = image;
-        this.prix = prix;
-        this.quantity = quantity;
-        this.categoryprod_id = categoryprod_id;
+    public Product(int id,String product_name,String img,int stock,double price){
+        this.id=id;
+        this.product_name=product_name;
+        this.img=img;
+        this.stock=stock;
+        this.price=price;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" + "id_produit=" + id_produit + ", nomprod=" + nomprod + ", description=" + description + ", image=" + image + ", prix=" + prix + ", quantity=" + quantity + ", categoryprod_id=" + categoryprod_id + '}';
+    public Product(String product_name,String img,int stock,double price){
+        this.product_name=product_name;
+        this.img=img;
+        this.stock=stock;
+        this.price=price;
+    }
+    
+    public Product(int id,int quantity){
+        this.id=id;
+        this.quantity=quantity;
+    }
+    
+    public Product(String product_name){
+        this.product_name=product_name;
+    }
+    public Product(String product_name,int quantity){
+        this.product_name=product_name;
+        this.quantity=quantity;
     }
 
-    public Product(String nomprod, String description, String image, float prix, int quantity, int categoryprod_id) {
-        this.nomprod = nomprod;
-        this.description = description;
-        this.image = image;
-        this.prix = prix;
-        this.quantity = quantity;
-        this.categoryprod_id = categoryprod_id;
+    public Product(Product cart) {
+       
+    }
+
+    
+    public int getId() {
+        return id;
+    }
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getBought() {
+        return bought;
     }
     
 
-    public int getId_produit() {
-        return id_produit;
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setId_produit(int id_produit) {
-        this.id_produit = id_produit;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
     }
 
-    public String getNomprod() {
-        return nomprod;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public void setNomprod(String nomprod) {
-        this.nomprod = nomprod;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public float getPrix() {
-        return prix;
-    }
-
-    public void setPrix(float prix) {
-        this.prix = prix;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getQuantity() {
@@ -99,15 +149,13 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public int getCategoryprod_id() {
-        return categoryprod_id;
+    public void setBought(int bought) {
+        this.bought = bought;
     }
 
-    public void setCategoryprod_id(int categoryprod_id) {
-        this.categoryprod_id = categoryprod_id;
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", product_name=" + product_name + ", img=" + img + ", stock=" + stock + ", price=" + price + ", quantity=" + quantity + ", bought=" + bought + '}';
     }
-
-   
-    
-    
+       
 }

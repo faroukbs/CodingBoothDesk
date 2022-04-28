@@ -125,7 +125,7 @@
             <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlOverview" prefHeight="576.0" prefWidth="876.0" styleClass="right-bar" stylesheets="@../src/home/style_1.css">
                <children>
-                  <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-border-radius: 2em;" styleClass="search-box" stylesheets="@../src/home/style_1.css" />
+                  <TextField fx:id="getRecherche" layoutX="590.0" layoutY="47.0" onAction="#Rechercher" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-border-radius: 2em;" styleClass="search-box" stylesheets="@../src/home/style_1.css" />
                   <Label layoutX="57.0" layoutY="25.0" text="Espace Client">
                      <font>
                         <Font name="Segoe UI Semibold" size="23.0" />
@@ -179,7 +179,13 @@
                         </TableView>
                         <Button fx:id="modify1" mnemonicParsing="false" onAction="#modifierCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Modifier" textAlignment="CENTER" textFill="WHITE" translateX="545.0" />
                         <Button fx:id="supprimer1" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Supprimer" textAlignment="CENTER" textFill="WHITE" translateX="663.0" />
-                        <Button fx:id="miseAjour" mnemonicParsing="false" onAction="#reload" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Actualiser" textAlignment="CENTER" textFill="WHITE" translateX="13.0" />
+                        <Button fx:id="miseAjour" mnemonicParsing="false" onAction="#details" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Details" textAlignment="CENTER" textFill="WHITE" translateX="13.0" />
+                        <Button fx:id="helpp" mnemonicParsing="false" onAction="#help" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="help" textAlignment="CENTER" textFill="WHITE" translateX="154.0" />
+                        <Button fx:id="retourBtn2" mnemonicParsing="false" onAction="#convertirPDF" prefHeight="33.0" prefWidth="126.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Convertir PDF" textFill="WHITE" translateX="300.0">
+                           <font>
+                              <Font name="Calibri Bold" size="17.0" />
+                           </font>
+                        </Button>
                      </children>
                   </GridPane>
                </children>

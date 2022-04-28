@@ -8,6 +8,7 @@ package GUI;
 import entities.Commande;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,9 +30,11 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.layout.Pane;
 
 import service.CommandeService;
+import service.Mailling;
 
 /**
  * FXML Controller class
@@ -54,9 +57,9 @@ public class PasseCommandeController implements Initializable {
     @FXML
     private TextField nom;
     @FXML
-    private TextField mode;
+    private ComboBox<String> mode;
     @FXML
-    private TextField etat;
+    private ComboBox<Integer> etat;
     String erreur;
     @FXML
     private Button btnOverview;
@@ -80,72 +83,80 @@ public class PasseCommandeController implements Initializable {
     private Pane pnlOverview;
     @FXML
     private Button confirmer1;
-    
+    Commande r = new Commande();
+    @FXML
+    private Button confirmer2;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    } 
+        ObservableList<Integer> list = FXCollections.observableArrayList (0,1); 
+        ObservableList<String> list1 = FXCollections.observableArrayList ("En ligne","CASH"); 
+        
+        etat.setItems(list);
+        mode.setItems(list1);    } 
     
 
     @FXML
     private void AjouterCommande(ActionEvent event) {
-        if (nom.getText().isEmpty()
-                || prenom.getText().isEmpty() || tel.getText().isEmpty() || adr.getText().isEmpty() 
-                || mont.getText().isEmpty()) {
-
-            InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#f80000"));
-            nom.setEffect(in);
-            prenom.setEffect(in);
-            tel.setEffect(in);
-            adr.setEffect(in);
-            mont.setEffect(in);
-            mode.setEffect(in);
-            etat.setEffect(in);
-
-            //txtnom.setStyle("-fx-border-color: red " );
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Il faut remplir les champs obligatoires ");
-            alert.showAndWait();
-
-        } else if (testNom()& testPrenom() & testTel() ) {
-            String nomClient = nom.getText();
-
-            String prenomClient = prenom.getText();
-            String phone = tel.getText();
-            String adresse = adr.getText();
-            String montant = mont.getText();
-            String modeP = mode.getText();
-            Integer etatC =  Integer.parseInt(etat.getText());
-            
-
-            
-
-            CommandeService ps = new CommandeService();
-            
-            Commande v = new Commande(nomClient, prenomClient, phone, adresse, montant, modeP, etatC );
-
-            ps.ajouterCommande(v);
-
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("succes");
-            alert.setHeaderText(null);
-            alert.setContentText("Commande ajouter");
-            alert.showAndWait();
+//        if ( nom.getText().isEmpty()
+//                || prenom.getText().isEmpty() || tel.getText().isEmpty() || adr.getText().isEmpty() 
+//                || mont.getText().isEmpty()) {
+//
+//            InnerShadow in = new InnerShadow();
+//            in.setColor(Color.web("#f80000"));
+//            nom.setEffect(in);
+//            prenom.setEffect(in);
+//            tel.setEffect(in);
+//            adr.setEffect(in);
+//            mont.setEffect(in);
+//            mode.setEffect(in);
+//            etat.setEffect(in);
+//
+//            //txtnom.setStyle("-fx-border-color: red " );
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Erreur");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Il faut remplir les champs obligatoires ");
+//            alert.showAndWait();
+//
+//        } else if (testNom()& testPrenom() & testTel() ) {
+//            
+//         
+//            String nomClient = nom.getText();
+//
+//            String prenomClient = prenom.getText();
+//            String phone = tel.getText();
+//            String adresse = adr.getText();
+//            String montant = mont.getText();
+//            String modeP = mode.getSelectionModel().getSelectedItem();
+//            Integer etatC = etat.getSelectionModel().getSelectedItem();  
+//            
+//
+//
+//            CommandeService ps = new CommandeService();
+//            
+//            Commande v = new Commande(nomClient, prenomClient, phone, adresse, montant, modeP, etatC );
+//
+//            ps.ajouterCommande(v);
+//
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("succes");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Commande ajouter");
+//            alert.showAndWait();
             try{
-            Parent root = FXMLLoader.load(getClass().getResource("AffichageCommande.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Paiement.fxml"));
             nom.getScene().setRoot(root);
 //            DetailsController Dc = new DetailsController();
 //            
 //            Dc.setIdCommande(v.getIdcommande());
             }catch (IOException ex) {
             System.err.println(ex.getMessage());
-        }
+            }
+            
+        
 //        }
 //        Commande p = new Commande();
 //        
@@ -171,8 +182,10 @@ public class PasseCommandeController implements Initializable {
 //        } catch (IOException ex) {
 //            System.err.println(ex.getMessage());
 //        
+    
     }
-    }
+
+
     private Boolean testSaisie() {
         String erreur = "";
         
@@ -284,46 +297,75 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
 
    
-//    private boolean TestNom() {
-//        Pattern p = Pattern.compile("[a-zA-Z0-9]*[a-zA-Z0-9]*");
-//        Pattern p1 = Pattern.compile("[s][+][0-9]*");
-//        Matcher m = p.matcher(nom.getText());
-//        Matcher m1 = p.matcher(nom.getText());
-//        if (m.find() && m.group().equals(nom.getText()) || m1.find() && m1.group().equals(nom.getText())) {
-//            return true;
-//        } else {
-//
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setTitle("Syntaxe Email");
-//            alert.setHeaderText(null);
-//            alert.setContentText("S'il vous plait saisir un nom valide");
-//            alert.showAndWait();
-//
-//            return false;
-//        }
-//    }
-//    private boolean TestPrenom() {
-//        Pattern p = Pattern.compile("[a-zA-Z0-9]*[a-zA-Z0-9]*");
-//        Pattern p1 = Pattern.compile("[s][+][0-9]*");
-//        Matcher m = p.matcher(prenom.getText());
-//        Matcher m1 = p.matcher(prenom.getText());
-//        if (m.find() && m.group().equals(prenom.getText()) || m1.find() && m1.group().equals(prenom.getText())) {
-//            return true;
-//        } else {
-//
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setTitle("Syntaxe Email");
-//            alert.setHeaderText(null);
-//            alert.setContentText("S'il vous plait saisir un nom valide");
-//            alert.showAndWait();
-//
-//            return false;
-//        }
-//       
-//    }
+
 
     @FXML
     private void handleClicks(ActionEvent event) {
+    }
+
+    @FXML
+    private void select1(ActionEvent event) {
+               String s = mode.getSelectionModel().getSelectedItem().toString();
+
+    }
+
+    @FXML
+    private void select(ActionEvent event) {
+               Integer e = etat.getSelectionModel().getSelectedItem();
+
+    }
+
+    @FXML
+    private void mail(ActionEvent event) {
+        if ( nom.getText().isEmpty()
+                || prenom.getText().isEmpty() || tel.getText().isEmpty() || adr.getText().isEmpty() 
+                || mont.getText().isEmpty()) {
+
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+            nom.setEffect(in);
+            prenom.setEffect(in);
+            tel.setEffect(in);
+            adr.setEffect(in);
+            mont.setEffect(in);
+            mode.setEffect(in);
+            etat.setEffect(in);
+
+            //txtnom.setStyle("-fx-border-color: red " );
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Il faut remplir les champs obligatoires ");
+            alert.showAndWait();
+
+        } else if (testNom()& testPrenom() & testTel() ) {
+            
+         
+            String nomClient = nom.getText();
+
+            String prenomClient = prenom.getText();
+            String phone = tel.getText();
+            String adresse = adr.getText();
+            String montant = mont.getText();
+            String modeP = mode.getSelectionModel().getSelectedItem();
+            Integer etatC = etat.getSelectionModel().getSelectedItem();            
+
+
+            CommandeService ps = new CommandeService();
+            
+            Commande v = new Commande(nomClient, prenomClient, phone, adresse, montant, modeP, etatC );
+
+            ps.ajouterCommande(v);
+
+
+            Mailling M = new Mailling() ;
+            M.envoyer(v);
+            
+            Alert alertt = new Alert(Alert.AlertType.INFORMATION);
+            alertt.setTitle("Success");
+            alertt.setContentText(" un Email a été enoyer avec succes ");
+            alertt.show();
+        }
     }
     
     

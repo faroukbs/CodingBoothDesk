@@ -33,10 +33,13 @@
                   <Insets bottom="10.0" top="50.0" />
                </VBox.margin>
             </ImageView>
-            <Label text="Jimmy Fallon" textFill="#e7e5e5">
+            <Label text="Administrateur" textFill="#e7e5e5">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
             </Label>
             <Button fx:id="home" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="263.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Accueill">
                <graphic>

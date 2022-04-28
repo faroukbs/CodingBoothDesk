@@ -9,9 +9,16 @@ import entities.Commande;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.Date;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -29,7 +36,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javax.swing.JOptionPane;
 import service.CommandeService;
+import util.MyDBPi;
 
 /**
  * FXML Controller class
@@ -83,6 +92,8 @@ public class ListComController implements Initializable {
     private Button home;
     @FXML
     private Button ligne;
+    @FXML
+    private Button stat;
 
     /**
      * Initializes the controller class.
@@ -93,7 +104,6 @@ public class ListComController implements Initializable {
         List<Commande> Commandes = ps.recupererCommande();
         ObservableList list = FXCollections.observableArrayList(Commandes);
         TableView.setItems(list);
-        
         nom.setCellValueFactory(new PropertyValueFactory<>("nom_client"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom_client"));
         tel.setCellValueFactory(new PropertyValueFactory<>("telephone"));
@@ -111,7 +121,6 @@ public class ListComController implements Initializable {
         voy = TableView.getSelectionModel().getSelectedItem();
         voy.setIdcommande(TableView.getSelectionModel().getSelectedItem().getIdcommande());
         voy.setNom_client(nom.getText());
-
         voy.setPrenom_client(prenom.getText());
         voy.setTelephone(tel.getText());
         voy.setAdresse(adr.getText());
@@ -177,7 +186,6 @@ public class ListComController implements Initializable {
         List<Commande> Commandes = ps.recupererCommande();
         ObservableList list = FXCollections.observableArrayList(Commandes);
         TableView.setItems(list);
-        
         nom.setCellValueFactory(new PropertyValueFactory<>("nom_client"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom_client"));
         tel.setCellValueFactory(new PropertyValueFactory<>("telephone"));
@@ -208,6 +216,18 @@ public class ListComController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void stat(ActionEvent event) {
+//        try{
+//            String query="select idcommande, mode_paiement from commande";
+//            Statement pst = MyDBPi.getInstance().getConnection().prepareStatement(query); // import java.sql.Statement
+//            JFreeChart chart=ChartFactory.crateLineChart("Query chart","num commande","mode de paiement",pst, PlotOrientation.VERTICAL, false, true, true);
+//        }
+//        catch(Exception e){
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }
     
 }

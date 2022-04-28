@@ -15,6 +15,7 @@ public class Commande {
     private int idcommande;
     private String nom_client, prenom_client, telephone, adresse, montant, mode_paiement;
     private int etat_commande;
+    
 
     public Commande() {
     }
@@ -58,12 +59,19 @@ public class Commande {
         this.etat_commande = etat_commande;
     }
 
+   
+    
+
     
     
 
     public int getIdcommande() {
         return idcommande;
     }
+
+    
+    
+    
 
     public void setIdcommande(int idcommande) {
         this.idcommande = idcommande;

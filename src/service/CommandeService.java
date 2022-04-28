@@ -178,6 +178,23 @@ public class CommandeService implements ICService<Commande>{
         return list ; 
     }
 
+//    @Override
+//    public Commande TrouverById(int id) {
+//        C R = null;
+//        String Req = "select * from commande where idcommande=" + id + "";
+//        try {
+//            Ste = Cox.createStatement();
+//            Rs = Ste.executeQuery(Req);
+//            while (Rs.next()) {
+//                R = new Reservation(Rs.getInt("idReservation"), Rs.getDate("Date"));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return R;
+//    }
+
+
     
     
 }

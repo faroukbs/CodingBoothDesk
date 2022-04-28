@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="458.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.GUI.ChartController">
+   <children>
+      <HBox fx:id="chartHBox" prefHeight="413.0" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="458.0" prefWidth="161.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#globalChart" prefHeight="26.0" prefWidth="143.0" text="Global">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <MenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="142.0" text="Détailles">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#detailleBonPlan" text="BonPlan" />
+                      <MenuItem mnemonicParsing="false" onAction="#detailleCompte" text="Compte" />
+                        <MenuItem mnemonicParsing="false" text="Deal" />
+                        <MenuItem mnemonicParsing="false" text="Mise" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" onAction="#lineChart" prefHeight="26.0" prefWidth="141.0" text="Line Chart">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#convertirPDF" prefHeight="26.0" prefWidth="144.0" text="Convertir PDF   ">
+                     <VBox.margin>
+                        <Insets top="300.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+            <AnchorPane fx:id="chartNode" prefHeight="414.0" prefWidth="498.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

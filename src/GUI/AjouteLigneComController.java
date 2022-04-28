@@ -53,6 +53,7 @@ public class AjouteLigneComController implements Initializable {
     private Pane pnlMenus;
     @FXML
     private Pane pnlOverview;
+    
     @FXML
     private TableView<Lignecommande> TableView;
     @FXML
@@ -92,19 +93,20 @@ showAzer();    }
 
     @FXML
     private void modifierCommande(ActionEvent event) {
-       // Lignecommande voy = new Lignecommande();
+       Lignecommande voy = new Lignecommande();
         LignecommandeService sv = new LignecommandeService();
-        //voy = TableView.getSelectionModel().getSelectedItem();
-        Lignecommande lc = sv.recuperer(TableView.getSelectionModel().getSelectedItem().getIdlignecommande());
+        voy = TableView.getSelectionModel().getSelectedItem();
+       // Lignecommande lc = sv.recuperer(TableView.getSelectionModel().getSelectedItem().getIdlignecommande());
+       // System.out.println(lc.toString());
         //int var = (Integer.parseInt(id));
-        int idc = (Integer.parseInt(idcom.getText()));
-        int idp = (Integer.parseInt(idprod.getText()));
-        int qte = (Integer.parseInt(qtes.getText()));
+        int idcom = (Integer.parseInt(idc.getText()));
+        int idpr = (Integer.parseInt(idp.getText()));
+        int qtee = (Integer.parseInt(qte.getText()));
         
-        Lignecommande voy = new Lignecommande(lc.getIdlignecommande(), idc, idp, qte);
+        Lignecommande v = new Lignecommande(voy.getIdlignecommande(), idcom, idpr, qtee);
         
 
-        sv.modifier(voy);
+        sv.modifier(v);
         showAzer(); //// raifrach table view ///
     }
 

@@ -3,11 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/AjouterLigneCom.fxml</file>
-            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/AjouteLigneComController.java</file>
-            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/ListCom.fxml</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/AppController.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/Paiement.fxml</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/entities/Joueur.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/entities/Product.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/PaiementController.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/DetailsController.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/PaiementController.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/IJoueur.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/ServicePayment_1.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/IProduit_1.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/ProduitCrud.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/CommandeService.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/entities/Categorie.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/cart-ui.fxml</file>
             <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/Classe.java</file>
-            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/ListComController.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/entities/Cart.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/ServicePayment.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/PasseCommandeController.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/service/Mailling.java</file>
+            <file>file:/C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/GUI/AffichageCommandeController.java</file>
         </group>
     </open-files>
 </project-private>

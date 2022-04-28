@@ -46,7 +46,7 @@ public class LignecommandeService implements ILService<Lignecommande>{
     @Override
     public void modifier(Lignecommande t) {
         try{
-            String req = "UPDATE lignecommande SET idcommande = ?,id_produit = ?, quantite= ? WHERE idlignecommande= ?";
+            String req = "UPDATE lignecommande SET idcommande = ?, id_produit = ?, quantite= ? WHERE idlignecommande= ?";
         PreparedStatement ps = cnx.prepareStatement(req);
        
         ps.setInt(1,t.getIdcommande());

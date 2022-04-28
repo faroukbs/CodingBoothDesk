@@ -5,43 +5,75 @@
  */
 package entities;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author aicha
+ * @author doghm
  */
-public class Cart {
-    private Product product;
-    private int quantity;
+public final class Cart {
 
-    public Cart(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
+    public static Cart instance;
+
+    private final ArrayList<Product> c;
+
+    public Cart() {
+        c = new ArrayList<Product>();
+
+    }
+     public static Cart getInstance() {
+        if (instance == null) {
+            instance = new Cart();
+        }
+        return instance;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public ArrayList<Product> getCartList() {
+        return c;
     }
     
-    public void increaseQuantity(){
-        this.quantity++;
+  
+
+
+    public void AddProduct(Product e) {
+        this.c.add(e);
     }
-    
-    public void decreaseQuantity(){
-        if (this.quantity>0){
-            this.quantity--;
+
+    public void RemoveProduct(Product e) {
+        
+       int productid = e.getId();
+        for(int i=0 ; i<this.c.size();i++){
+            Product product = this.c.get(i);
+            if(product.getProduct_name().equals(e.getProduct_name())){
+                this.c.remove(i);
+            }
         }
     }
-    
+    public void RemoveAll(){
+    this.c.clear();
+    }
+
+    public ArrayList<Product> getC() {
+        return c;
+    }
+
+   
+
+    public void cleanCartSession() {
+        instance = null;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{"
+                + "c=" + c
+                + '}';
+    }
+    public double total(){
+        double total=0;
+     for(Product product : this.c){
+                    total = total + (product.getPrice()*product.getQuantity());
+                }
+    return total;
+    }
 }
