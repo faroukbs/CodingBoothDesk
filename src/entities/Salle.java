@@ -44,21 +44,28 @@ public class Salle {
         this.idcategorie = idcategorie;
     }
 
-   
-    public Salle(String nomsalle, String description, String materiel, int idcategorie) {
+    public Salle(String nomsalle, String description, int idcategorie ,String image) {
         this.nomsalle = nomsalle;
         this.description = description;
-
-       
-        if (materiel.equals("bicyclette") || materiel.equals("tapis roulante")) {
-            this.materiel = materiel;
-
-        } else {
-            System.out.println("le materiel doit etre b ou t");
-        }
-         this.idcategorie = idcategorie;
-
+        this.image = image;
+        this.idcategorie = idcategorie;
     }
+
+   
+//    public Salle(String nomsalle, String description, String materiel, int idcategorie) {
+//        this.nomsalle = nomsalle;
+//        this.description = description;
+//
+//       
+//        if (materiel.equals("bicyclette") || materiel.equals("tapis roulante")) {
+//            this.materiel = materiel;
+//
+//        } else {
+//            System.out.println("le materiel doit etre b ou t");
+//        }
+//         this.idcategorie = idcategorie;
+//
+//    }
 
     public int getIdcategorie() {
         return idcategorie;

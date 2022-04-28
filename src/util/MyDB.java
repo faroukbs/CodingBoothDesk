@@ -16,6 +16,9 @@ import java.util.logging.Logger;
  * @author ahmed
  */
 public class MyDB {
+    public Connection getCnx() {
+        return connection;
+    }
 
     private final String url = "jdbc:mysql://localhost:3306/pidev";
     private final String username = "root";
@@ -41,5 +44,7 @@ public class MyDB {
     public Connection getConnection() {
         return connection;
     }
+
+    
     
 }

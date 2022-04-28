@@ -31,36 +31,38 @@ public class SalleService implements IService<Salle> {
         cnx = MyDB.getInstance().getConnection();
     }
 
-    
     @Override
     public void ajouter(Salle t) {
-        
-        String req = "INSERT INTO salle (idsalle , nomsalle , description , idcategorie) VALUES (?,?,?,?)";
+
+        String req = "INSERT INTO salle (idsalle , nomsalle , description , idcategorie,image) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement pst = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             pst.setInt(1, t.getIdsalle());
             pst.setString(2, t.getNomsalle());
             pst.setString(3, t.getDescription());
             pst.setInt(4, t.getIdcategorie());
+            pst.setString(5, t.getImage());
+
             pst.executeUpdate();
             System.out.println("Salle Ajoutée avec succés");
             ResultSet rs = pst.getGeneratedKeys();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
-   
-        
+
     }
 
     @Override
     public void modifier(Salle t) {
         try {
-            String req = "update salle set nomsalle = ? , description = ? , idcategorie = ? WHERE idsalle=? ";
+            String req = " update salle set nomsalle = ? , description = ? , idcategorie = ? , image = ?  WHERE idsalle=? ";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, t.getNomsalle());
             ps.setString(2, t.getDescription());
             ps.setInt(3, t.getIdcategorie());
-            ps.setInt(4, t.getIdsalle());
+            ps.setString(4, t.getImage());
+            ps.setInt(5, t.getIdsalle());
+            //
             ps.executeUpdate();
             System.out.println("Salle modifiée");
         } catch (SQLException ex) {
@@ -86,7 +88,7 @@ public class SalleService implements IService<Salle> {
     public List<Salle> recuperer() {
         List<Salle> salles = new ArrayList<>();
         try {
-            String req = "select idsalle,nomsalle,description,idcategorie  from salle";
+            String req = "select idsalle,nomsalle,description,idcategorie,image  from salle";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
 
@@ -96,9 +98,9 @@ public class SalleService implements IService<Salle> {
                 c.setNomsalle(rs.getString(2));
                 c.setDescription(rs.getString(3));
                 c.setIdcategorie(rs.getInt(4));
-              
-//               c.setIdsalle(rs.getInt(3));
+                c.setImage(rs.getString(5));
 
+//               c.setIdsalle(rs.getInt(3));
                 salles.add(c);
             }
         } catch (SQLException ex) {
@@ -106,7 +108,7 @@ public class SalleService implements IService<Salle> {
         }
         return salles;
     }
-    
+
     public ObservableList<Integer> affectercategorie() {
         ObservableList<Integer> listcategorie = FXCollections.observableArrayList();
 
@@ -124,12 +126,28 @@ public class SalleService implements IService<Salle> {
         }
         return listcategorie;
     }
-    
 
     @Override
     public Salle recuperer(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-   
+    
+    public List<String> getEmails() {
+        List<String> myList = new ArrayList();
+        String req = "SELECT email FROM `utilisateur` WHERE roles like '%COACH%'";
+      
+         try {
+
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet rs;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                myList.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
 }

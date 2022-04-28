@@ -9,9 +9,11 @@ import entities.Categorie;
 import entities.Cours;
 import entities.Salle;
 import java.sql.Date;
+import javax.mail.MessagingException;
 import services.SalleService;
 import services.CategorieService;
 import services.CoursService;
+import util.MailAPI;
 import util.MyDB;
 
 /**
@@ -46,5 +48,13 @@ public class Main {
         //crs.ajouter(cr);
         //crs.modifier(cr);
 //        crs.supprimer(1);
+String mail ="amir.bensalah@esprit.tn";
+
+
+try {
+                    MailAPI.sendMail(mail, "Evennement Annulé", "L'évennement");
+                }catch(MessagingException ex) {
+                    System.err.println(ex.getMessage());
+                }
     }
 }

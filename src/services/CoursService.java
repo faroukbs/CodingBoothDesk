@@ -55,6 +55,7 @@ public class CoursService implements IService<Cours> {
         }
 
     }
+    
 
     @Override
     public void modifier(Cours t) {
@@ -95,7 +96,7 @@ public class CoursService implements IService<Cours> {
     public List<Cours> recuperer() {
         List<Cours> courss = new ArrayList<>();
         try {
-            String req = "select id,title,description,idcategorie,idcoach,idsalle,start,end from calendar";
+            String req = "select id,title,description,idcategorie,idcoach,idsalle,imagecours,start,end from calendar";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
 
@@ -107,9 +108,9 @@ public class CoursService implements IService<Cours> {
                 c.setIdcategorie(rs.getInt(4));
                 c.setIdcoach(rs.getInt(5));
                 c.setIdsalle(rs.getInt(6));
-
-                c.setStart(rs.getDate(7));
-                c.setEnd(rs.getDate(8));
+                c.setImagecours(rs.getString(7));
+                c.setStart(rs.getDate(8));
+                c.setEnd(rs.getDate(9));
 
                 courss.add(c);
             }
@@ -117,6 +118,26 @@ public class CoursService implements IService<Cours> {
             System.out.println(ex.getMessage());
         }
         return courss;
+    }
+    
+    
+    
+    public List<String> getEmails() {
+        List<String> myList = new ArrayList();
+        String req = "SELECT email FROM `utilisateur` WHERE roles like '%COACH%'";
+      
+         try {
+
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet rs;
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                myList.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
     }
 
     public ObservableList<Integer> affectercategorie() {

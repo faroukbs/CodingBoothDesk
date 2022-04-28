@@ -7,9 +7,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="978.0" styleClass="head-backgroundww" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CrudCoursController">
+<AnchorPane id="AnchorPane" prefHeight="637.0" prefWidth="978.0" styleClass="head-backgroundww" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CrudCoursController">
    <children>
       <ComboBox fx:id="categoriebox" layoutX="36.0" layoutY="177.0" prefWidth="150.0" styleClass="choice-box" stylesheets="@../css/StyleSheet.css" />
       <ComboBox fx:id="sallebox" layoutX="36.0" layoutY="273.0" prefWidth="150.0" />
@@ -21,12 +22,12 @@
       <Label layoutX="36.0" layoutY="111.0" text="description" />
       <Label layoutX="39.0" layoutY="306.0" text="date début" />
       <Label layoutX="39.0" layoutY="365.0" text="date fin" />
-      <Label layoutX="414.0" layoutY="13.0" text="Crud cours" />
+      <Label layoutX="431.0" layoutY="1.0" text="Crud cours" />
       <DatePicker fx:id="datedebut" layoutX="39.0" layoutY="324.0" styleClass="date-picker" stylesheets="@../css/StyleSheet.css" />
       <DatePicker fx:id="datefin" layoutX="39.0" layoutY="383.0" styleClass="date-picker" stylesheets="@../css/StyleSheet.css" />
       <TextField fx:id="titletx" layoutX="36.0" layoutY="83.0" />
       <TextField fx:id="descriptiontx" layoutX="36.0" layoutY="128.0" />
-      <TableView fx:id="tablecours" layoutX="219.0" layoutY="69.0" onMouseClicked="#list_cours" onSort="#ShowCours" prefHeight="200.0" prefWidth="601.0" stylesheets="@../css/StyleSheet.css">
+      <TableView fx:id="tablecours" layoutX="219.0" layoutY="69.0" onMouseClicked="#list_cours" onSort="#ShowCours" prefHeight="200.0" prefWidth="676.0" stylesheets="@../css/StyleSheet.css">
         <columns>
           <TableColumn fx:id="idcoursv" prefWidth="51.0" text="Id cours" />
           <TableColumn fx:id="titlev" prefWidth="86.0" text="Title" />
@@ -34,6 +35,7 @@
             <TableColumn fx:id="idcategoriev" prefWidth="75.0" text="Id categorie" />
             <TableColumn fx:id="idcoachv" prefWidth="75.0" text="Id coach" />
             <TableColumn fx:id="idsallev" prefWidth="75.0" text="Id salle" />
+            <TableColumn fx:id="imagev" prefWidth="75.0" text="image" />
             <TableColumn fx:id="datedebutv" prefWidth="75.0" text="date début" />
             <TableColumn fx:id="datefinv" prefWidth="75.0" text="Date fin" />
         </columns>
@@ -42,5 +44,12 @@
       <Button fx:id="ModCours" layoutX="428.0" layoutY="294.0" mnemonicParsing="false" onAction="#ModCours" styleClass="button2" stylesheets="@../css/StyleSheet.css" text="Modifier" />
       <Button fx:id="SupprimerCours" layoutX="520.0" layoutY="294.0" mnemonicParsing="false" onAction="#SupprimerCours" styleClass="Button" stylesheets="@../css/StyleSheet.css" text="Supprimer" textFill="WHITE" />
       <TextField fx:id="filterField" layoutX="220.0" layoutY="36.0" promptText="recherche" />
+      <TextField fx:id="URLImage" layoutX="37.0" layoutY="457.0" />
+      <Label layoutX="41.0" layoutY="440.0" text="image" />
+      <Button fx:id="AddImage" layoutX="204.0" layoutY="458.0" mnemonicParsing="false" onAction="#AddImage" text="Button" />
+      <ImageView fx:id="Image" fitHeight="121.0" fitWidth="130.0" layoutX="46.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="bntPDF" layoutX="606.0" layoutY="294.0" mnemonicParsing="false" onAction="#pdfc" styleClass="button1" stylesheets="@../css/StyleSheet.css" text="pdf" />
+      <Button fx:id="recupererFP" layoutX="467.0" layoutY="559.0" mnemonicParsing="false" onAction="#recupererOnF" styleClass="button1" text="Recuperer" />
+      <ImageView fx:id="QRCode" fitHeight="150.0" fitWidth="200.0" layoutX="402.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

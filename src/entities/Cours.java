@@ -97,19 +97,36 @@ public class Cours {
         this.end = end;
     }
 
+    public Cours(String title, int idcategorie, int idcoach, int idsalle, String description, String imagecours, Date start, Date end) {
+        this.title = title;
+        this.idcategorie = idcategorie;
+        this.idcoach = idcoach;
+        this.idsalle = idsalle;
+        this.description = description;
+        this.imagecours = imagecours;
+        this.start = start;
+        this.end = end;
+    }
+
+    
+    
+    
     public Cours() {
     }
 
-    public Cours(int idcours, String title, int idcategorie, int idcoach, int idsalle, String description, Date start, Date end) {
+    public Cours(int idcours, String title, int idcategorie, int idcoach, int idsalle, String description, String imagecours, Date start, Date end) {
         this.idcours = idcours;
         this.title = title;
         this.idcategorie = idcategorie;
         this.idcoach = idcoach;
         this.idsalle = idsalle;
         this.description = description;
+        this.imagecours = imagecours;
         this.start = start;
         this.end = end;
     }
+
+   
 
     public Cours(String title, int idcategorie, int idcoach, int idsalle, String description, Date start, Date end) {
         this.title = title;
@@ -125,7 +142,7 @@ public class Cours {
 
     @Override
     public String toString() {
-        return "Cours{" + "idcours=" + idcours + ", title=" + title + ", idcategorie=" + idcategorie + ", idcoach=" + idcoach + ", idsalle=" + idsalle + ", description=" + description + ", start=" + start + ", end=" + end + '}';
+        return "Cours{" + "idcours=" + idcours + ", title=" + title + ", idcategorie=" + idcategorie + ", idcoach=" + idcoach + ", idsalle=" + idsalle + ", description=" + description + ", imagecours=" + imagecours + ", start=" + start + ", end=" + end + '}';
     }
 
    
