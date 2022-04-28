@@ -72,7 +72,7 @@
                                     <Font name="Cambria" size="36.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="fruitPriceLabel" prefHeight="57.0" prefWidth="171.0" text="\$2.99">
+                              <Label fx:id="fruitPriceLabel" prefHeight="57.0" prefWidth="267.0" text="2.99TND">
                                  <font>
                                     <Font name="Cambria" size="36.0" />
                                  </font>
@@ -90,32 +90,27 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </ImageView>
-                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
-                           <children>
-                              <Label prefHeight="53.0" prefWidth="167.0" text="Quantity" textFill="#0a0000">
-                                 <font>
-                                    <Font name="Cambria" size="24.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox prefHeight="45.0" prefWidth="130.0" promptText="1" styleClass="comboBox" stylesheets="@style.css" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </HBox>
                         <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <children>
                               <Separator prefHeight="0.0" prefWidth="118.0" style="-fx-background-color: black;" />
-                              <Label alignment="CENTER" prefHeight="45.0" prefWidth="64.0" text="or">
+                              <Separator prefHeight="0.0" prefWidth="118.0" style="-fx-background-color: black;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                           <children>
+                              <Label prefHeight="53.0" prefWidth="167.0" text="Set Quantity" textFill="#0a0000">
                                  <font>
                                     <Font name="Cambria" size="24.0" />
                                  </font>
                               </Label>
-                              <Separator prefHeight="0.0" prefWidth="118.0" style="-fx-background-color: black;" />
+                              <ComboBox fx:id="qty" prefHeight="45.0" prefWidth="130.0" promptText="1" styleClass="comboBox" stylesheets="@style.css" />
                            </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="335.0" />
                         <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: red;" styleClass="add-btn" stylesheets="@style.css" text="ADD TO CART">

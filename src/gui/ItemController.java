@@ -29,6 +29,8 @@ public class ItemController implements Initializable {
     private Rating rate;
     
     RateService Rs = new RateService();
+    @FXML
+    private Label qty;
 
     @FXML
     private void click(MouseEvent mouseEvent) {
@@ -47,6 +49,7 @@ public class ItemController implements Initializable {
         Image image = new Image(getClass().getResourceAsStream(path));
         img.setImage(image);
         rate.setRating(Rs.GetByProduct(product.getId_produit()).getNote());
+        qty.setText(String.valueOf(product.getQuantity()));
     }
 
     @FXML

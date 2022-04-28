@@ -1,6 +1,7 @@
 package gui;
 
 import entities.Product;
+import entities.Utilisateur;
 import static java.lang.String.valueOf;
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.net.URL;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import javax.mail.PasswordAuthentication;
 import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +17,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
@@ -44,6 +47,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import service.CategoryProdService;
@@ -101,7 +109,6 @@ public class GestionProduitController implements Initializable {
     @FXML
     private TableColumn<Product, String> tbDes;
     ObservableList<Product> List = FXCollections.observableArrayList();
-    
 
     /**
      * Initializes the controller class.
@@ -147,14 +154,20 @@ public class GestionProduitController implements Initializable {
     }
 
     @FXML
-    private void returnb(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-            Parent root = loader.load();
-            retour.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+    private void returnb(ActionEvent event) throws IOException {
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+//            Parent root = loader.load();
+//            retour.getScene().setRoot(root);
+//        } catch (IOException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+        Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
@@ -182,8 +195,9 @@ public class GestionProduitController implements Initializable {
                 fl.close();
                 Product p = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
                 Sp.Add(p);
-                Smsapi.sendSMS("Nous avons ajouté un produit"+p.getNomprod().toString()+"\n" +p.getDescription().toString()+" \n avec un prix de "+p.getPrix()+
-                        " \n disponible en une quantité de "+p.getQuantity() );
+                Smsapi.sendSMS("Nous avons ajouté un produit" + p.getNomprod().toString() + "\n" + p.getDescription().toString() + " \n avec un prix de " + p.getPrix()
+                        + " \n disponible en une quantité de " + p.getQuantity());
+                sendEmail();
                 tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Product added");
@@ -422,6 +436,47 @@ public class GestionProduitController implements Initializable {
 
         // 5. Add sorted (and filtered) data to the table.
         tblProd.setItems(sortedData);
+
+    }
+
+    public void sendEmail() {
+        Utilisateur u = new Utilisateur();
+        String to = "farouk.boussaid@esprit.tn";
+        String from = "hamatalbi9921@gmail.com";
+        String host = "smtp.gmail.com";
+        final String username = "hamatalbi9921@gmail.com";
+        final String password = "123456789hama";
+
+        //setup mail server
+        Properties props = System.getProperties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+
+            MimeMessage m = new MimeMessage(session);
+            m.setFrom(new InternetAddress(from));
+            m.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
+            m.setSubject("Product Marketing");
+            m.setText("a new Product has been added to our storE :  Product Name:" + tfNom.getText() + "\n Product Description:" + tfdescription.getText() + "\n Product Price:" + tfPrix.getText() + "TND \n Product quantity" + tfQuant.getText());
+
+            Transport.send(m);
+
+            System.out.println("Message sent!");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(RestPasswordController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

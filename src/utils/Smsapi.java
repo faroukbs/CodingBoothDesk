@@ -17,7 +17,7 @@ public class Smsapi {
     
     
      public static final String ACCOUNT_SID = "AC11a55670aa37b622eb17e124f3789c62";
-    public static final String AUTH_TOKEN = "2c364437fc5b513171a877b076603971";
+    public static final String AUTH_TOKEN = "375afaa1838c65d540583fe8aad0dc80";
 
     public static void sendSMS( String msg) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);

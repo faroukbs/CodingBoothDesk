@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionProduitController">
+<AnchorPane id="AnchorPane" prefHeight="756.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionProduitController">
     <children>
-        <ImageView fitHeight="696.0" fitWidth="1079.0" pickOnBounds="true">
+        <ImageView fitHeight="756.0" fitWidth="1079.0" pickOnBounds="true" style="-fx-opacity: 0.75;">
             <image>
                 <Image url="@gallery4.png" />
             </image>
@@ -31,12 +31,12 @@
                 <Font name="Arial Bold" size="30.0" />
             </font>
         </Label>
-        <Button fx:id="retour" layoutX="972.0" layoutY="18.0" mnemonicParsing="false" onAction="#returnb" style="-fx-background-color: #800000;" text="retour" textFill="WHITE">
+        <Button fx:id="retour" layoutX="972.0" layoutY="18.0" mnemonicParsing="false" onAction="#returnb" style="-fx-background-color: #800000;" text="SHOP" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="15.0" />
             </font>
         </Button>
-        <TableView fx:id="tblProd" layoutX="402.0" layoutY="111.0" prefHeight="528.0" prefWidth="659.0" style="-fx-background-image: #800000;" stylesheets="@style.css">
+        <TableView fx:id="tblProd" layoutX="402.0" layoutY="144.0" prefHeight="535.0" prefWidth="659.0" style="-fx-background-color: grey; -fx-opacity: 0.9;" stylesheets="@style.css">
             <columns>
                 <TableColumn fx:id="tbNom" editable="false" prefWidth="89.0" text="Nom" />
                 <TableColumn fx:id="tbDes" editable="false" prefWidth="244.0" text="Description" />
@@ -51,21 +51,21 @@
                 <String fx:value="comboBox" />
             </styleClass>
         </TableView>
-        <Label layoutX="33.0" layoutY="100.0" text="Ajouter un Produit" textFill="MAROON">
+        <Label layoutX="35.0" layoutY="150.0" text="Gestion Produits" textFill="MAROON">
             <font>
                 <Font name="Arial Bold" size="30.0" />
             </font>
         </Label>
-        <TextField fx:id="tfNom" layoutX="33.0" layoutY="136.0" promptText="Nom Produit" />
-      <TextField fx:id="tfdescription" layoutX="33.0" layoutY="181.0" promptText="Description" />
-        <TextField fx:id="tfPrix" layoutX="33.0" layoutY="223.0" promptText="Prix Produit" />
-        <TextField fx:id="tfQuant" layoutX="34.0" layoutY="270.0" promptText="Quantité " />
-        <Button layoutX="62.0" layoutY="316.0" mnemonicParsing="false" onAction="#chooseImage" prefHeight="32.0" prefWidth="97.0" style="-fx-background-color: #800000;" text="upload" />
-        <Label layoutX="200.0" layoutY="370.0" onMousePressed="#GotoCat" prefHeight="28.0" prefWidth="122.0" style="-fx-background-color: #800000;" styleClass="comboBox" stylesheets="@style.css" text="Add New Category" wrapText="true" />
-        <ComboBox fx:id="combCat" layoutX="35.0" layoutY="370.0" prefWidth="150.0" />
-        <Button fx:id="AddP" layoutX="33.0" layoutY="441.0" mnemonicParsing="false" onAction="#AddP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Ajouter Produit" textFill="WHITE" />
-        <Button fx:id="DelP" layoutX="33.0" layoutY="493.0" mnemonicParsing="false" onAction="#DelP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Supprimer Produit" textFill="WHITE" />
-        <Button fx:id="EdP" layoutX="33.0" layoutY="546.0" mnemonicParsing="false" onAction="#EdP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Modifier" textFill="WHITE" />
-      <TextField fx:id="search" layoutX="52.0" layoutY="639.0" prefHeight="26.0" prefWidth="278.0" promptText="Search here" />
+        <TextField fx:id="tfNom" layoutX="41.0" layoutY="237.0" promptText="Nom Produit" styleClass="add-btn" stylesheets="@style.css" />
+      <TextField fx:id="tfdescription" layoutX="41.0" layoutY="282.0" promptText="Description" styleClass="add-btn" stylesheets="@style.css" />
+        <TextField fx:id="tfPrix" layoutX="41.0" layoutY="323.0" promptText="Prix Produit" styleClass="add-btn" stylesheets="@style.css" />
+        <TextField fx:id="tfQuant" layoutX="42.0" layoutY="370.0" promptText="Quantité " styleClass="add-btn" stylesheets="@style.css" />
+        <Button layoutX="70.0" layoutY="416.0" mnemonicParsing="false" onAction="#chooseImage" prefHeight="32.0" prefWidth="97.0" style="-fx-background-color: #800000;" styleClass="free-delivery-card" stylesheets="@style.css" text="upload" />
+        <Label layoutX="208.0" layoutY="470.0" onMousePressed="#GotoCat" prefHeight="28.0" prefWidth="122.0" style="-fx-background-color: #800000;" styleClass="comboBox" stylesheets="@style.css" text="Add New Category" wrapText="true" />
+        <ComboBox fx:id="combCat" layoutX="43.0" layoutY="470.0" prefWidth="150.0" styleClass="comboBox" stylesheets="@style.css" />
+        <Button fx:id="AddP" layoutX="41.0" layoutY="541.0" mnemonicParsing="false" onAction="#AddP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Ajouter Produit" textFill="WHITE" />
+        <Button fx:id="DelP" layoutX="41.0" layoutY="593.0" mnemonicParsing="false" onAction="#DelP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Supprimer Produit" textFill="WHITE" />
+        <Button fx:id="EdP" layoutX="41.0" layoutY="646.0" mnemonicParsing="false" onAction="#EdP" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Modifier" textFill="WHITE" />
+      <TextField fx:id="search" layoutX="785.0" layoutY="100.0" prefHeight="26.0" prefWidth="241.0" promptText="Search here" styleClass="search-box" stylesheets="@style.css" />
     </children>
 </AnchorPane>

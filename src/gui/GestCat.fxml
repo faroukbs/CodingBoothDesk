@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionCategorieController">
    <children>
-      <ImageView fitHeight="696.0" fitWidth="1079.0" pickOnBounds="true">
+      <ImageView fitHeight="696.0" fitWidth="1079.0" pickOnBounds="true" style="-fx-opacity: 0.75;">
          <image>
             <Image url="@gallery4.png" />
          </image>
@@ -35,7 +35,7 @@
             <Font name="Arial Black" size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tblCat" layoutX="402.0" layoutY="101.0" prefHeight="538.0" prefWidth="646.0" style="-fx-background-image: #800000;" stylesheets="@style.css">
+      <TableView fx:id="tblCat" layoutX="402.0" layoutY="101.0" prefHeight="538.0" prefWidth="646.0" style="-fx-background-color: grey; -fx-opacity: 0.9;" stylesheets="@style.css">
         <columns>
           <TableColumn fx:id="tbNom" editable="false" prefWidth="274.0" text="Nom" />
         </columns>
@@ -51,7 +51,7 @@
             <Font name="Arial Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="tfNom" layoutX="51.0" layoutY="201.0" promptText="Nom Category" />
+      <TextField fx:id="tfNom" layoutX="51.0" layoutY="201.0" promptText="Nom Category" styleClass="add-btn" stylesheets="@style.css" />
       <Button fx:id="AddC" layoutX="33.0" layoutY="441.0" mnemonicParsing="false" onAction="#AddC" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Ajouter categorie" textFill="WHITE" />
       <Button fx:id="DelC" layoutX="33.0" layoutY="493.0" mnemonicParsing="false" onAction="#DelC" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Supprimer categorie" textFill="WHITE" />
       <Button fx:id="EdC" layoutX="33.0" layoutY="546.0" mnemonicParsing="false" onAction="#EdC" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #800000; -fx-background-radius: 30;" text="Modifier categorie" textFill="WHITE" />

@@ -28,6 +28,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import org.controlsfx.control.Rating;
 import service.ProductService;
@@ -63,9 +64,13 @@ public class MarketController implements Initializable {
     private List<Product> products = new ArrayList<>();
     @FXML
     private TextField search;
+    @FXML
+    private ComboBox<Integer> qty;
+    private ObservableList<Integer> quantity = FXCollections.observableArrayList();
 
     private List<Product> getData() {
-        return service.GetAll();
+        products = service.GetAll();
+        return products;
 
     }
 
@@ -77,15 +82,34 @@ public class MarketController implements Initializable {
        fruitImg.setImage(image);
 //        chosenFruitCard.setStyle("-fx-background-color: #" + fruit.getColor() + ";\n" +
 //                "    -fx-background-radius: 30;");
-        System.out.println(product);
-      
+       //System.out.println(product.getQuantity());
+        for (int i = 0; i < product.getQuantity(); i++) {
+            System.out.println(i);
+            quantity.add(i);
+            
+        }
+        System.out.println(quantity);
+      qty.setItems(quantity);
+     
+       qty.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+           fruitPriceLabel.setText(String.valueOf(product.getPrix() * newValue));
+  // System.out.println(newValue);
+}); 
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        show();
+        
+        
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            products = service.getProdbyfiltre(newValue);
+            //products.addAll(getData());
+            
+        
 
-        products.addAll(getData());
+       // products.addAll(getData());
         if (products.size() > 0) {
             setChosenProduct(products.get(0));
             myListener = new MyListener() {
@@ -95,6 +119,7 @@ public class MarketController implements Initializable {
                 }
             };
         }
+        grid.getChildren().clear();
         int column = 0;
         int row = 1;
         try {
@@ -127,6 +152,7 @@ public class MarketController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    });
     }
 //     private void rechercher() {
 //
@@ -172,6 +198,54 @@ public class MarketController implements Initializable {
 //
 //    }
 
+    
+    public void show(){
+        products.addAll(getData());
+    if (products.size() > 0) {
+            setChosenProduct(products.get(0));
+            myListener = new MyListener() {
+                @Override
+                public void onClickListener(Product product) {
+                    setChosenProduct(product);
+                }
+            };
+        }
+        
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < products.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("item.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(products.get(i), myListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
     
 
 }
