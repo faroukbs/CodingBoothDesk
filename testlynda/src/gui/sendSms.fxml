@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1143.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SendSmsController">
+   <children>
+      <Label layoutX="305.0" layoutY="79.0" text="apikey">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="-17.0" text="Label" />
+      <Label layoutX="303.0" layoutY="121.0" text="SENDER">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="175.0" text="NUMBER">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="227.0" prefHeight="27.0" prefWidth="56.0" text="Message">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtapi" layoutX="369.0" layoutY="74.0" />
+      <TextField fx:id="txtnumber" layoutX="369.0" layoutY="172.0" />
+      <TextField fx:id="txtsender" layoutX="370.0" layoutY="121.0" />
+      <TextArea fx:id="txtmess" layoutX="372.0" layoutY="224.0" prefHeight="161.0" prefWidth="208.0" />
+      <Button layoutX="445.0" layoutY="397.0" mnemonicParsing="false" onAction="#Sendsms" prefHeight="27.0" prefWidth="80.0" text="send" />
+      <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="303.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-sms-53.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="501.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-send-50.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
