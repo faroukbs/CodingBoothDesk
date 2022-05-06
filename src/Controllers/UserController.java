@@ -12,6 +12,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import static java.lang.String.valueOf;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -35,6 +37,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import utils.DataSource;
 
 /**
  *
@@ -54,7 +57,10 @@ public class UserController implements Initializable {
     
     @FXML
     private TextField rechercherMembre;
-    
+    @FXML
+    private Button bann;
+    @FXML
+    private Button unbann;
     @FXML
     private TableColumn<Utilisateur, String> nomp;
 
@@ -82,8 +88,18 @@ public class UserController implements Initializable {
 
     @FXML
     private Button btn_supp;
+  
 
-    
+  
+   public Button getbann(){
+   return bann;
+   }
+   
+   
+
+    public Button getunbann(){
+    return unbann;
+   }
 
     @FXML
     private TextField txt_search;
@@ -291,4 +307,30 @@ System.out.println(rechercherMembre.getText() + "test");
 	}
 
     }
+     private void executeQuery(String req) {
+        Connection cnx = DataSource.getInstance().getCnx();
+        Statement st;
+        try {
+            st = cnx.createStatement();
+            st.executeUpdate(req);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    @FXML
+         public void bann() {
+        Utilisateur person = apprenants.getSelectionModel().getSelectedItem();
+        admin.bloquer(person);
+        
+    }
+    @FXML
+               public void unbann() {
+        Utilisateur person = apprenants.getSelectionModel().getSelectedItem();
+        admin.debloquer(person);
+        
+    }
+
+  
 }

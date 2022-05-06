@@ -87,14 +87,15 @@ public class SigninController implements Initializable{
     private void Login (ActionEvent event) throws Exception{   
       conn= mysqlconnect.ConnectDb();
         String ch;
-        String sql = "Select * from utilisateur where email = ? ";    
+        String sql = "Select * from utilisateur where email = ? and is_verified=" +true+ "";    
         try{
             pst = conn.prepareStatement(sql);
             pst.setString(1, email.getText());
             
 //            pst.setString(2, type.getValue().toString());
             rs = pst.executeQuery();
-            
+           
+               //JOptionPane.showMessageDialog(null, "you are banned sorry!"); 
             if(rs.next() && BCrypt.checkpw(ppasse.getText(), rs.getString("password"))){
                 JOptionPane.showMessageDialog(null, "Usermane and Password is Correct");        
               
@@ -105,7 +106,7 @@ public class SigninController implements Initializable{
                     Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/Acceuil.fxml"));
         Scene scene = new Scene(page1);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Go Camp");
+        stage.setTitle("Go Gym");
         stage.setScene(scene);
         stage.show();
                     
@@ -121,11 +122,11 @@ public class SigninController implements Initializable{
         Parent page1 = FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
         Scene scene = new Scene(page1);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Go Camp");
+        stage.setTitle("Go Gym");
         stage.setScene(scene);
         stage.show();
                     
-                    
+       
                     
                     
                     
@@ -141,7 +142,7 @@ public class SigninController implements Initializable{
                 }
                 
             }else
-                JOptionPane.showMessageDialog(null, "invalide Username or Password");
+                JOptionPane.showMessageDialog(null, "Usermane and Password is invalid or maybe you are banned!");
         }catch(Exception ex){
                 System.out.println(ex.getMessage());
         }

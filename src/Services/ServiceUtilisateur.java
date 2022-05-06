@@ -41,7 +41,7 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
     public boolean connecter(Utilisateur u) {
         boolean ok=true;      
         try {
-                String req="select email , password  from utilisateur where ( email=? and password=?  )";
+                String req="select email , password ,is_verified from utilisateur where ( email=? and password=? and is_verified=?  )";
                 PreparedStatement pst=cnx.prepareStatement(req);
                 ResultSet rs = pst.executeQuery();
                 if(rs==null){

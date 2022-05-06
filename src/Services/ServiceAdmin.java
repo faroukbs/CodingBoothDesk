@@ -50,23 +50,23 @@ public class ServiceAdmin implements AService<Utilisateur> {
         return ok;    }
 
     @Override
-    public void modifier(Utilisateur a) {
+    public void modifier(Utilisateur u) {
       try {
-                String req="update utilisateur set nom=?,prenom=?,num_tel=?,email=?,roles=? where id=? ";
+              String req="update utilisateur set nom=?,prenom=?,num_tel=?,email=?,image=? where id=?";
                 PreparedStatement pst=cnx.prepareStatement(req);
-                pst.setString(1,a.getNom());
-                pst.setString(2,a.getPrenom());
-                pst.setInt(3,a.getNum_tel());
-               // pst.setString(4,a.getPassword());
-             //   pst.setString(5,a.getDate_naissance());
-                pst.setString(6,a.getEmail());
-                pst.setString(7,a.getRoles());
-              //  pst.setString(8,a.getImage());
-                pst.setInt(9,a.getId());
+                pst.setInt(6,u.getId());
+                pst.setString(1,u.getNom());
+                pst.setString(2,u.getPrenom());
+                pst.setInt(3,u.getNum_tel());
+              //  pst.setString(4,u.getPassword());
+             //   pst.setString(5,u.getDate_naissance());
+                pst.setString(4,u.getEmail());
+             //  pst.setString(7,u.getRoles());
+                pst.setString(5, u.getImage());
                 pst.executeUpdate();
                 System.out.println("modifier");
             } catch (SQLException ex) {
-                System.out.println(ex.getMessage());         
+                System.out.println(ex.getMessage());      
     }
     }
 /*
@@ -151,7 +151,29 @@ public class ServiceAdmin implements AService<Utilisateur> {
 	sortedByName.forEach(System.out::println);
 	return sortedByName;
     }
+    public void bloquer(Utilisateur t) {
+        try {
+                    String req="UPDATE utilisateur SET is_verified=" +false +" where id=? ";
+                    PreparedStatement pst=cnx.prepareStatement(req);
+                    pst.setInt(1,t.getId());
+                    pst.executeUpdate();
+                    System.out.println("bloquer");
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
     }
+    public void debloquer(Utilisateur t) {
+        try {
+                    String req="UPDATE utilisateur SET is_verified=" +true +" where id=? ";
+                    PreparedStatement pst=cnx.prepareStatement(req);
+                    pst.setInt(1,t.getId());
+                    pst.executeUpdate();
+                    System.out.println("debloquer");
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+    }
+}
    
     
 

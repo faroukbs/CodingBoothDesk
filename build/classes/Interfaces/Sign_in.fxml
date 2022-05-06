@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -39,7 +38,6 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <ComboBox fx:id="type" layoutX="421.0" layoutY="206.0" opacity="0.38" prefWidth="150.0" promptText="TypeUser" visibleRowCount="5" />
       <ImageView fx:id="cancel" fitHeight="31.0" fitWidth="28.0" layoutX="1094.0" layoutY="14.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/cancel.png" />
@@ -48,5 +46,10 @@
       <PasswordField fx:id="ppasse" layoutX="421.0" layoutY="312.0" prefHeight="44.0" prefWidth="376.0" />
       <TextField fx:id="txt_pass" layoutX="421.0" layoutY="311.0" prefHeight="44.0" prefWidth="376.0" promptText="Password" />
       <CheckBox fx:id="sheck" layoutX="761.0" layoutY="319.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="28.0" />
+      <Label layoutX="421.0" layoutY="159.0" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

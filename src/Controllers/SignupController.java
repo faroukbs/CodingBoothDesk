@@ -15,11 +15,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import static java.lang.ProcessBuilder.Redirect.to;
 
 import java.net.URL;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -50,6 +54,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import static jdk.nashorn.internal.objects.NativeJava.to;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 
@@ -132,8 +139,8 @@ public class SignupController implements Initializable{
     }
     
     @FXML
-    public void onChoseFile(ActionEvent event){
-        FileChooser fc = new FileChooser();
+    public File onChoseFile(ActionEvent event){
+     /*   FileChooser fc = new FileChooser();
         selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null){
             try {
@@ -144,7 +151,48 @@ public class SignupController implements Initializable{
             }
         }else{
             System.out.println("Hey");
+        }*/
+      Path to1 = null;
+        String m = null;
+        String path = "C:\\\\Users\\\\MSI\\\\Desktop\\\\montasser-pidevDesktop\\\\montasser-pidevDesktop\\\\src\\\\Images";
+        JFileChooser chooser = new JFileChooser();
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "JPG & PNG Images", "jpg", "jpeg", "PNG");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            m = chooser.getSelectedFile().getAbsolutePath();
+
+            selectedFile = chooser.getSelectedFile();
+            String fileName = selectedFile.getName();
+            System.out.println(fileName);
+            if (chooser.getSelectedFile() != null) {
+
+                try {
+                    Path from = Paths.get(chooser.getSelectedFile().toURI());
+                    to1 = Paths.get(path + "\\" + fileName);
+                    //           to2 = Paths.get("src\\"+path+"\\"+file.getName()+".png");
+
+                    CopyOption[] options = new CopyOption[]{
+                        StandardCopyOption.REPLACE_EXISTING,
+                        StandardCopyOption.COPY_ATTRIBUTES
+                    };
+                    Files.copy(from, to1, options);
+                    System.out.println("added");
+                    System.out.println(selectedFile);
+
+                } catch (IOException ex) {
+                    System.out.println();
+                }
+            }
+
         }
+
+        System.out.println(selectedFile.getPath());
+        return selectedFile;
+
+    
     }
     
     public void register(){

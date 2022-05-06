@@ -21,13 +21,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserController">
    <children>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane prefHeight="540.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-42.0" AnchorPane.topAnchor="0.0">
          <tabs>
             <Tab text=" Gérer Utilisateur">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="707.0" style="-fx-background-color: #fff;">
                      <children>
-                        <TableView fx:id="apprenants" layoutX="3.0" layoutY="96.0" prefHeight="330.0" prefWidth="752.0">
+                        <TableView fx:id="apprenants" layoutX="3.0" layoutY="96.0" prefHeight="330.0" prefWidth="800.0">
                            <columns>
                               <TableColumn fx:id="iduser" prefWidth="40.0" text="id" />
                               <TableColumn fx:id="nom" prefWidth="64.0" text="name" />
@@ -40,7 +40,7 @@
                               <TableColumn fx:id="image" prefWidth="100.0" text="image" />
                            </columns>
                         </TableView>
-                        <Button fx:id="btn_supp" layoutX="599.0" layoutY="451.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#delete" prefHeight="32.0" prefWidth="93.0" style="-fx-background-color: #D72400;" text="Supprimer" textOverrun="CENTER_ELLIPSIS">
+                        <Button fx:id="btn_supp" layoutX="365.0" layoutY="450.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#delete" prefHeight="32.0" prefWidth="93.0" style="-fx-background-color: #D72400;" text="Supprimer" textOverrun="CENTER_ELLIPSIS">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -101,9 +101,17 @@
                               <TextField fx:id="txt_search" prefHeight="30.0" prefWidth="257.0" promptText="Rechercher" />
                            </children>
                         </HBox>
-                        <TextField fx:id="rechercherMembre" layoutX="118.0" layoutY="436.0" onAction="#affichageTabMembre" onKeyReleased="#affichageTabMembre" prefHeight="31.0" prefWidth="316.0" promptText=" rehchercher par email " />
+                        <TextField fx:id="rechercherMembre" layoutX="97.0" layoutY="447.0" onAction="#affichageTabMembre" onKeyReleased="#affichageTabMembre" prefHeight="31.0" prefWidth="241.0" promptText=" rehchercher par email " />
                         <CheckBox fx:id="trierNomMembre" layoutX="8.0" layoutY="441.0" mnemonicParsing="false" onAction="#affichageTabMembre" text="Nom" textFill="#da5454" />
                         <CheckBox fx:id="trierTelMembre" layoutX="8.0" layoutY="472.0" mnemonicParsing="false" onAction="#affichageTabMembre" text="Tel" textFill="#eb6f6f" />
+                        <Button fx:id="bann" layoutX="615.0" layoutY="431.0" mnemonicParsing="false" onAction="#bann" prefHeight="33.0" prefWidth="99.0" style="-fx-background-color: black; -fx-border-radius: 20; -fx-border-color: transparent;" text="Bloquer" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font></Button>
+                        <Button fx:id="unbann" layoutX="615.0" layoutY="466.0" mnemonicParsing="false" onAction="#unbann" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: black; -fx-border-radius: 20; -fx-border-color: transparent;" text="Debloquer" textFill="#f5f5f5">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
                </content>

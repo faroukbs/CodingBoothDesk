@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="283.0" prefWidth="470.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ChangerPasseController">
    <children>
-      <AnchorPane layoutY="-6.0" prefHeight="81.0" prefWidth="470.0" style="-fx-background-color: #0A0232;">
+      <AnchorPane layoutY="-6.0" prefHeight="81.0" prefWidth="470.0" style="-fx-background-color: red;">
          <effect>
             <DropShadow />
          </effect>

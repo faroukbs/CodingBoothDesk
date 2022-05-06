@@ -124,6 +124,10 @@ public class Utilisateur {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Utilisateur(String text, String text0, int parseInt, String hashPassword, String text1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 
     public int getId() {

@@ -89,6 +89,10 @@ public class ProfileUserController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /*Utilisateur user = userser.getById();
+        String path = "/Image/" + userser.getById().getImage();
+        Image image= new Image(getClass().getResourceAsStream(path));
+        imageView.setImage(image);*/
         user.getNom();
         System.out.println(lid.getText());
         affichu();

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="188.0" prefWidth="390.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PasseController">
+<AnchorPane id="AnchorPane" prefHeight="223.0" prefWidth="430.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PasseController">
    <children>
       <Label layoutX="33.0" layoutY="35.0" prefHeight="15.0" prefWidth="336.0" text="Nous avons envoyé un code de réinitialisation par email :" textFill="#1b056b">
          <font>

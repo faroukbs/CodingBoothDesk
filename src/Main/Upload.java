@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class Upload {
       public String upload(File file,String dossier) throws FileNotFoundException, IOException {
         BufferedOutputStream stream = null;
-        String globalPath="C:\\\\Users\\\\MSI\\\\Desktop\\\\montasser-pidevDesktop\\\\montasser-pidevDesktop\\\\src"+ dossier;
+        String globalPath="C:\\\\Users\\\\MSI\\\\Desktop\\\\montasser-pidevDesktop\\\\montasser-pidevDesktop\\\\src\\\\Images"+ dossier;
        
         String fileName = file.getName();
         for (int i=0; i<4; i++)
