@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PasseCommandeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="1051.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PasseCommandeController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #ee3030;" styleClass="transparent" stylesheets="@../src/home/style_1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -120,7 +120,7 @@
             <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray;" />
             <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray;" />
             <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray;" />
-            <Pane fx:id="pnlOverview" prefHeight="573.0" prefWidth="812.0" styleClass="right-bar" stylesheets="@../src/home/style_1.css">
+            <Pane fx:id="pnlOverview" prefHeight="801.0" prefWidth="793.0" styleClass="right-bar" stylesheets="@../src/home/style_1.css">
                <children>
                   <TextField layoutX="536.0" layoutY="36.0" prefHeight="42.0" prefWidth="237.0" promptText="search" style="-fx-border-radius: 2em;" styleClass="search-box" stylesheets="@../src/home/style_1.css" />
                   <Label layoutX="57.0" layoutY="25.0" text="Espace Client">

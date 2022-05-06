@@ -30,7 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import service.ProduitCrud;
+import service.ProductService;
 
 /**
  * FXML Controller class
@@ -69,7 +69,7 @@ public class homeController implements Initializable {
     
 
     
-    ProduitCrud ev = new ProduitCrud();
+    ProductService ev = new ProductService();
     List<Product> liste = new ArrayList<>();
     private Product o;
  Button[] btn = new Button[100];
@@ -104,17 +104,17 @@ public class homeController implements Initializable {
                 }
                 VBox content = new VBox();
                 
-                File file=new File( liste.get(i).getImg());
+                File file=new File( liste.get(i).getImage());
                 Image image = new Image(file.toURI().toString());
                 // Image image = new Image( file);
                 ImageView ImageView = new ImageView(image);
                 Label title = new Label();
                 o=liste.get(i);
-                Label nom = new Label((liste.get(i).getProduct_name()));
+                Label nom = new Label((liste.get(i).getNomprod()));
                 nom.setStyle("-fx-strikethrough: true");
                // nom.getStyleClass().add("barre");
                nom.setStyle("-fx-font-weight: bold");
-                Label description = new Label((liste.get(i).getDesc()));
+                Label description = new Label((liste.get(i).getDescription()));
                description.setStyle("-fx-strikethrough: true");
                 //prix.getStyleClass().add("barre");
                 ImageView.setFitHeight(100);
@@ -150,10 +150,10 @@ public class homeController implements Initializable {
             
              if (event.getSource() == btn[i])
              {
-                 System.out.println(liste.get(i).getId());
+                 System.out.println(liste.get(i).getId_produit());
                     int test = 0;
                 for(Product pi : Cart.getInstance().getC()){
-                    if(pi.getProduct_name().equals(liste.get(i).getProduct_name())){
+                    if(pi.getNomprod().equals(liste.get(i).getNomprod())){
                         test = 1;
                         int quantity = pi.getQuantity() + 1 ;
                         pi.setQuantity(quantity);
@@ -163,7 +163,7 @@ public class homeController implements Initializable {
                 }
                 
                 if(test == 0){
-                    Product pp = new Product(liste.get(i).getId(),liste.get(i).getProduct_name(),liste.get(i).getImg(),liste.get(i).getStock(),liste.get(i).getPrice(),liste.get(i).getQuantity());
+                    Product pp = new Product(liste.get(i).getId_produit() ,liste.get(i).getNomprod(), liste.get(i).getDescription(),liste.get(i).getImage(),liste.get(i).getPrix(),liste.get(i).getQuantity());
                    System.out.println(pp);
                     Cart.instance.AddProduct(pp);
                     

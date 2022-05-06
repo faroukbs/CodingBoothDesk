@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import util.MyDBPi;
 
 /**
@@ -133,5 +135,39 @@ public class LignecommandeService implements ILService<Lignecommande>{
             System.err.println(ex.getMessage());
         }
         return r;
+    }
+    public ObservableList<Integer> affecterCom() {
+        ObservableList<Integer> listevent = FXCollections.observableArrayList();
+
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT idcommande FROM commande";
+            ResultSet rs;
+            rs = st.executeQuery(req);
+            while (rs.next()) {
+                listevent.add(rs.getInt(1));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            //   return null;
+        }
+        return listevent;
+    }
+    public ObservableList<Integer> affecterProd() {
+        ObservableList<Integer> listevent = FXCollections.observableArrayList();
+
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT id_produit FROM produit";
+            ResultSet rs;
+            rs = st.executeQuery(req);
+            while (rs.next()) {
+                listevent.add(rs.getInt(1));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            //   return null;
+        }
+        return listevent;
     }
 }

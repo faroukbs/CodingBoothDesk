@@ -29,7 +29,11 @@ public class Classe extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AffichageCommande.fxml"));
+            
+           //Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        
+Parent root = FXMLLoader.load(getClass().getResource("AjouterLigneCom.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("item.fxml"));
 //            Parent root = FXMLLoader.load(getClass().getResource("Paiement.fxml"));
             Scene scene = new Scene(root);
             

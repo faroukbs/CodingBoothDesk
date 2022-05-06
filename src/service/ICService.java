@@ -5,6 +5,7 @@
  */
 package service;
 
+import static com.itextpdf.text.pdf.PdfName.C;
 import java.util.List;
 
 /**
@@ -14,6 +15,8 @@ import java.util.List;
 public interface ICService<T> {
     void ajouterCommande(T t);
     void modifierCommande(T t);
+    public List<T> AfficherCommande(T t);
+
     void supprimerCommande(int idcommande);
     List<T> recupererCommande();
 }

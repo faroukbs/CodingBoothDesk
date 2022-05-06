@@ -168,7 +168,7 @@
                         <Button fx:id="modify1" mnemonicParsing="false" onAction="#modifierCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Modifier" textAlignment="CENTER" textFill="WHITE" translateX="545.0" />
                         <Button fx:id="supprimer1" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Supprimer" textAlignment="CENTER" textFill="WHITE" translateX="663.0" />
                         <Button fx:id="miseAjour" mnemonicParsing="false" onAction="#reload" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Actualiser" textAlignment="CENTER" textFill="WHITE" translateX="13.0" />
-                        <Button fx:id="stat" mnemonicParsing="false" onAction="#stat" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Statistique" textAlignment="CENTER" textFill="WHITE" translateX="120.0" />
+                        <Button fx:id="excel" mnemonicParsing="false" onAction="#exportExcel" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Details" textAlignment="CENTER" textFill="WHITE" translateX="120.0" />
                      </children>
                   </GridPane>
                </children>

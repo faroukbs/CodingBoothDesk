@@ -6,6 +6,10 @@
 package GUI;
 
 import entities.Commande;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -30,6 +34,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
@@ -37,6 +42,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javax.swing.JOptionPane;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import service.CommandeService;
 import util.MyDBPi;
 
@@ -48,6 +56,7 @@ import util.MyDBPi;
 public class ListComController implements Initializable {
     CommandeService Sp = new CommandeService();
     ObservableList<Commande> list;
+    Connection cnx;
 
     @FXML
     private TableView<Commande> TableView;
@@ -93,7 +102,7 @@ public class ListComController implements Initializable {
     @FXML
     private Button ligne;
     @FXML
-    private Button stat;
+    private Button excel;
 
     /**
      * Initializes the controller class.
@@ -218,16 +227,73 @@ public class ListComController implements Initializable {
         }
     }
 
-    @FXML
-    private void stat(ActionEvent event) {
-//        try{
-//            String query="select idcommande, mode_paiement from commande";
-//            Statement pst = MyDBPi.getInstance().getConnection().prepareStatement(query); // import java.sql.Statement
-//            JFreeChart chart=ChartFactory.crateLineChart("Query chart","num commande","mode de paiement",pst, PlotOrientation.VERTICAL, false, true, true);
-//        }
-//        catch(Exception e){
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-    }
+//    @FXML
+//    private void exportExcel(ActionEvent event) throws SQLException, FileNotFoundException, IOException {
+////        Connection cnx = Myconnexion.getInstance().getCnx();
+//        String query = "Select * from commande";
+//         PreparedStatement pst = cnx.prepareStatement(query);
+//            ResultSet rs = pst.executeQuery();
+//            XSSFWorkbook wb = new XSSFWorkbook();
+//            XSSFSheet sheet = wb.createSheet("Détails commande");
+//            XSSFRow header = sheet.createRow(0);
+//            header.createCell(0).setCellValue("ID");
+//            header.createCell(1).setCellValue("Nom Client");
+//            header.createCell(2).setCellValue("Prenom Client");
+//            header.createCell(3).setCellValue("Telephone");
+//             header.createCell(4).setCellValue("Adresse");
+//             header.createCell(5).setCellValue("Montant");
+//             header.createCell(6).setCellValue("Mode de paiement");
+//             header.createCell(7).setCellValue("Etat commande");
+//        
+//              
+//            
+//            int index = 1;
+//            while(rs.next()){
+//                XSSFRow row = sheet.createRow(index);
+//                row.createCell(0).setCellValue(rs.getInt("idcommande"));
+//                row.createCell(1).setCellValue(rs.getString("nom_client"));
+//                row.createCell(2).setCellValue(rs.getString("prenom_client"));
+//                row.createCell(3).setCellValue(rs.getString("telephone"));
+//                row.createCell(4).setCellValue(rs.getString("adresse"));
+//                row.createCell(5).setCellValue(rs.getString("montant"));
+//                row.createCell(6).setCellValue(rs.getString("mode_paiement"));
+//                row.createCell(7).setCellValue(rs.getString("etat_commande"));
+//                System.out.println(rs.getString("nom_client"));
+//                
+//               
+//                index++;
+//            }
+            
+//             crudCommande.AfficherCommande(commande).forEach(e
+//                    -> {
+//               for (int i=0 ; i<5 ;i++){
+//                XSSFRow row = sheet.createRow(i);
+//                row.createCell(0).setCellValue(e.getIdcommande());
+//                row.createCell(1).setCellValue(e.getNom_client());
+//                row.createCell(2).setCellValue(e.getPrenom_client());
+//                row.createCell(3).setCellValue(e.getAdresse());
+//                row.createCell(4).setCellValue(e.getAdresse());
+//                  System.out.println(e.getNom_client());
+//               }
+//                
+//                
+//            }
+//            );
+            
+//            FileOutputStream file = new FileOutputStream("Détailscommande.xlsx");
+//            wb.write(file);
+//            file.close();
+//            
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Information Dialog");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Exportation effectuée!!!");
+//            alert.showAndWait();
+//            pst.close();
+//            rs.close();
+//            
+//            File myFile = new File("C:/Users/aicha/Documents/NetBeansProjects/PiJava/Détailscommande.xlsx");
+//             Desktop.getDesktop().open(myFile);
+//    }
     
 }

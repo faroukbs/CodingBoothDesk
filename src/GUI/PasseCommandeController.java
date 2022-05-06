@@ -5,10 +5,17 @@
  */
 package GUI;
 
+import entities.Cart;
 import entities.Commande;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Date;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -129,11 +136,14 @@ public class PasseCommandeController implements Initializable {
 //            String prenomClient = prenom.getText();
 //            String phone = tel.getText();
 //            String adresse = adr.getText();
+//           
 //            String montant = mont.getText();
 //            String modeP = mode.getSelectionModel().getSelectedItem();
 //            Integer etatC = etat.getSelectionModel().getSelectedItem();  
 //            
-//
+//        Double d  = Cart.getInstance().total() ;
+//        String montants=String.valueOf(d);  
+//        System.out.println(montant);
 //
 //            CommandeService ps = new CommandeService();
 //            
@@ -146,6 +156,11 @@ public class PasseCommandeController implements Initializable {
 //            alert.setHeaderText(null);
 //            alert.setContentText("Commande ajouter");
 //            alert.showAndWait();
+//            String message ="Votre commande votre commande est bien prise en compte "; 
+//             //SMSController smsc= new SMSController();
+//             sms("aicha97", "Aicha1997", "216"+tel, message);
+//             System.out.println("216"+tel);
+
             try{
             Parent root = FXMLLoader.load(getClass().getResource("Paiement.fxml"));
             nom.getScene().setRoot(root);
@@ -184,7 +199,72 @@ public class PasseCommandeController implements Initializable {
 //        
     
     }
+//    }
 
+public void sms(String username, String password, String to,String message){
+            try{
+        
+        String myURI = "https://api.movider.co/v1/sms";
+
+    // change these values to match your own account
+    // new compte pour envoyer sms ***********************************************************
+    String myUsername = "aicha";
+    String myPassword = "Aicha1997";
+
+    // the details of the message we want to send
+    String myData = "{to: \""+to+"\", encoding: \"UNICODE\", body: \""+message+"\"}";
+
+    // if your message does not contain unicode, the "encoding" is not required:
+    // String myData = "{to: \"1111111\", body: \"Hello Mr. Smith!\"}";
+
+    // build the request based on the supplied settings
+    URL url = new URL(myURI);
+    HttpURLConnection request = (HttpURLConnection) url.openConnection();
+    request.setDoOutput(true);
+
+    // supply the credentials
+    String authStr = myUsername + ":" + myPassword;
+    String authEncoded = Base64.getEncoder().encodeToString(authStr.getBytes());
+    request.setRequestProperty("Authorization", "Basic " + authEncoded);
+
+    // we want to use HTTP POST
+    request.setRequestMethod("POST");
+    request.setRequestProperty( "Content-Type", "application/json");
+
+    // write the data to the request
+    OutputStreamWriter out = new OutputStreamWriter(request.getOutputStream());
+    out.write(myData);
+    out.close();
+
+    // try ... catch to handle errors nicely
+    try {
+      // make the call to the API
+      InputStream response = request.getInputStream();
+      BufferedReader in = new BufferedReader(new InputStreamReader(response));
+      String replyText;
+      while ((replyText = in.readLine()) != null) {
+        System.out.println(replyText);
+      }
+      in.close();
+    } catch (IOException ex) {
+      System.out.println("An error occurred:" + ex.getMessage());
+      BufferedReader in = new BufferedReader(new InputStreamReader(request.getErrorStream()));
+      // print the detail that comes with the error
+      String replyText;
+      while ((replyText = in.readLine()) != null) {
+        System.out.println(replyText);
+      }
+      in.close();
+    }
+    request.disconnect();
+        
+    }catch(Exception e)
+    {
+        
+        
+        System.out.println(e);
+    }}
+    
 
     private Boolean testSaisie() {
         String erreur = "";
@@ -346,10 +426,12 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
             String prenomClient = prenom.getText();
             String phone = tel.getText();
             String adresse = adr.getText();
-            String montant = mont.getText();
             String modeP = mode.getSelectionModel().getSelectedItem();
             Integer etatC = etat.getSelectionModel().getSelectedItem();            
 
+            Double montaDouble  = Cart.getInstance().total() ;
+            String montant=String.valueOf(montaDouble);  
+            System.out.println(montant);
 
             CommandeService ps = new CommandeService();
             

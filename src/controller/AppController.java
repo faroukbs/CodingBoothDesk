@@ -43,7 +43,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import service.ProduitCrud;
+import service.ProductService;
 
 
 /**
@@ -85,7 +85,7 @@ public class AppController implements Initializable {
     
 
     
-    ProduitCrud ev = new ProduitCrud();
+    ProductService ev = new ProductService();
    
     private Product o;
     @FXML
@@ -263,7 +263,7 @@ public class AppController implements Initializable {
                     HBox image2 = cartyEntryView(p);
                     image2.setPrefWidth(80);
 
-                    Label productName = new Label(p.getProduct_name());
+                    Label productName = new Label(p.getNomprod());
                     productName.setPrefWidth(300);
                     productName.setStyle("-fx-font-size:15pt; -fx-padding:5px");
 
@@ -281,7 +281,7 @@ public class AppController implements Initializable {
                     
 
 
-                    Label price = new Label(Double.toString(p.getPrice()*p.getQuantity()));
+                    Label price = new Label(Double.toString(p.getPrix()*p.getQuantity()));
                     price.setPrefWidth(100);
                     price.setStyle("-fx-padding:8px");
 
@@ -289,15 +289,15 @@ public class AppController implements Initializable {
                     box.getChildren().add(content);
                     additionquantity.setOnAction(event -> {
                      
-                        if(p.getQuantity()<=p.getStock()-1){
+                        if(p.getQuantity()<=p.getQuantity()-1){
                             //   substractquantity.setE(true);
                             double test = Double.parseDouble(totalPriceLabel.getText());
 
                             int quantity = p.getQuantity()+1;
                             p.setQuantity(quantity);
                             quantityValue.setText(Integer.toString(p.getQuantity()));
-                            price.setText(Double.toString(p.getQuantity()*p.getPrice()));
-                            totalPriceLabel.setText(Double.toString(test+p.getPrice()));
+                            price.setText(Double.toString(p.getQuantity()*p.getPrix()));
+                            totalPriceLabel.setText(Double.toString(test+p.getPrix()));
                         }
                         else{
                             // additionquantity.setEnabled(false);
@@ -324,8 +324,8 @@ public class AppController implements Initializable {
                             int quantity = p.getQuantity()-1;
                             p.setQuantity(quantity);
                             quantityValue.setText(Integer.toString(p.getQuantity()));
-                            price.setText(Double.toString(p.getQuantity()*p.getPrice()));
-                            totalPriceLabel.setText(Double.toString(test-p.getPrice()));
+                            price.setText(Double.toString(p.getQuantity()*p.getPrix()));
+                            totalPriceLabel.setText(Double.toString(test-p.getPrix()));
                         }
                         else{
                             //   substractquantity.setEnabled(false);
@@ -381,7 +381,7 @@ public class AppController implements Initializable {
      {
         HBox layout = new HBox();
         layout.setAlignment(Pos.CENTER_LEFT);
-       FileInputStream input = new FileInputStream("C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/ressource/"+o.getImg());
+       FileInputStream input = new FileInputStream("C:/Users/aicha/Documents/NetBeansProjects/PiJava/src/ressource/"+o.getImage());
                                         
         Image image = new Image(input);
         ImageView imageView = new ImageView(image);

@@ -122,6 +122,35 @@ public class CommandeService implements ICService<Commande>{
         return list ;
 
     }
+    @Override
+    public List<Commande> AfficherCommande(Commande c) {
+        List<Commande> list = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM commande ";
+            Statement pst = MyDBPi.getInstance().getConnection().createStatement();
+            ResultSet rs = pst.executeQuery(requete);
+            while (rs.next()) {
+                Commande r = new Commande();
+                r.setIdcommande(rs.getInt("idcommande"));
+                r.setNom_client(rs.getString("nom_client"));
+                r.setPrenom_client(rs.getString("prenom_client"));
+               r.setTelephone(rs.getString("telephone"));
+                r.setAdresse(rs.getString("adresse"));
+                 r.setMontant(rs.getString("montant"));
+                 r.setMode_paiement(rs.getString("mode_paiement"));
+                 r.setEtat_commande(rs.getInt("etat_commande"));
+
+
+                
+                list.add(r);
+            }
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLSTATE: " + ex.getSQLState());
+            System.out.println("VnedorError: " + ex.getErrorCode());
+        }
+        return list;
+    }
 
     public Commande recuperer(int idcommande) {
         Commande r = new Commande();

@@ -32,6 +32,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -102,6 +103,7 @@ public class AffichageCommandeController implements Initializable {
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     Commande commande = null ;
+    CommandeService crudCommande = new CommandeService();
     
     ObservableList<Commande>  CommandeList = FXCollections.observableArrayList();
     @FXML
@@ -287,136 +289,67 @@ public class AffichageCommandeController implements Initializable {
 
     @FXML
     private void convertirPDF(ActionEvent event) {
-        numeroPDF = numeroPDF + 1;
-        String nomm = "Liste " + numeroPDF + ".pdf";
+        long millis = System.currentTimeMillis();
+        java.sql.Date DateRapport = new java.sql.Date(millis);
+
+        String DateLyoum = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(DateRapport);//yyyyMMddHHmmss
+        System.out.println("DateLyoummmmmmmmmmmmmmmmmmmmm   " + DateLyoum);
+
+        com.itextpdf.text.Document document = new com.itextpdf.text.Document();
+
         try {
-            SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
-            SimpleDateFormat Heure = new SimpleDateFormat("hh:mm:ss");
-            //Font f = new Font(FontFamily.HELVETICA, 13, Font.NORMAL, GrayColor.GRAYWHITE);
 
-//            WritableImage wimg = chartNode.snapshot(new SnapshotParameters(), null);
-//            File file = new File("ChartSnapshot.png");
-//            ImageIO.write(SwingFXUtils.fromFXImage(wimg, null), "png", file);
+            PdfWriter.getInstance(document, new FileOutputStream(String.valueOf(DateLyoum + ".pdf")));//yyyy-MM-dd
+            document.open();
+            Paragraph ph1 = new Paragraph("Rapport Pour :" + DateRapport);
+            Paragraph ph2 = new Paragraph(".");
+            PdfPTable table = new PdfPTable(6);
 
-            doc.open();
-         
-            
-            
-            
-              List<Commande> res= new ArrayList<>();
-            
-            CommandeService rs =new CommandeService();
-            res=rs.recupererCommande();
-            
-            PdfPTable tab =new PdfPTable(7);
-            
-            String txt="<!-- #######  YAY, I AM THE SOURCE EDITOR! #########-->\n" +
-"<h1 style=\"color: #5e9ca0;\"> <span style=\"color: #2b2301;\"></span> </h1>\n" +
-"<h2 style=\"color: #2e6c80;\"></h2>\n" +
-"<p> <br /></p>\n" +
-"<p> <span style=\"background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;\"></span> </p>\n" +
-"<h2 style=\"color: #2e6c80;\"></h2>\n" +
-"<ol style=\"list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;\">\n" +
-"<li style=\"clear: both;\">&nbsp;</li>\n" +
-"</ol>\n" +
-"<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\n" +
-"<h2 style=\"color: #2e6c80;\"></h2>\n" +
-"<p>&nbsp;</p>\n" +
-"<p><strong > </strong><br /><strong>Enjoy!</strong></p>\n" +
-"<p><strong>&nbsp;</strong></p>";
-           doc.setHtmlStyleClass(txt);
-           
-            String url1 = getClass().getResource("images/" +"LOGO1.png").toString();
-                
-                
+            //On créer l'objet cellule.
+            PdfPCell cell;
 
-                
-                Image img1 = Image.getInstance(url1);
-                img1.setAlignment(Image.RIGHT);
-                
-                doc.add(img1);
-            
-            tab.addCell("Nom");
-            tab.addCell("Prenom");
-            tab.addCell("Num");
-            tab.addCell("Adresse");
-            tab.addCell("Montant");
-            tab.addCell("Mode de paiement"); 
-            tab.addCell("Etat de commande");
-            
-            Paragraph p =new Paragraph("                                               LISTE DES COMMANDES :");
-            
-           
-            p.setSpacingBefore(50);
-            doc.add(p);
-            doc.add(new Paragraph("                                             -------------------------------------------"));
-             doc.add(new Paragraph("                      "));
-            doc.add(new Paragraph("                      "));
-            doc.add(new Paragraph("                      "));
-           
-             doc.add(new Paragraph("                      "));
-            
-            doc.add(new Paragraph(""));
-            doc.add(new Paragraph(""));
-            doc.add(new Paragraph(""));
-            doc.setHtmlStyleClass(txt);
-           
-            
-            
-            
-            for(int i=0;i<res.size();i++)
-            {
-               
-                Commande resto =res.get(i);
-                String nomString =resto.getNom_client();
-                String prenomString =resto.getPrenom_client();
-                String telString =resto.getTelephone();
-                String adrss =resto.getMontant();
-                String montt =resto.getMontant();
-                String mod =resto.getMode_paiement();
-                String etatString=String.valueOf(resto.getEtat_commande());
-                
-                
-                //String imageFile = resto.getImage() ;
-               // ImageData data = ImageDataFactory.create(imageFile); 
-//                String url = getClass().getResource("images/" + resto.getImage()).toString();
-                
-                
+            //contenu du tableau.
+            table.addCell("Id");
+            table.addCell("Nom Client");
+            table.addCell("Prenom Client");
+            table.addCell("Adress");
+            table.addCell("Phone");
+            table.addCell("Montant");
 
-                
-//                Image img = Image.getInstance(url);
-                //System.out.println(resto.getImage());
-                
-                tab.addCell(nomString);
-                tab.addCell(prenomString);
-                tab.addCell(telString);
-                tab.addCell(adrss);
-                tab.addCell(montt);
-                tab.addCell(mod);
-                tab.addCell(etatString);
-                
-                
-                
-                
-                
-                
-            
-               
+
+            //     table.addCell("Image : ");
+
+            crudCommande.AfficherCommande(commande).forEach(e
+                    -> {
+                table.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(String.valueOf(e.getIdcommande()));
+                table.addCell(e.getNom_client());
+                table.addCell(e.getPrenom_client());
+                table.addCell(e.getAdresse());
+                table.addCell(e.getTelephone());
+                table.addCell(String.valueOf(e.getMontant()));
             }
-            doc.add(tab);
-            
-           
-        
-            
-            doc.close();
-            
-            System.out.println("your pdf has been created");
-//            file.close();
+            );
+            document.add(ph1);
+            document.add(ph2);
+            document.add(table);
+            //  document.addAuthor("Bike");
+            // AlertDialog.showNotification("Creation PDF ", "Votre fichier PDF a ete cree avec success", AlertDialog.image_checked);
         } catch (Exception e) {
+            System.out.println(e);
         }
-        
-         
-        
+        document.close();
+
+        ///Open FilePdf
+        File file = new File(DateLyoum + ".pdf");
+        if (file.exists()) //checks file exists or not  
+        {
+            Desktop desktop = Desktop.getDesktop();      
+            try {
+                desktop.open(file); //opens the specified file   
+            } catch (IOException ex) {
+                Logger.getLogger(AffichageCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
-    
 }

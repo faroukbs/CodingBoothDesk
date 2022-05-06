@@ -91,7 +91,11 @@ public class PaiementController implements Initializable {
 //        
 //        
 //        Customer a =Customer.retrieve("cus_JOBwZLoRc0VfHh");
-                
+           double d= Cart.getInstance().total();//floating literal is double by default
+        int IntValue = (int)d;
+        String s=String.valueOf(IntValue)+0;
+                System.out.println(IntValue);
+                System.out.println(s);     
         Stripe.apiKey="sk_test_51KYdqTD3kS5EqQroQHhrVRxUvLmzPnw74ZrOFhTamDzsE5OzQY4xCfaWTNqtpcxEojtoOSYQ4NbrsMJ5N4QelWS000AqAqrRv4";
       
                    Map<String, Object> cardParams = new HashMap<String, Object>();

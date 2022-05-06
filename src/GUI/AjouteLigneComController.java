@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,7 +45,7 @@ import service.LignecommandeService;
 public class AjouteLigneComController implements Initializable {
     Connection cnx;
     ObservableList<Lignecommande> list;
-
+LignecommandeService st = new LignecommandeService();
     @FXML
     private Pane pnlCustomer;
     @FXML
@@ -69,9 +70,9 @@ public class AjouteLigneComController implements Initializable {
     @FXML
     private Button miseAjour;
     @FXML
-    private TextField idc;
+    private ComboBox<Integer> idc;
     @FXML
-    private TextField idp;
+    private ComboBox<Integer> idp;
     @FXML
     private TextField qte;
     @FXML
@@ -88,6 +89,10 @@ public class AjouteLigneComController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        idc.setItems(st.affecterCom());
+        idc.getSelectionModel().selectFirst();
+        idp.setItems(st.affecterProd());
+        idp.getSelectionModel().selectFirst();
 showAzer();    }    
 
 
@@ -99,14 +104,13 @@ showAzer();    }
        // Lignecommande lc = sv.recuperer(TableView.getSelectionModel().getSelectedItem().getIdlignecommande());
        // System.out.println(lc.toString());
         //int var = (Integer.parseInt(id));
-        int idcom = (Integer.parseInt(idc.getText()));
-        int idpr = (Integer.parseInt(idp.getText()));
-        int qtee = (Integer.parseInt(qte.getText()));
-        
-        Lignecommande v = new Lignecommande(voy.getIdlignecommande(), idcom, idpr, qtee);
+        voy.setIdcommande(idc.getValue());
+        voy.setIdproduit(idp.getValue());
+        voy.setQuantite(Integer.parseInt(qte.getText()));
+
         
 
-        sv.modifier(v);
+        sv.modifier(voy);
         showAzer(); //// raifrach table view ///
     }
 
@@ -132,8 +136,7 @@ showAzer();    }
 
     @FXML
     private void AjouteLigne(ActionEvent event) {
-        if (idc.getText().isEmpty()
-                || idp.getText().isEmpty() || qte.getText().isEmpty()) {
+        if ( qte.getText().isEmpty()) {
 
             InnerShadow in = new InnerShadow();
             in.setColor(Color.web("#f80000"));
@@ -149,13 +152,13 @@ showAzer();    }
             alert.showAndWait();
 
         } else if ( testTel()) {
-            int idcomm = Integer.parseInt(idc.getText());
+            int idcom = idc.getSelectionModel().getSelectedItem();
 
-            int idprod = Integer.parseInt(idp.getText());
+            int idprod = idp.getSelectionModel().getSelectedItem();
             int quantity = Integer.parseInt(qte.getText());
 
             LignecommandeService ps = new LignecommandeService();
-            Lignecommande v = new Lignecommande(idcomm, idprod, quantity );
+            Lignecommande v = new Lignecommande(idcom, idprod, quantity );
 
             ps.ajouter(v);
             showAzer(); //// raifrach table view ///
@@ -259,9 +262,7 @@ showAzer();    }
     private void Liste_ligne(MouseEvent event) {
         try {
             Lignecommande ligne = TableView.getSelectionModel().getSelectedItem();
-                    idc.setText(valueOf(ligne.getIdcommande()));
-                                idp.setText(valueOf(ligne.getIdproduit()));
-                                                    qte.setText(valueOf(ligne.getQuantite()));
+            qte.setText(valueOf(ligne.getQuantite()));
 
 
         } catch (Exception e) {

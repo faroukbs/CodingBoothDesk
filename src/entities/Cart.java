@@ -41,10 +41,10 @@ public final class Cart {
 
     public void RemoveProduct(Product e) {
         
-       int productid = e.getId();
+       int productid = e.getId_produit();
         for(int i=0 ; i<this.c.size();i++){
             Product product = this.c.get(i);
-            if(product.getProduct_name().equals(e.getProduct_name())){
+            if(product.getNomprod().equals(e.getNomprod())){
                 this.c.remove(i);
             }
         }
@@ -72,7 +72,7 @@ public final class Cart {
     public double total(){
         double total=0;
      for(Product product : this.c){
-                    total = total + (product.getPrice()*product.getQuantity());
+                    total = total + (product.getPrix()*product.getQuantity());
                 }
     return total;
     }
