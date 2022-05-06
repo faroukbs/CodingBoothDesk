@@ -56,7 +56,6 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import service.CategoryProdService;
 import service.ProductService;
-import utils.Smsapi;
 
 /**
  *
@@ -195,8 +194,8 @@ public class GestionProduitController implements Initializable {
                 fl.close();
                 Product p = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
                 Sp.Add(p);
-                Smsapi.sendSMS("Nous avons ajouté un produit" + p.getNomprod().toString() + "\n" + p.getDescription().toString() + " \n avec un prix de " + p.getPrix()
-                        + " \n disponible en une quantité de " + p.getQuantity());
+//                Smsapi.sendSMS("Nous avons ajouté un produit" + p.getNomprod().toString() + "\n" + p.getDescription().toString() + " \n avec un prix de " + p.getPrix()
+//                        + " \n disponible en une quantité de " + p.getQuantity());
                 sendEmail();
                 tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
                 Alert alert = new Alert(AlertType.INFORMATION);

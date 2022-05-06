@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 import service.CategoryProdService;
 import service.ProductService;
 import service.RateService;
-import utils.Smsapi;
 
 /**
  *
@@ -33,7 +32,7 @@ public class PidevDesk extends Application {
     public void start(Stage primaryStage) {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/GestProduits.fxml")); //load view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/market.fxml")); //load view
 
             Parent root = loader.load();
             Scene scene = new Scene(root);
