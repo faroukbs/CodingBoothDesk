@@ -39,12 +39,12 @@
       <Button layoutX="445.0" layoutY="397.0" mnemonicParsing="false" onAction="#Sendsms" prefHeight="27.0" prefWidth="80.0" text="send" />
       <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="303.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-sms-53.png" />
+            <Image url="@../images/icons8-sms-53.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="501.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-send-50.png" />
+            <Image url="@../images/icons8-send-50.png" />
          </image>
       </ImageView>
    </children>

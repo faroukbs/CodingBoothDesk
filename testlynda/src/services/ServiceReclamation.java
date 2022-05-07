@@ -25,7 +25,7 @@ public class ServiceReclamation implements Ireclamation{
    Connection cnx = MaConnexion.getInstance().getCnx();
 
     public boolean ajouterReclamation(Reclamation r) {
-        String request = "INSERT INTO `Reclamation`(`nom`, `message`, `sujet`,`email`,`createdAt`,`idReponse`,`idUser`) VALUES ('"+r.getNom()+"','"+r.getMessage()+"','"+r.getSujet()+"','"+r.getEmail()+"','"+r.getCreatedAt()+"','"+r.getReponse().getIdReponse()+"','"+r.getUser().getIdUser()+"')";
+        String request = "INSERT INTO `Reclamation`(`nom`, `message`, `sujet`,`email`,`createdAt`,`idReponse`,`idUser`) VALUES ('"+r.getNom()+"','"+r.getMessage()+"','"+r.getSujet()+"','"+r.getEmail()+"','"+r.getCreatedAt()+"','"+r.getReponse().getIdReponse()+"','"+r.getUser().getId()+"')";
 //          String request = "INSERT INTO `Reclamation`(`nom`, `createdAt`,`idReponse`,`idUser`) VALUES ('"+r.getNom()+"','"+r.getMessage()+"','"+r.getSujet()+"','"+r.getEmail()+"','"+r.getCreatedAt()+"','"+r.getReponse().getIdReponse()+"','"+r.getUser().getIdUser()+"')";
 try {
             Statement st = cnx.createStatement();
@@ -76,7 +76,7 @@ try {
 
     @Override
     public boolean modifierReclamation(Reclamation r) {
-           String req = "UPDATE `reclamation` SET `nom`='"+r.getNom()+"',`message`='"+r.getMessage()+"',`sujet`='"+r.getSujet()+"',`email`='"+r.getEmail()+"',`createdAt`='"+r.getCreatedAt()+"',`idReponse`='"+r.getReponse().getIdReponse()+"',`idUser`='"+r.getUser().getIdUser()+"' WHERE `idReclamation` = "+r.getIdReclamation()+" ";
+           String req = "UPDATE `reclamation` SET `nom`='"+r.getNom()+"',`message`='"+r.getMessage()+"',`sujet`='"+r.getSujet()+"',`email`='"+r.getEmail()+"',`createdAt`='"+r.getCreatedAt()+"',`idReponse`='"+r.getReponse().getIdReponse()+"',`idUser`='"+r.getUser().getId()+"' WHERE `idReclamation` = "+r.getIdReclamation()+" ";
         try {
             Statement st = cnx.createStatement();
             if (st.executeUpdate(req) == 1)
@@ -107,7 +107,7 @@ try {
     public List<Reclamation> rechercheReclamationParUser(Utilisateur u) {
         List<Reclamation> reclamation = new ArrayList<Reclamation>();
 
-        String req="SELECT * FROM `reclamation` where `idUser`="+u.getIdUser()+" ";
+        String req="SELECT * FROM `reclamation` where `idUser`="+u.getId()+" ";
         Statement st = null;
         try {
             st = cnx.createStatement();

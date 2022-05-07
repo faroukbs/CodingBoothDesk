@@ -136,7 +136,7 @@ public class RepadminController implements Initializable {
                 Reponse livSelected = (Reponse) livTableau.getSelectionModel().getSelectedItem();
                 System.out.println("selected value " + livSelected);
                 if (livSelected != null) {
-                    if (livSelected.getUser().getIdUser()!= 0 || livSelected.getUser() == null) {
+                    if (livSelected.getUser().getId()!= 0 || livSelected.getUser() == null) {
                         affecterBtn.setText("Annuler l'affectation");
                     } else {
                         affecterBtn.setText("Affecter");
@@ -170,7 +170,7 @@ public class RepadminController implements Initializable {
     @FXML
     private void affecterAction(ActionEvent event) {
           Reponse livSelected = (Reponse) livTableau.getSelectionModel().getSelectedItem();
-        if (livSelected.getUser().getIdUser()!= 0 || livSelected.getUser() == null) {
+        if (livSelected.getUser().getId()!= 0 || livSelected.getUser() == null) {
             livSelected.setUser(null);
             ServiceReponse sl = new ServiceReponse();
             sl.annulerAffectation(livSelected);
@@ -207,8 +207,8 @@ public class RepadminController implements Initializable {
         formLivraison.setOpacity(1);
         idlivForm.setText("");
         idlivForm.setDisable(false);
-        etatLivraisonlabel.setOpacity(0);
-        etatLivraison.setOpacity(0);
+        etatLivraisonlabel.setOpacity(1);
+        etatLivraison.setOpacity(1);
     }
      private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);

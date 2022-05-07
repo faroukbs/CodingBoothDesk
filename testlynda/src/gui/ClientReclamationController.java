@@ -126,7 +126,7 @@ idLivraison.getItems().addAll(listLivData);
      else {
  
       Utilisateur u = new Utilisateur();
-                u.setIdUser(Integer.valueOf(idUser.getText()));
+                u.setId(Integer.valueOf(idUser.getText()));
                 Reponse LivSelected = (Reponse) idLivraison.getSelectionModel().getSelectedItem();
 
         Reclamation r = new Reclamation(Integer.valueOf(idReclamation.getText()),idNom.getText(),Description.getText(),idSujet.getText(),idSujet1.getText(),Date.valueOf(date.getValue()),LivSelected,u);

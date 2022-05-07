@@ -40,12 +40,12 @@
       <Button fx:id="Enregistrer" layoutX="229.0" layoutY="386.0" mnemonicParsing="false" onAction="#Enregistrer" prefHeight="25.0" prefWidth="262.0" text="Enregister" />
       <ImageView fitHeight="51.0" fitWidth="52.0" layoutX="157.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-complaints-48.png" />
+            <Image url="@../images/images.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="21.0" fitWidth="16.0" layoutX="466.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-save-50.png" />
+            <Image url="@../images/icons8-save-50.png" />
          </image>
       </ImageView>
       <TextField fx:id="idNom" layoutX="521.0" layoutY="68.0" prefHeight="18.0" prefWidth="262.0" />

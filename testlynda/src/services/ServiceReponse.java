@@ -28,7 +28,7 @@ public class ServiceReponse implements Ireponse{
     Connection cnx = MaConnexion.getInstance().getCnx();
     @Override
     public boolean ajouterReponse(Reponse l) {
-        String request = "INSERT INTO `reponse`(  `nom`, `sujet`, `message`, `createdAt`, `etat`, `idUser`, `idCommande`) VALUES ('"+l.getNom()+"','"+l.getSujet()+"','"+l.getMessage()+"','"+l.getCreatedAt()+"','"+l.getEtat()+"','"+l.getUser().getIdUser()+"','"+l.getCommande().getIdCommande()+"')";
+        String request = "INSERT INTO `reponse`(  `nom`, `sujet`, `message`, `createdAt`, `etat`, `idUser`, `idCommande`) VALUES ('"+l.getNom()+"','"+l.getSujet()+"','"+l.getMessage()+"','"+l.getCreatedAt()+"','"+l.getEtat()+"','"+l.getUser().getId()+"','"+l.getCommande().getIdCommande()+"')";
 //         String request = "INSERT INTO `reponse`( `createdAt`, `etat`, `idUser`, `idCommande`) VALUES ("+l.getCreatedAt()","+l.getEtat()",'"+l.getUser().getIdUser()+"','"+l.getCommande().getIdCommande()+"')";
 try {
             Statement st = cnx.createStatement();
@@ -66,7 +66,7 @@ try {
 
     @Override
     public boolean modifierReponse(Reponse l) {
-            String req = "UPDATE `reponse` SET `nom`='"+l.getNom()+"',`sujet`= "+l.getSujet()+"',`message`='"+l.getMessage()+"',`createdAt`='"+l.getCreatedAt()+"',`etat`='"+l.getEtat()+"',`idUser`='"+l.getUser().getIdUser()+"',`idCommande`='"+l.getCommande().getIdCommande()+"' WHERE `idReponse` = "+l.getIdReponse()+" ";
+            String req = "UPDATE `reponse` SET `nom`='"+l.getNom()+"',`sujet`= "+l.getSujet()+"',`message`='"+l.getMessage()+"',`createdAt`='"+l.getCreatedAt()+"',`etat`='"+l.getEtat()+"',`idUser`='"+l.getUser().getId()+"',`idCommande`='"+l.getCommande().getIdCommande()+"' WHERE `idReponse` = "+l.getIdReponse()+" ";
         try {
             Statement st = cnx.createStatement();
             if (st.executeUpdate(req) == 1)
@@ -107,7 +107,7 @@ try {
      }
      public boolean Affectation(Reponse l , Repondeur repondeurSelected){
      
-    String req="UPDATE `reponse` SET `idUser`="+repondeurSelected.getIdUser()+" WHERE idReponse= "+l.getIdReponse()+" ";
+    String req="UPDATE `reponse` SET `idUser`="+repondeurSelected.getId()+" WHERE idReponse= "+l.getIdReponse()+" ";
 
     
     try {

@@ -32,7 +32,7 @@ public class Emailer {
         //Your gmail address
         String myAccountEmail = "lylygasmi@gmail.com";
         //Your gmail password
-        String password = "lyndagasmi";
+        String password = "lyly53706136.";
 
         //Create a session with account credentials
         Session session = Session.getInstance(properties, new Authenticator() {

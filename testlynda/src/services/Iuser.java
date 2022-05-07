@@ -7,12 +7,14 @@ package services;
 
 
 import java.util.List;
+import static javafx.scene.input.KeyCode.U;
+import entities.Utilisateur;
 
 
 /**
  *
  * @author lylyy
  */
-public interface Iuser<U> {
-public List<U> afficher();
+public interface Iuser<Utilisateur> {
+public List<Utilisateur> afficher();
 }

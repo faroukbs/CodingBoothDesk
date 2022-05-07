@@ -12,49 +12,95 @@ import java.sql.Date;
  * @author lylyy
  */
 public class Utilisateur {
-    private int idUser; 
-    private String nom,prenom,email,password,numTel,image;
-    private String roles;
-    private Date date_naissance;
+    private int id ; 
+    private String nom ;
+    private String prenom ;
+    private int num_tel ;
+    private String password ;
+    private String date_naissance ;
+    private String email ;
+    private String roles="[\"ROLE_USER\"]";
+    private String image ; 
     private int is_verified=1;
+    private String code;
 
-    public Utilisateur() {
+    public Utilisateur(int id, String password, String email) {
+        this.id = id;
+        this.password = password;
+        this.email = email;
     }
 
-    public Utilisateur(int idUser) {
-        this.idUser = idUser;
+
+    public Utilisateur(int id) {
+        this.id = id;
     }
 
-    public Utilisateur(String nom, String prenom, String email, String password, String numTel, String image, Date date_naissance) {
+    public Utilisateur(int id, String nom, String prenom, int num_tel, String password, String date_naissance, String email, String roles ) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.email = email;
+        this.num_tel = num_tel;
         this.password = password;
-        this.numTel = numTel;
-        this.image = image;
         this.date_naissance = date_naissance;
-    }
-
-    public Utilisateur(int idUser, String nom, String prenom, String email, String password, String numTel, String image, String roles, Date date_naissance) {
-        this.idUser = idUser;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.password = password;
-        this.numTel = numTel;
-        this.image = image;
-        this.roles = roles;
-        this.date_naissance = date_naissance;
-    }
-     public Utilisateur(int idUser, String email, String roles, String password, String nom, String prenom, Date date_naissance, String num_tel, String image, int is_verified) {
-        this.idUser = idUser;
         this.email = email;
         this.roles = roles;
+    }
+
+
+    public Utilisateur(String password, String email, String roles) {
+        this.password = password;
+        this.email = email;
+        this.roles = roles;
+    }
+
+    public Utilisateur(String nom, String prenom, int num_tel, String password, String email, String image) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.num_tel = num_tel;
+       this.password = password;
+        this.email = email;
+        this.image = image;
+    }
+
+//    public Utilisateur(int id, String nom, String prenom, int num_tel, String password, String email, String image) {
+//        this.id = id;
+//        this.nom = nom;
+//        this.prenom = prenom;
+//        this.num_tel = num_tel;
+//        this.password = password;
+//        this.email = email;
+//        this.image = image;
+//    }
+/*
+    /**
+     *
+     * @param nom
+     * @param prenom
+     * @param num_tel
+     * @param password
+     * @param email
+     * @param image
+     *//*
+    public Utilisateur(String nom, String prenom, int num_tel, String password, String email, String image) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.num_tel = num_tel;
+        this.password = password;
+       // this.date_naissance = date_naissance;
+        this.email = email;
+        //this.roles = roles;
+        this.image = image;
+    }*/
+
+    public Utilisateur(int id, String email, String roles, String password, String nom, String prenom, String date_naissance, int num_tel, String image, int is_verified) {
+        this.id = id;
+        this.email = email;
+        this.roles = roles;
         this.password = password;
         this.nom = nom;
         this.prenom = prenom;
         this.date_naissance = date_naissance;
-        this.numTel = numTel;
+        this.num_tel = num_tel;
         this.image = image;
         this.is_verified = is_verified;
        
@@ -63,19 +109,41 @@ public class Utilisateur {
       
     }
 
-    public int getIdUser() {
-        return idUser;
+    public Utilisateur(String text, String text0, String text1, String text2, String hashPassword, String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public Utilisateur() {
+        
+    }
+
+    public Utilisateur(int parseInt, String text, String text0, String text1, String text2, String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Utilisateur(int parseInt, String text, String text0, int parseInt0, String text1, String text2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Utilisateur(String text, String text0, int parseInt, String hashPassword, String text1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public void setNom(String nom) {
+    public void setName(String nom) {
         this.nom = nom;
     }
 
@@ -87,12 +155,12 @@ public class Utilisateur {
         this.prenom = prenom;
     }
 
-    public String getEmail() {
-        return email;
+    public int getNum_tel() {
+        return num_tel;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNum_tel(int num_tel) {
+        this.num_tel = num_tel;
     }
 
     public String getPassword() {
@@ -103,12 +171,42 @@ public class Utilisateur {
         this.password = password;
     }
 
-    public String getNumTel() {
-        return numTel;
+    public String getDate_naissance() {
+        return date_naissance;
     }
 
-    public void setNumTel(String numTel) {
-        this.numTel = numTel;
+    public void setDate_naissance(String date_naissance) {
+        this.date_naissance = date_naissance;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+      public int getisVerified() {
+        return is_verified;
+    }
+
+    public void setIsVerified(int isVerified) {
+        this.is_verified = is_verified;
     }
 
     public String getImage() {
@@ -119,34 +217,11 @@ public class Utilisateur {
         this.image = image;
     }
 
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
-    public Date getDate_naissance() {
-        return date_naissance;
-    }
-
-    public void setDate_naissance(Date date_naissance) {
-        this.date_naissance = date_naissance;
-    }
-
-    public int getIs_verified() {
-        return is_verified;
-    }
-
-    public void setIs_verified(int is_verified) {
-        this.is_verified = is_verified;
-    }
-
     @Override
     public String toString() {
-        return "Utilisateur{" + "idUser=" + idUser + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", numTel=" + numTel + ", image=" + image + ", roles=" + roles + ", date_naissance=" + date_naissance + ", is_verified=" + is_verified + '}';
+        return "Utilisateur{" + "id=" + id + ", nom=" + nom + ", code=" + code + ", prenom=" + prenom + ",is_verified=" + is_verified + ", num_tel=" + num_tel + ", password=" + password + ", date_naissance=" + date_naissance + ", email=" + email + ", roles=" + roles + ", image=" + image + '}';
     }
+    
     
     
 }

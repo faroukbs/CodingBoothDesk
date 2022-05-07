@@ -29,7 +29,7 @@
          <children>
             <TextField fx:id="idlivForm" layoutX="107.0" layoutY="14.0" prefHeight="25.0" prefWidth="224.0" />
             <ComboBox fx:id="idcommandeform" layoutX="108.0" layoutY="192.0" prefHeight="25.0" prefWidth="224.0" />
-            <Button fx:id="enregistrer" layoutX="14.0" layoutY="399.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="25.0" prefWidth="259.0" style="-fx-background-color: #ABEBC6;" text="Enregistrer" />
+            <Button fx:id="enregistrer" layoutX="14.0" layoutY="399.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="25.0" prefWidth="259.0" style="-fx-background-color: #FF0000;" text="Enregistrer" />
             <Text layoutX="9.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id reponse">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
@@ -48,7 +48,7 @@
             </Label>
             <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="250.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-save-50.png" />
+                  <Image url="@../images/icons8-save-50.png" />
                </image>
             </ImageView>
             <Text layoutX="2.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail repondeur">
@@ -79,40 +79,40 @@
          </children>
       </AnchorPane>
       <Button fx:id="modifierbtn" layoutX="703.0" layoutY="75.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="99.0" text="Modifier" />
-      <Button fx:id="gestionRecBTN" layoutX="645.0" layoutY="30.0" mnemonicParsing="false" onAction="#gotToREC" style="-fx-background-color: #ABEBC6;" text="Gestion Reclamation" />
-      <ImageView fitHeight="74.0" fitWidth="73.0" layoutX="167.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="gestionRecBTN" layoutX="645.0" layoutY="30.0" mnemonicParsing="false" onAction="#gotToREC" style="-fx-background-color: #FF0000;" text="Gestion Reclamation" />
+      <ImageView fitHeight="62.0" fitWidth="60.0" layoutX="167.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/img/275363207_4843346099084766_3627257200093599445_n.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="509.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/add.png" />
+            <Image url="@../images/add.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="782.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/edit.png" />
+            <Image url="@../images/edit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="892.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/delete.png" />
+            <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="170.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="62.0" fitWidth="67.0" layoutX="165.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/275363207_4843346099084766_3627257200093599445_n.png" />
+            <Image url="@../images/images.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="394.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-search-more-30.png" />
+            <Image url="@../images/icons8-search-more-30.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="672.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/GAMING-STORE-GestionLivraisonReclamation/src/images/icons8-linking-32.png" />
+            <Image url="@../images/icons8-complaints-48.png" />
          </image>
       </ImageView>
       <ComboBox fx:id="liste_livreur" layoutX="170.0" layoutY="351.0" onAction="#affecterAction" prefHeight="25.0" prefWidth="251.0" />

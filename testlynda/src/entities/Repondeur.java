@@ -21,12 +21,17 @@ public class Repondeur extends Utilisateur {
         this.cin = cin;
     }
 
-    public Repondeur(String vehicule, String cin, int idUser, String nom, String prenom, String email, String password, String numTel, String image, String roles, Date date_naissance) {
-        super(idUser, nom, prenom, email, password, numTel, image, roles, date_naissance);
+    public Repondeur(String vehicule, String cin, int id, String nom, String prenom, int num_tel, String password, String date_naissance, String email, String roles) {
+        super(id, nom, prenom, num_tel, password, date_naissance, email, roles);
         this.vehicule = vehicule;
         this.cin = cin;
     }
 
+    
+
+ 
+
+   
 
     public String getVehicule() {
         return vehicule;

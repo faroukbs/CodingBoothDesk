@@ -50,8 +50,8 @@ public class JavamailUtil {
         
 
         
-        String myAccountEmail ="amal.nouira@esprit.tn";
-        String password ="213JFT0076";
+        String myAccountEmail ="lynda.gasmi@esprit.tn";
+        String password ="213JFT2537";
         
         properties.put("com.hof.email.starttime","20170519094544");
         properties.put("mail.smtp.auth","true");

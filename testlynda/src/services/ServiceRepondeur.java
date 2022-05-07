@@ -24,7 +24,7 @@ public class ServiceRepondeur implements Irepondeur{
     Connection cnx = MaConnexion.getInstance().getCnx();
     @Override
     public boolean ajouterPersonne(Repondeur p) {
-        String request = "INSERT INTO `repondeur`( `cin`, `vehicule`,`id_user`) VALUES ('" + p.getCin()+ "','" + p.getVehicule()+ "','" + p.getIdUser()+ "')";
+        String request = "INSERT INTO `repondeur`( `cin`, `vehicule`,`idUser`) VALUES ('" + p.getCin()+ "','" + p.getVehicule()+ "','" + p.getId()+ "')";
         try {
             Statement st = cnx.createStatement();
             if (st.executeUpdate(request) == 1) {
@@ -51,8 +51,8 @@ public class ServiceRepondeur implements Irepondeur{
 
             //SOB HEDHA FI HEDHA
             while (rs.next()) {
-                personnes.add(new Repondeur(rs.getString("vehicule"), rs.getString("cin"), rs.getInt("idUser"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getString("password"), rs.getString("numTel"), rs.getString("image"),
-                        rs.getString("roles"), rs.getDate("date_naissance")));
+                personnes.add(new Repondeur(rs.getString("vehicule"), rs.getString("cin"), rs.getInt("idUser"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("num_tel"), rs.getString("password"), rs.getString("date_naissance"),
+                        rs.getString("email"),rs.getString("roles")));
             }
 
         } catch (SQLException e) {
@@ -64,7 +64,7 @@ public class ServiceRepondeur implements Irepondeur{
 
     @Override
     public boolean modifierPersonne(Repondeur p) {
-           String req = "UPDATE `repondeur` SET `vehicule`='" + p.getVehicule() + "',`cin`='" + p.getCin() + "' WHERE `idUser` = " + p.getIdUser()+ " ";
+           String req = "UPDATE `repondeur` SET `vehicule`='" + p.getVehicule() + "',`cin`='" + p.getCin() + "' WHERE `idUser` = " + p.getId()+ " ";
         try {
             Statement st = cnx.createStatement();
             if (st.executeUpdate(req) == 1) {
@@ -79,7 +79,7 @@ public class ServiceRepondeur implements Irepondeur{
 
     @Override
     public boolean supprimerPersonne(Repondeur p) {
-           String req = "DELETE FROM `repondeur` WHERE `idUser` = " + p.getIdUser()+ " ";
+           String req = "DELETE FROM `repondeur` WHERE `idUser` = " + p.getId()+ " ";
         try {
             Statement st = cnx.createStatement();
             if (st.executeUpdate(req) == 1) {

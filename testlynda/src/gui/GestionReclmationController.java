@@ -33,6 +33,7 @@ import services.ServiceReclamation;
 import services.ServiceReponse;
 import services.ServiceUser;
 import utils.Emailer;
+import utils.JavamailUtil;
 
 /**
  * FXML Controller class
@@ -74,14 +75,14 @@ ObservableList selectedCells = tableReclamation.getSelectionModel().getSelectedC
   selectedCells.addListener(new ListChangeListener() {
             @Override
             public void onChanged(ListChangeListener.Change c) {
-                System.out.println(".onChanged()");
+                
                Reclamation ReclamationSelected = (Reclamation) tableReclamation.getSelectionModel().getSelectedItem();
                 System.out.println(ReclamationSelected);
                if(ReclamationSelected!=null){
-                    System.out.println("ici");
+                   
                     Supprimer.setDisable(false);
                     if(ReclamationSelected.isWarn()){
-                                        warn.setDisable(true);
+                                        warn.setDisable(false);
 
                     }else{
                     warn.setDisable(false);}
@@ -131,14 +132,15 @@ tableReclamation.setItems(ListRecData);}
         sr.warn(ReclamationSelected);
 ServiceReponse SL= new ServiceReponse();
         Optional<Reponse> L = SL.afficherReponse().stream().filter(l->l.getIdReponse()==ReclamationSelected.getReponse().getIdReponse()).findFirst();
-      System.out.print("hey"+L.get().getUser());
-      ServiceUser us = new ServiceUser();
-   String email = us.getById(L.get().getUser().getIdUser());
-      Utilisateur UserToSent = us.afficher().stream().filter(e->e.getIdUser()==L.get().getUser().getIdUser()).findFirst().get();
+       ServiceUser us = new ServiceUser();
+        System.out.print("hey"+L.get().getUser().getId());
+     
+   String email = us.getById(L.get().getUser().getId());
+      Utilisateur UserToSent = us.afficher().stream().filter(e->e.getId()==L.get().getUser().getId()).findFirst().get();
        
         try {
             Emailer.sendMail(ReclamationSelected.getEmail(), "Warning   "+ReclamationSelected.getMessage());
-          //  JavamailUtil.sendMailaide( email, "WARNING", "SERVICE RECLAMATION",ReclamationSelected.getDescription() );
+//          JavamailUtil.sendMailaide( email, "WARNING", "SERVICE RECLAMATION",ReclamationSelected.getMessage());
         } catch (Exception ex) {
             Logger.getLogger(GestionReclmationController.class.getName()).log(Level.SEVERE, null, ex);
         }
