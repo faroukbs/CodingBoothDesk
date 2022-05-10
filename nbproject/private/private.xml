@@ -3,12 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/faver.fxml</file>
             <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/GestionProduitController.java</file>
-            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/pidevdesk/PidevDesk.java</file>
             <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/MarketController.java</file>
-            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/utils/Smsapi.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/entities/Product.java</file>
             <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/ItemController.java</file>
-            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/GestionCategorieController.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/entities/wishlist.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/market.fxml</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/FaverController.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/pidevdesk/PidevDesk.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/service/CategoryProdService.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/service/ProductService.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/MyListener.java</file>
+            <file>file:/C:/Users/bouss/Desktop/CodingBoothDesk-farouk/src/gui/style.css</file>
         </group>
     </open-files>
 </project-private>

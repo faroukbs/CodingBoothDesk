@@ -1,5 +1,8 @@
 package gui;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import entities.Product;
 import entities.Utilisateur;
 import static java.lang.String.valueOf;
@@ -37,7 +40,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -45,6 +47,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javax.mail.MessagingException;
@@ -62,6 +65,11 @@ import service.ProductService;
  * @author bouss
  */
 public class GestionProduitController implements Initializable {
+
+//    public static final String ACCOUNT_SID = "ACb1fb65e118b0e9b3636ab0230b3960c7";
+//    public static final String AUTH_TOKEN = "341bb34d4ff2a67e60aabcbb368c875d";
+//    public static final String ACCOUNT_SID = "AC737f7b7101f804f14c4149e3eadc494f";
+//    public static final String AUTH_TOKEN = "460df9734b641b12b1976b6d0b49eee5";
 
     ProductService Sp = new ProductService();
     @FXML
@@ -154,18 +162,21 @@ public class GestionProduitController implements Initializable {
 
     @FXML
     private void returnb(ActionEvent event) throws IOException {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-//            Parent root = loader.load();
-//            retour.getScene().setRoot(root);
-//        } catch (IOException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-        Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+
+  Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+//        AnchorPane root = FXMLLoader.load(getClass().getResource("market.fxml"));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        stage.setWidth(1050);
+//        stage.setHeight(576);
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.setMaximized(true);
+//        stage.show();
+//        System.out.println("done");
 
     }
 
@@ -194,9 +205,15 @@ public class GestionProduitController implements Initializable {
                 fl.close();
                 Product p = new Product(tfNom.getText(), tfdescription.getText(), path, Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
                 Sp.Add(p);
-//                Smsapi.sendSMS("Nous avons ajouté un produit" + p.getNomprod().toString() + "\n" + p.getDescription().toString() + " \n avec un prix de " + p.getPrix()
-//                        + " \n disponible en une quantité de " + p.getQuantity());
+                
+//                Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+//                Message message = Message.creator(new PhoneNumber("+21628608927"), new PhoneNumber("+19705389836"), "Nous avons ajouté un produit  :" + p.getNomprod() + "\n" + p.getDescription() + " \n avec un prix : " + p.getPrix()
+//                        + " \n disponible en une quantité : " + p.getQuantity()).create();
+
+//                System.out.println(message.getSid());
+                System.out.println("done sms");
                 sendEmail();
+                 System.out.println("done mail");
                 tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Product added");
@@ -206,24 +223,7 @@ public class GestionProduitController implements Initializable {
         }
     }
 
-//    @FXML
-//    private void AddP(ActionEvent event) {
-//        DataValidation validator = new DataValidation();
-//        int idCategory = servCat.getIdByCategoryName(combCat.getValue());
-//        
-//        if (tfPrix.getText().isEmpty()) {
-//            error.setText("Verifier les entrées s'il vous plait");
-//        } else {// FIXME: change the id user from 1 to the current logged in user.
-//            Product l = new Product(tfNom.getText(), tfdescription.getText(), tfimg.getText(), Float.parseFloat(tfPrix.getText()), Integer.parseInt(tfQuant.getText()), idCategory);
-//            Sp.Add(l);
-//            tblProd.setItems(FXCollections.observableArrayList(Sp.GetAll()));
-//            Alert alert = new Alert(AlertType.INFORMATION);
-//            alert.setTitle("Product added");
-//            alert.setContentText("Product added succesfuuly!");
-//            tblProd.refresh();
-//        }
-//
-//    }
+
     @FXML
     private void DelP(ActionEvent event) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -255,7 +255,6 @@ public class GestionProduitController implements Initializable {
 
             final int idCategory = servCat.getIdByCategoryName(combCat.getValue());
 
-            // FIXME: change the id user from 1 to the current logged in user.
             final Product selectedItem = tblProd.getSelectionModel().getSelectedItem();
             Product prod = Sp.GetById(selectedItem.getId_produit());
             System.out.println(selectedItem.getId_produit());
@@ -263,7 +262,6 @@ public class GestionProduitController implements Initializable {
             prod.setPrix(Float.parseFloat(tfPrix.getText()));
             prod.setQuantity(Integer.parseInt(tfQuant.getText()));
             prod.setDescription(tfdescription.getText());
-//        prod.setImage(tfimg.getText());
             prod.setCategoryprod_id(idCategory);
 
             FileInputStream fl = new FileInputStream(file);

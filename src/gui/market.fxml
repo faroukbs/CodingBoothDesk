@@ -60,11 +60,34 @@
                      </styleClass>
                   </HBox>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
-                  <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="615.0" prefWidth="335.0" style="-fx-background-color: DC2812;" stylesheets="@style.css">
+                  <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="615.0" prefWidth="335.0" style="-fx-background-color: #cf6767;" stylesheets="@style.css">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
                      <children>
+                        <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#like" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <Pane prefHeight="32.0" prefWidth="31.0">
+                                 <children>
+                                    <ImageView fx:id="heartl" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/heart.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="unheartl" fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/heart%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </graphic>
+                        </Button>
+                        <Label text="Add to Favorite" textFill="#4a4a4a">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                         <HBox prefHeight="60.0" prefWidth="335.0">
                            <children>
                               <Label fx:id="fruitNameLable" prefHeight="48.0" prefWidth="276.0" text="name">
@@ -149,7 +172,10 @@
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </Label>
-                        <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button layoutY="14.0" mnemonicParsing="false" onAction="#gofav" text="fav" />
+                           </children></Pane>
                         <Label prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
                            <font>
                               <Font name="Cambria" size="18.0" />
