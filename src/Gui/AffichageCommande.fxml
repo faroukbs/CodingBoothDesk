@@ -17,13 +17,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AffichageCommandeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="1273.0" styleClass="white_backgroud" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AffichageCommandeController">
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: DC2812;" styleClass="transparent" stylesheets="@../src/home/style_1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="-8.0" prefHeight="667.0" prefWidth="290.0" style="-fx-background-color: DC2812;" styleClass="transparent" stylesheets="@../src/home/style_1.css">
          <children>
             <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -38,7 +40,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Label>
-            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Accueill" textFill="#e7e5e5">
+            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#hhhh" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Accueill" textFill="#e7e5e5">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
                      <image>
@@ -56,7 +58,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Messagerie">
+            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="les evenements">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
                      <image>
@@ -68,7 +70,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Profil">
+            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#produit" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Product">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
                      <image>
@@ -80,7 +82,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Menus">
+            <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#productCart" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="ProductCart">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
                      <image>
@@ -116,89 +118,108 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-         </children>
-      </VBox>
-      <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
-         <children>
-            <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlOverview" prefHeight="576.0" prefWidth="876.0" styleClass="right-bar" stylesheets="@../src/home/style_1.css">
-               <children>
-                  <TextField fx:id="getRecherche" layoutX="590.0" layoutY="47.0" onAction="#Rechercher" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-border-radius: 2em;" styleClass="search-box" stylesheets="@../src/home/style_1.css" />
-                  <Label layoutX="57.0" layoutY="25.0" text="Espace Client">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="23.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="72.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
-                     <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
-                        <Label text="Liste Des Commandes" translateX="29.0">
-                           <font>
-                              <Font name="System Bold" size="30.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="749.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnMenus1" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Reclamation" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Reclamation">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
                      <image>
-                        <Image url="@../src/images/icons8_Search_52px.png" />
+                        <Image url="@../src/images/icons8_Xbox_Menu_32px.png" />
                      </image>
                   </ImageView>
-                  <GridPane layoutX="9.0" layoutY="132.0" prefHeight="382.0" prefWidth="773.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="270.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <TableView fx:id="TableView" onSort="#showAzer" prefHeight="220.0" prefWidth="773.0" style="-fx-background-color: #ffffff;" GridPane.rowIndex="1">
-                           <columns>
-                              <TableColumn fx:id="nom" prefWidth="87.0" text="Nom" />
-                              <TableColumn fx:id="prenom" prefWidth="70.0" text="Prenom" />
-                              <TableColumn fx:id="tel" prefWidth="150.0" text="Tel" />
-                              <TableColumn fx:id="adr" prefWidth="90.0" text="Adresse" />
-                              <TableColumn fx:id="mont" prefWidth="83.0" text="Montant" />
-                              <TableColumn fx:id="mode" prefWidth="124.0" text="Mode de paiement" />
-                              <TableColumn fx:id="etat" prefWidth="65.0" text="Etat commande" />
-                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                           <stylesheets>
-                              <URL value="@../../../../../Desktop/mobilePI/src/gui/styleTournoi.css" />
-                              <URL value="@style.css" />
-                           </stylesheets>
-                           <styleClass>
-                              <String fx:value="chosen-fruit-card" />
-                              <String fx:value="column-header-background" />
-                           </styleClass>
-                        </TableView>
-                        <Button fx:id="modify1" mnemonicParsing="false" onAction="#modifierCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Modifier" textAlignment="CENTER" textFill="WHITE" translateX="545.0" />
-                        <Button fx:id="supprimer1" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Supprimer" textAlignment="CENTER" textFill="WHITE" translateX="663.0" />
-                        <Button fx:id="miseAjour" mnemonicParsing="false" onAction="#details" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Details" textAlignment="CENTER" textFill="WHITE" translateX="13.0" />
-                        <Button fx:id="helpp" mnemonicParsing="false" onAction="#help" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="help" textAlignment="CENTER" textFill="WHITE" translateX="122.0" />
-                        <Button fx:id="retourBtn2" mnemonicParsing="false" onAction="#convertirPDF" prefHeight="33.0" prefWidth="126.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Convertir PDF" textFill="WHITE" translateX="232.0">
-                           <font>
-                              <Font name="Calibri Bold" size="17.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="retourBtn21" mnemonicParsing="false" onAction="#stat" prefHeight="33.0" prefWidth="126.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Statistique" textFill="WHITE" translateX="372.0">
-                           <font>
-                              <Font name="Calibri Bold" size="17.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </GridPane>
-               </children>
-            </Pane>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnMenus11" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Account" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: DC2812;" stylesheets="@../src/home/style.css" text="Account">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
+                     <image>
+                        <Image url="@../src/images/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
          </children>
-      </StackPane>
+      </VBox>
+      <Pane fx:id="pnlOverview" layoutX="283.0" layoutY="-2.0" prefHeight="660.0" prefWidth="992.0" styleClass="white_backgroud" stylesheets="@../src/home/style_1.css">
+         <children>
+            <TextField fx:id="getRecherche" layoutX="794.0" layoutY="29.0" onAction="#Rechercher" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-border-radius: 2em;" styleClass="search-box" stylesheets="@../src/home/style_1.css" />
+            <Label layoutX="57.0" layoutY="25.0" text="Espace Client">
+               <font>
+                  <Font name="Segoe UI Semibold" size="23.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="72.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+                  <Label text="Liste Des Commandes" translateX="29.0">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fitHeight="17.0" fitWidth="1.0" layoutX="749.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/images/icons8_Search_52px.png" />
+               </image>
+            </ImageView>
+            <GridPane layoutX="9.0" layoutY="132.0" prefHeight="382.0" prefWidth="773.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="270.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView fx:id="TableView" onSort="#showAzer" prefHeight="358.0" prefWidth="773.0" style="-fx-background-color: #ffffff;" GridPane.rowIndex="1">
+                     <columns>
+                        <TableColumn fx:id="nom" prefWidth="87.0" text="Nom" />
+                        <TableColumn fx:id="prenom" prefWidth="70.0" text="Prenom" />
+                        <TableColumn fx:id="tel" prefWidth="150.0" text="Tel" />
+                        <TableColumn fx:id="adr" prefWidth="90.0" text="Adresse" />
+                        <TableColumn fx:id="mont" prefWidth="83.0" text="Montant" />
+                        <TableColumn fx:id="mode" prefWidth="124.0" text="Mode de paiement" />
+                        <TableColumn fx:id="etat" prefWidth="65.0" text="Etat commande" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <stylesheets>
+                        <URL value="@../../../../../Desktop/mobilePI/src/gui/styleTournoi.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="chosen-fruit-card" />
+                        <String fx:value="column-header-background" />
+                     </styleClass>
+                  </TableView>
+                  <Button fx:id="miseAjour" mnemonicParsing="false" onAction="#details" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Details" textAlignment="CENTER" textFill="WHITE" translateX="13.0" />
+                  <Button fx:id="helpp" mnemonicParsing="false" onAction="#help" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="help" textAlignment="CENTER" textFill="WHITE" translateX="122.0" />
+                  <Button fx:id="retourBtn2" mnemonicParsing="false" onAction="#convertirPDF" prefHeight="33.0" prefWidth="126.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Convertir PDF" textFill="WHITE" translateX="232.0">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="retourBtn21" mnemonicParsing="false" onAction="#stat" prefHeight="33.0" prefWidth="126.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Statistique" textFill="WHITE" translateX="372.0">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <Button fx:id="supprimer1" layoutX="878.0" layoutY="164.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" text="Supprimer" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="modify1" layoutX="765.0" layoutY="164.0" mnemonicParsing="false" onAction="#modifierCommande" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ee3030;" styleClass="add-btn" stylesheets="@style.css" text="Modifier" textAlignment="CENTER" textFill="WHITE" />
+            <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="945.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/images/icons8_Search_52px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
-   <effect>
-      <DropShadow color="#1b1eeb" />
-   </effect>
 </AnchorPane>

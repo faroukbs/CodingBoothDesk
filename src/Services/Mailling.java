@@ -9,7 +9,7 @@ package services;
  *
  * @author Admin
  */
-import entities.Commande;
+import Entities.Commande;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;

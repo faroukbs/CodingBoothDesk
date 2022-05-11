@@ -5,7 +5,7 @@
  */
 package Gui;
 
-import entities.Commande;
+import Entities.Commande;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -61,6 +62,10 @@ public class ModifierCommandeController implements Initializable {
     private Pane pnlOverview;
     @FXML
     private Button confirme;
+    @FXML
+    private Button btnMenus1;
+    @FXML
+    private Button btnMenus11;
 
     /**
      * Initializes the controller class.
@@ -81,10 +86,6 @@ public class ModifierCommandeController implements Initializable {
     
 
 
-    @FXML
-    private void handleClicks(ActionEvent event) {
-    }
-    
 
 //    @FXML
 //    private void modifierCom(ActionEvent event) {
@@ -119,7 +120,55 @@ public class ModifierCommandeController implements Initializable {
 //        
 //    }}
 
+    @FXML
+    private void modifierCom(ActionEvent event) {
+    }
+@FXML
+    private void handleClicks(ActionEvent event) throws IOException {
+             Parent root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void produit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
     
-    
-    
+
+    @FXML
+    private void productCart(ActionEvent event) throws IOException {
+             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void Reclamation(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("ClientReclamationController.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void Account(ActionEvent event) {
+    }
+
+    @FXML
+    private void hhhh(ActionEvent event) {
+    }
 }

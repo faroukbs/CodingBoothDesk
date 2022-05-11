@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="518.0" prefWidth="449.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.modifprofilcontroller">
+    <stylesheets>
+        <URL value="@../BrainNovation-GestUser/src/view/interfacemodif.css" />
+    </stylesheets>
+   <children>
+      <HBox layoutX="-33.0" prefHeight="100.0" prefWidth="485.0" styleClass="profile-layout" stylesheets="@../Gui/dashboard.css">
+         <effect>
+            <DropShadow height="31.38" radius="17.0425" width="38.79">
+               <color>
+                  <Color blue="0.6052631735801697" green="0.579109787940979" red="0.566033124923706" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="72.0" prefWidth="519.0" text="UPDATE YOUR PROFIL" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="140.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TextField fx:id="txt_nom" layoutX="123.0" layoutY="184.0" prefWidth="200.0" promptText="nom" />
+      <TextField fx:id="txt_prenom" layoutX="123.0" layoutY="228.0" prefWidth="200.0" promptText="prenom" />
+      <TextField fx:id="txt_email" layoutX="125.0" layoutY="307.0" prefWidth="200.0" promptText="email" />
+      <TextField fx:id="txt_num" layoutX="124.0" layoutY="265.0" prefWidth="200.0" promptText="num" />
+      <Button layoutX="176.0" layoutY="377.0" mnemonicParsing="false" onAction="#modifier" prefHeight="34.0" prefWidth="128.0" styleClass="Button" stylesheets="@../Gui/dashboard.css" text="Confirmer" textFill="#f8f8f8">
+         <font>
+            <Font name="Bauhaus 93" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="id_lab" layoutX="206.0" layoutY="85.0" textFill="#170357">
+         <font>
+            <Font name="Tahoma Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lid" layoutX="373.0" layoutY="103.0" visible="false" />
+      <TextField fx:id="role" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="130.0" layoutY="434.0" scaleShape="false" visible="false" />
+      <TextField fx:id="passe" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="150.0" layoutY="465.0" scaleShape="false" visible="false" />
+      <TextField fx:id="img" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="113.0" layoutY="82.0" scaleShape="false" visible="false" />
+   </children>
+</AnchorPane>

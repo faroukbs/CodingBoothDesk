@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.PaiementController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="white_backgroud" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.PaiementController">
       <children>
       <Pane layoutY="-1.0" prefHeight="607.0" prefWidth="1001.0" style="-fx-background-color: white;">
          <children>
@@ -43,12 +43,12 @@
                </font>
             </Label>
             <TextField fx:id="cvc" layoutX="519.0" layoutY="328.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
-            <Button fx:id="valider" layoutX="531.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #D1DADC;" text="Valider">
+            <Button fx:id="valider" layoutX="531.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" styleClass="Button" stylesheets="@dashboard.css" text="Valider">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-                  <Button fx:id="Annuler" layoutX="373.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #D1DADC;" text="Annuler">
+                  <Button fx:id="Annuler" layoutX="373.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" styleClass="Button" stylesheets="@dashboard.css" text="Annuler">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

@@ -3,45 +3,79 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package Entities;
+
+import java.sql.Date;
 
 /**
  *
- * @author bouss
+ * @author lylyy
  */
 public class Reclamation {
-
-    private int id;
-    private String nom, message, sujet, email, etat, type;
+   private int idReclamation; 
+   private String nom,message,sujet,email;
+   private Date createdAt; 
+   private Reponse reponse; 
+   private Utilisateur user;
+   private boolean warn;
 
     public Reclamation() {
     }
 
-    public Reclamation(int id, String nom, String message, String sujet, String email, String etat, String type) {
-        this.id = id;
+    public Reclamation(int idReclamation) {
+        this.idReclamation = idReclamation;
+    }
+
+    public Reclamation(String nom, String message, String sujet, String email, Date createdAt, Reponse reponse, Utilisateur user) {
         this.nom = nom;
         this.message = message;
         this.sujet = sujet;
         this.email = email;
-        this.etat = etat;
-        this.type = type;
+        this.createdAt = createdAt;
+        this.reponse = reponse;
+        this.user = user;
     }
-
-    public Reclamation(String nom, String message, String sujet, String email, String etat, String type) {
+    
+    public Reclamation(int idReclamation, String nom, String message, String sujet, String email, Date createdAt, Reponse reponse, Utilisateur user) {
+        this.idReclamation = idReclamation;
         this.nom = nom;
         this.message = message;
         this.sujet = sujet;
         this.email = email;
-        this.etat = etat;
-        this.type = type;
+        this.createdAt = createdAt;
+        this.reponse = reponse;
+        this.user = user;
+    }
+    
+
+    public boolean isWarn() {
+        return warn;
     }
 
-    public int getId() {
-        return id;
+    public void setWarn(boolean warn) {
+        this.warn = warn;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Reclamation(int idReclamation, String nom, String message, String sujet, String email, Date createdAt, Reponse reponse, Utilisateur user, boolean warn) {
+        this.idReclamation = idReclamation;
+        this.nom = nom;
+        this.message = message;
+        this.sujet = sujet;
+        this.email = email;
+        this.createdAt = createdAt;
+        this.reponse = reponse;
+        this.user = user;
+        this.warn = warn;
+    }
+
+ 
+
+    public int getIdReclamation() {
+        return idReclamation;
+    }
+
+    public void setIdReclamation(int idReclamation) {
+        this.idReclamation = idReclamation;
     }
 
     public String getNom() {
@@ -76,25 +110,34 @@ public class Reclamation {
         this.email = email;
     }
 
-    public String getEtat() {
-        return etat;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getType() {
-        return type;
+    public Reponse getReponse() {
+        return reponse;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setReponse(Reponse reponse) {
+        this.reponse = reponse;
+    }
+
+    public Utilisateur getUser() {
+        return user;
+    }
+
+    public void setUser(Utilisateur user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", nom=" + nom + ", message=" + message + ", sujet=" + sujet + ", email=" + email + ", etat=" + etat + ", type=" + type + '}';
+        return "Reclamation{" + "idReclamation=" + idReclamation + ", nom=" + nom + ", message=" + message + ", sujet=" + sujet + ", email=" + email + ", createdAt=" + createdAt + ", reponse=" + reponse + ", user=" + user + '}';
     }
-
+   
+   
 }

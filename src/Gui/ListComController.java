@@ -5,7 +5,7 @@
  */
 package Gui;
 
-import entities.Commande;
+import Entities.Commande;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -94,6 +94,26 @@ public class ListComController implements Initializable {
     private Button ligne;
     @FXML
     private Button stat;
+    @FXML
+    private Button ligne1;
+    @FXML
+    private Button ligne11;
+    @FXML
+    private Button ligne111;
+    @FXML
+    private Button ligne1111;
+    @FXML
+    private Button ligne11111;
+    @FXML
+    private Button ligne111111;
+    @FXML
+    private Button ligne1111111;
+    @FXML
+    private Button ligne11111111;
+    @FXML
+    private Button ligne111111111;
+    @FXML
+    private Button ligne112;
 
     /**
      * Initializes the controller class.
@@ -229,5 +249,115 @@ public class ListComController implements Initializable {
 //            JOptionPane.showMessageDialog(null, e);
 //        }
     }
-    
+
+      @FXML
+    private void retourEvent(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CrudNew.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourTicket(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CrudNewticket.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourSalle(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CrudSalle.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourCours(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CrudCours.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourProduit(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GestProduits.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourCatCours(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CrudCategorie.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retoutCatProd(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GestCat.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourReclamation(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionReclmation.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourReponses(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Repadmin.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retourUtilisaateur(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interfaces/modifierUsers.fxml"));
+            Parent root = loader.load();
+            commande.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }

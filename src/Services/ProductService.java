@@ -6,7 +6,7 @@
 package services;
 
 import entities.Product;
-import entities.Product;
+import entities.wishlist;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -229,7 +229,46 @@ public class ProductService implements IProduit<Product> {
 //	}
 //
 //    }
+   public void Addf(int idu,int idp) {
+        try {
+            String req = "INSERT INTO `wish_list` ( `id_produit`, `idUser`) Values(?,?)";
+            PreparedStatement st = cnx.prepareStatement(req);
+            st.setInt(1,idp);
+            st.setInt(2, idu);
+            st.executeUpdate();
+            System.out.println("Produit ajouté");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
 
+    }
+     
+     public void Deletef(int idu,int idp) {
+        try {
+            String request = "DELETE FROM wish_list WHERE id_produit=? and idUser=?";
+            PreparedStatement st = cnx.prepareStatement(request);
+            st.setInt(1, idp);
+            st.setInt(2, idu);
+            st.executeUpdate();
+            System.out.println("Produit supprimée!");
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+      public List<wishlist>  GetAllf(int id) {
+        List<wishlist> list = new ArrayList<>();
+	try {
+	    String request = "SELECT* FROM wish_list where idUser="+id;
+	    PreparedStatement st = cnx.prepareStatement(request);
+	    ResultSet rs = st.executeQuery();
+	    while (rs.next()) {
+		list.add(new wishlist(rs.getInt("id_Produit"), rs.getInt("idUser") ) );
+	    }
+	} catch (SQLException ex) {
+	    System.err.println(ex.getMessage());
+	}
+	return list;
+    }
     
 
 }

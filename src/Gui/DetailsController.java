@@ -17,7 +17,7 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import entities.Commande;
+import Entities.Commande;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,6 +49,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -117,6 +118,10 @@ Stage dialogStage = new Stage();
     Document doc = new Document();
     @FXML
     private DatePicker datee;
+    @FXML
+    private Button btnMenus1;
+    @FXML
+    private Button btnMenus11;
 
     /**
      * Initializes the controller class.
@@ -184,8 +189,42 @@ Stage dialogStage = new Stage();
     @FXML
     private void convertirPDF(ActionEvent event) throws FileNotFoundException, DocumentException, BadElementException, IOException {
     }
-            
-        
-   
+@FXML
+    private void produit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+    
+
+    @FXML
+    private void productCart(ActionEvent event) throws IOException {
+             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
     }
 
+    @FXML
+    private void Reclamation(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("ClientReclamationController.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void Account(ActionEvent event) {
+    }
+
+    @FXML
+    private void hhhh(ActionEvent event) {
+    }
+}

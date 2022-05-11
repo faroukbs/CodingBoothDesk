@@ -99,7 +99,6 @@ public class EventCardController implements Initializable {
    double p = 0;
       private Eventl poste;
      private MyListener1 myListener;
-    @FXML
     private Rating rating;
     private String[] colors = {
         "#2596be",
@@ -231,7 +230,6 @@ private Evaluation evaluation;
 //        }
     }
 
-    @FXML
     private void ratethis(MouseEvent event) {
            parsedId = Integer.parseInt(id.getText());
        

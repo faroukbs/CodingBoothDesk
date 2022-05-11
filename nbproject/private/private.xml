@@ -4,48 +4,86 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/RatingController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Interfaces/MainJavaFX.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/IService1.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventCardController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/Classe.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/ProfileUserController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceEventl.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/IProduit_1.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ModifierCommandeController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/LignecommandeService.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Reponse.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/home.fxml</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudNewController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceReponse.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/RepadminController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AllEventsListController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/PasseCommande.fxml</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ListComController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Eventl.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ICService.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AllEventsList.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/GestionReclmationController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Commande.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AjouteLigneComController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Test/PidevDesk.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/GestionCategorieController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ListCom.fxml</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Evaluation.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/DashboardController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudSalleController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ClientReclamationController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Utils/JavamailUtil1.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/Pdf.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/PasseCommandeController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ComStatController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/comStat.fxml</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventStatController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/IProduit.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/CommandeService.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/UserController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/Mailling.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/homeController.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Test/Main.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceUtilisateur.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/PasseController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/dashboard.css</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudNEWticketController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudCategorieController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/DetailsController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/clickListener.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ILService.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventStat.fxml</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceEvaluation.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ProduitCrud.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AffichageCommandeController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceResrvation.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/AppController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/MarketController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudCoursController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/TicketFrontController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/IProduit_1.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/SigninController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ReponseZoneController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/LignecommandeService.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceReclamation.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/SendSmsController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Utils/JavaMailUtil.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/CrudNewController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/testff.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ListComController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Reservation.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceRepondeur.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ICService.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/AllEventsList.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ClientReclamationController.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/Admincontroller.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/InterfaceModifController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/RateProduct.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/market.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Evaluation.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/DashboardController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/modifprofilcontroller.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/PasseCommandeController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/ComStatController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/ChangerPasseController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/comStat.fxml</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/EventStatController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/SignupController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/IProduit.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/CommandeService.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/homeController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Test/Main.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/GUImain.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ILService.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/ServiceTicket.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Gui/GestionProduitController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/PaiementController.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Services/IService.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/controller/AppController.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/Farah/src/Entities/Cours.java</file>
         </group>
     </open-files>
 </project-private>

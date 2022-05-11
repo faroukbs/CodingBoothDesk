@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package Entities;
 
 import java.sql.Date;
 
@@ -19,6 +19,11 @@ public class Commande {
 
     public Commande() {
     }
+
+    public Commande(int idcommande) {
+        this.idcommande = idcommande;
+    }
+    
 
     public Commande(int idcommande, String nom_client, String prenom_client, String telephone, String adresse) {
         this.idcommande = idcommande;

@@ -23,11 +23,10 @@ public class Classe extends Application {
         
         Parent root;
         try {
-        root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
-           
-                //  root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../Interfaces/Sign_in.fxml"));
+                           //  root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
                   // root = FXMLLoader.load(getClass().getResource("CrudNewticket.fxml"));
-                        Scene scene = new Scene(root, 1310, 845);
+                        Scene scene = new Scene(root, 1500, 845);
         
         primaryStage.setTitle("GO GYM!");
         primaryStage.setScene(scene);

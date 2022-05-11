@@ -3,39 +3,72 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package Entities;
 
-import java.util.Date;
+import java.sql.Date;
+import Entities.Commande;
+
 
 /**
  *
- * @author bouss
+ * @author lylyy
  */
 public class Reponse {
+     private int idReponse;
+     private String nom,sujet,message;
+     private Date createdAt ;
+       private String etat;
+    private Utilisateur user;
+     private Commande commande;
+ 
+  
 
-    int id;
-    String sujet, message;
-    Date createdAt;
+    public Reponse() {
+    }
 
-    public Reponse(int id, String sujet, String message, Date createdAt) {
-        this.id = id;
+    public Reponse(int idReponse) {
+        this.idReponse = idReponse;
+    }
+
+    public Reponse(int idReponse, String nom, String sujet, String message, Date createdAt, String etat, Utilisateur user, Commande commande) {
+        this.idReponse = idReponse;
+        this.nom = nom;
         this.sujet = sujet;
         this.message = message;
         this.createdAt = createdAt;
+        this.etat = etat;
+        this.user = user;
+        this.commande = commande;
     }
 
-    public Reponse(String sujet, String message, Date createdAt) {
+    public Reponse(String nom, String sujet, String message, Date createdAt, String etat, Utilisateur user, Commande commande) {
+        this.nom = nom;
         this.sujet = sujet;
         this.message = message;
         this.createdAt = createdAt;
+        this.etat = etat;
+        this.user = user;
+        this.commande = commande;
     }
 
-    public int getId() {
-        return id;
+    
+
+ 
+
+    public int getIdReponse() {
+        return idReponse;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdReponse(int idReponse) {
+        this.idReponse = idReponse;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getSujet() {
@@ -54,6 +87,22 @@ public class Reponse {
         this.message = message;
     }
 
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+    public Utilisateur getUser() {
+        return user;
+    }
+
+    public void setUser(Utilisateur user) {
+        this.user = user;
+    }
+
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -62,9 +111,19 @@ public class Reponse {
         this.createdAt = createdAt;
     }
 
-    @Override
-    public String toString() {
-        return "Reponse{" + "id=" + id + ", sujet=" + sujet + ", message=" + message + ", createdAt=" + createdAt + '}';
+    public String getEtat() {
+        return etat;
     }
 
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
+    @Override
+    public String toString() {
+        return "Reponse{" + "idReponse=" + idReponse + ", nom=" + nom + ", sujet=" + sujet + ", message=" + message + ", createdAt=" + createdAt + ", etat=" + etat + ", user=" + user + ", commande=" + commande + '}';
+    }
+
+ 
+    
 }

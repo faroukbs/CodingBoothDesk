@@ -28,6 +28,7 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,6 +44,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ProductService;
 
 
@@ -92,14 +94,6 @@ public class AppController implements Initializable {
     private GridPane productGridPane;
     @FXML
     private GridPane productGridPane1;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnSettings;
     @FXML
     private Button btnSignout;
     @FXML
@@ -409,7 +403,13 @@ public class AppController implements Initializable {
     navCart.getScene().setRoot(root);    }
 
     @FXML
-    private void handleClicks(ActionEvent event) {
+    private void handleClicks(ActionEvent event) throws IOException {
+                  Parent root = FXMLLoader.load(getClass().getResource("../Gui/AllEventsList.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
     }
 
     @FXML

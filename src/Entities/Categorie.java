@@ -7,50 +7,45 @@ package entities;
 
 /**
  *
- *
+ * @author ahmed
  */
 public class Categorie {
-    
-    int idCategorie;
-    String NomCategorie;
-    String Genre;
+    private int idcategorie;
+    private String nomcategorie;
 
-    public Categorie() {}
+    public int getIdcategorie() {
+        return idcategorie;
+    }
 
-    public Categorie(int idCategorie, String NomCategorie, String Genre) {
-        this.idCategorie = idCategorie;
-        this.NomCategorie = NomCategorie;
-        this.Genre = Genre;
+    public void setIdcategorie(int idcategorie) {
+        this.idcategorie = idcategorie;
+    }
+
+    public String getNomcategorie() {
+        return nomcategorie;
+    }
+
+    public void setNomcategorie(String nomcategorie) {
+        this.nomcategorie = nomcategorie;
+    }
+
+    public Categorie(int idcategorie, String nomcategorie) {
+        this.idcategorie = idcategorie;
+        this.nomcategorie = nomcategorie;
+    }
+
+    public Categorie(String nomcategorie) {
+        this.nomcategorie = nomcategorie;
     }
     
-
-    public int getIdCategorie() {
-        return idCategorie;
+    public Categorie(int idcategorie) {
+        this.idcategorie = idcategorie;
     }
-
-    public void setIdCategorie(int idCategorie) {
-        this.idCategorie = idCategorie;
+    public Categorie() {
     }
-
-    public String getNomCategorie() {
-        return NomCategorie;
-    }
-
-    public void setNomCategorie(String NomCategorie) {
-        this.NomCategorie = NomCategorie;
-    }
-
-    public String getGenre() {
-        return Genre;
-    }
-
-    public void setGenre(String Genre) {
-        this.Genre = Genre;
-    }
-
-    @Override
+@Override
     public String toString() {
-        return "Categorie{" + "idCategorie=" + idCategorie + ", NomCategorie=" + NomCategorie + ", Genre=" + Genre + '}';
+        return "Categorie{" + "idcategorie=" + idcategorie + ", nomcategorie=" + nomcategorie + '}';
     }
-   
+
 }

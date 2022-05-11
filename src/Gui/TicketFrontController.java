@@ -31,15 +31,10 @@ public class TicketFrontController implements Initializable {
 
     @FXML
     private TableView<Ticket> ticketclient;
- @FXML
     private TableColumn<Ticket, Integer> idv;
-   @FXML
     private TableColumn<Ticket, String> descriptionv;
-    @FXML
     private TableColumn<Ticket, String> typev;
-    @FXML
     private TableColumn<Ticket, Integer> prixv;
-        @FXML
     private TableColumn<Ticket, Integer> nbrticketv;
       private TableColumn<Ticket, Button> participerCol;
  ServiceTicket ec = new  ServiceTicket();

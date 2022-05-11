@@ -25,14 +25,14 @@
                             <children>
                                 <VBox fx:id="sideNav" alignment="TOP_CENTER" prefHeight="696.0" prefWidth="250.0" spacing="30.0" style="-fx-background-color: #ee3030;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" VBox.vgrow="ALWAYS">
                                     <children>
-                              <Pane prefHeight="24.0" prefWidth="240.0" style="-fx-background-color: #ee3030;" />
+                              <Pane prefHeight="0.0" prefWidth="250.0" style="-fx-background-color: #ee3030;" />
                               <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../src/images/jimmy-fallon.png" />
                                  </image>
                               </ImageView>
                               <Label text="Jimmy Fallon" textFill="#e7e5e5" />
-                              <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Accueill" textFill="#e7e5e5">
+                              <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Accueill" textFill="#e7e5e5">
                                  <graphic>
                                     <ImageView fx:id="navHome" fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
                                        <image>
@@ -62,66 +62,6 @@
                                     </Region>
                                  </graphic>
                               </Button>
-                              <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Messagerie">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
-                                       <image>
-                                          <Image url="@../src/images/icons8_Open_Envelope_32px.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Profil">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
-                                       <image>
-                                          <Image url="@../src/images/icons8_Person_32px.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Menus">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
-                                       <image>
-                                          <Image url="@../src/images/icons8_Xbox_Menu_32px.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Settings">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
-                                       <image>
-                                          <Image url="@../src/images/icons8_Slider__32px.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #ee3030;" stylesheets="@../src/home/style.css" text="Sign Out">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: white;" styleClass="button">
-                                       <image>
-                                          <Image url="@../src/images/icons8_Sign_Out_32px.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
                                     </children>
                                     <padding>
                                         <Insets top="20.0" />
@@ -135,7 +75,7 @@
                             <content>
                                 <BorderPane fx:id="contentPane">
                                     <center>
-                                        <VBox fx:id="componentBox" prefHeight="696.0" prefWidth="776.0" styleClass="right-bar" stylesheets="@style.css" BorderPane.alignment="CENTER" />
+                                        <VBox fx:id="componentBox" prefHeight="696.0" prefWidth="776.0" styleClass="white_backgroud" stylesheets="@dashboard.css" BorderPane.alignment="CENTER" />
                                     </center>
                                 </BorderPane>
                             </content>
@@ -145,7 +85,7 @@
                         </ScrollPane>
                     </center>
                 </BorderPane>
-                <Pane fx:id="handPaneMac" layoutX="227.0" prefHeight="14.0" prefWidth="813.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                <Pane fx:id="handPaneMac" layoutX="227.0" prefHeight="14.0" prefWidth="813.0" styleClass="white_backgroud" stylesheets="@dashboard.css" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
             </children>
         </AnchorPane>
       <VBox fx:id="box" layoutX="273.0" layoutY="46.0" prefHeight="611.0" prefWidth="759.0" style="-fx-background-color: white;" styleClass="comboBox" stylesheets="@style.css" />

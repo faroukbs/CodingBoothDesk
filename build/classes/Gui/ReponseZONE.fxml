@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="1273.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReponseZoneController">
+   <children>
+      <TextArea fx:id="Liste" layoutX="278.0" layoutY="175.0" prefHeight="315.0" prefWidth="1200.0" text="Liste des warning ">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font>
+      </TextArea>
+      <ImageView fitHeight="22.0" fitWidth="33.0" layoutX="280.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/external-warning-auction-house-flaticons-flat-flat-icons%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="310.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-complaints-48.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" layoutX="-3.0" prefHeight="621.0" prefWidth="256.0" style="-fx-background-color: DC2812;" styleClass="transparent" stylesheets="@../src/home/style_1.css">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/images/jimmy-fallon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Administrateur" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="home" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="263.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Accueill">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ligne" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourLigne" prefHeight="46.0" prefWidth="274.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des lignecommandes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="commande" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCom" prefHeight="46.0" prefWidth="264.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des commandes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/shopping_bag_full_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="287.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Sign Out" translateY="144.0">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logout_rounded_left_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

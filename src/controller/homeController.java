@@ -15,8 +15,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,6 +33,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ProductService;
 
 /**
@@ -73,16 +77,6 @@ public class homeController implements Initializable {
     List<Product> liste = new ArrayList<>();
     private Product o;
  Button[] btn = new Button[100];
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnSettings;
-    @FXML
-    private Button btnSignout;
 
 
     /**
@@ -180,6 +174,13 @@ public class homeController implements Initializable {
     }
 
     @FXML
-    private void handleClicks(ActionEvent event) {
+    private void back(ActionEvent event) throws IOException {
+                  Parent root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
     }
+
 }

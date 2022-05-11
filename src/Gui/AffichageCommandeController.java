@@ -11,7 +11,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import entities.Commande;
+import Entities.Commande;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,6 +33,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -105,12 +106,6 @@ public class AffichageCommandeController implements Initializable {
     @FXML
     private Button btnSignout;
     @FXML
-    private Pane pnlCustomer;
-    @FXML
-    private Pane pnlOrders;
-    @FXML
-    private Pane pnlMenus;
-    @FXML
     private Pane pnlOverview;
     @FXML
     private TextField getRecherche;
@@ -120,6 +115,10 @@ public class AffichageCommandeController implements Initializable {
     private Button retourBtn2;
     @FXML
     private Button retourBtn21;
+    @FXML
+    private Button btnMenus1;
+    @FXML
+    private Button btnMenus11;
     
 
     /**
@@ -206,9 +205,7 @@ public class AffichageCommandeController implements Initializable {
         }
     }
 
-    @FXML
-    private void handleClicks(ActionEvent event) {
-    }
+   
 
     @FXML
     private void showAzer() {
@@ -356,5 +353,53 @@ public class AffichageCommandeController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+     @FXML
+    private void handleClicks(ActionEvent event) throws IOException {
+             Parent root = FXMLLoader.load(getClass().getResource("AllEventsList.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void produit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+    
+
+    @FXML
+    private void productCart(ActionEvent event) throws IOException {
+             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void Reclamation(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("ClientReclamationController.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("fffffff");
+    }
+
+    @FXML
+    private void Account(ActionEvent event) {
+    }
+
+    @FXML
+    private void hhhh(ActionEvent event) {
     }
 }

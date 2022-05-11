@@ -101,7 +101,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="290.0" spacing="2.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="10.0" />
-                  <Button fx:id="applyButton" mnemonicParsing="false" onMouseClicked="#apply" prefHeight="17.0" prefWidth="194.0" styleClass="Button2" stylesheets="@dashboard.css" text="Reserver ticket" textFill="#fcf6f6">
+                  <Button fx:id="applyButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#apply" prefHeight="31.0" prefWidth="288.0" styleClass="Button" stylesheets="@dashboard.css" text="Reserver ticket" textAlignment="JUSTIFY" textFill="#fcf6f6">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font></Button>

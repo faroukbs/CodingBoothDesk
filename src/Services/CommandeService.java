@@ -5,7 +5,7 @@
  */
 package services;
 
-import entities.Commande;
+import Entities.Commande;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -240,6 +240,31 @@ public class CommandeService implements ICService<Commande>{
         }
         return 0;
 
+    }
+    
+    
+//////////////////    lynda
+     public List<Commande> takeCommande() {
+        List<Commande> commande = new ArrayList<Commande>();
+
+        String req="SELECT * FROM `commande`";
+        Statement st = null;
+        try {
+            st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+
+            //SOB HEDHA FI HEDHA
+            while(rs.next()){
+                commande.add(new Commande(rs.getInt("idcommande"),rs.getString("nom_client"),rs.getString("prenom_client"),rs.getString("telephone"),rs.getString("adresse"),rs.getString("montant"),rs.getString("mode_paiement"),rs.getInt("etat_commande")));
+            }
+  
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return commande;
+    
     }
 
 
