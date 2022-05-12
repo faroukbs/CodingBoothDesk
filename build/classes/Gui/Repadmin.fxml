@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="1273.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RepadminController">
+   <children>
+      <Button fx:id="affecterBtn" layoutX="734.0" layoutY="148.0" mnemonicParsing="false" onAction="#affecterAction" prefHeight="25.0" prefWidth="151.0" styleClass="Button" stylesheets="@dashboard.css" text="Affecter" textFill="WHITE" />
+      <Button fx:id="supprimerbtn" layoutX="999.0" layoutY="148.0" mnemonicParsing="false" onAction="#SupprimerLiv" prefHeight="25.0" prefWidth="99.0" styleClass="Button" stylesheets="@dashboard.css" text="Supprimer" textFill="WHITE" />
+      <TextField fx:id="recherche" layoutX="296.0" layoutY="148.0" onAction="#Chercher" prefHeight="25.0" prefWidth="251.0" />
+      <TableView fx:id="livTableau" layoutX="281.0" layoutY="201.0" prefHeight="266.0" prefWidth="312.0" styleClass="table-row-cell" stylesheets="@style.css">
+         <columns>
+            <TableColumn fx:id="Date_liv" prefWidth="75.0" text="Date " />
+            <TableColumn fx:id="etat_livraison" prefWidth="130.0" text="Etat reponse" />
+         </columns>
+      </TableView>
+      <Button fx:id="ajouterbtn" layoutX="625.0" layoutY="148.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="99.0" styleClass="Button" stylesheets="@dashboard.css" text="Ajouter" textFill="WHITE" />
+      <AnchorPane fx:id="formLivraison" layoutX="628.0" layoutY="194.0" prefHeight="446.0" prefWidth="537.0">
+         <children>
+            <TextField fx:id="idlivForm" layoutX="107.0" layoutY="14.0" prefHeight="25.0" prefWidth="224.0" />
+            <ComboBox fx:id="idcommandeform" layoutX="108.0" layoutY="192.0" prefHeight="25.0" prefWidth="224.0" />
+            <Button fx:id="enregistrer" layoutX="14.0" layoutY="385.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="39.0" prefWidth="259.0" style="-fx-background-color: #FF0000;" styleClass="Button" stylesheets="@dashboard.css" text="Enregistrer" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Text layoutX="9.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id reponse">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="8.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id commande">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="etatLivraison" layoutX="108.0" layoutY="229.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label fx:id="etatLivraisonlabel" layoutX="8.0" layoutY="231.0" text="Etat Reponse">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="243.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-save-50.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="2.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail repondeur">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="idlivreurform" layoutX="107.0" layoutY="264.0" prefHeight="25.0" prefWidth="224.0" />
+            <DatePicker fx:id="date" layoutX="351.0" layoutY="14.0" />
+            <TextField fx:id="idnom" layoutX="108.0" layoutY="54.0" prefHeight="25.0" prefWidth="224.0" />
+            <Text layoutX="9.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="idsujet" layoutX="108.0" layoutY="93.0" prefHeight="25.0" prefWidth="224.0" />
+            <Text layoutX="9.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sujet">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="idmessage" layoutX="108.0" layoutY="135.0" prefHeight="25.0" prefWidth="224.0" />
+            <Text layoutX="9.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="message">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Button fx:id="modifierbtn" layoutX="892.0" layoutY="148.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="99.0" styleClass="Button" stylesheets="@dashboard.css" text="Modifier" textFill="WHITE" />
+      <Button fx:id="gestionRecBTN" layoutX="593.0" layoutY="99.0" mnemonicParsing="false" onAction="#gotToREC" style="-fx-background-color: black;" styleClass="Button" stylesheets="@dashboard.css" text="Gestion Reclamation" textFill="WHITE" />
+      <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="698.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="971.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="1081.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="67.0" layoutX="1116.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/images.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="524.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-search-more-30.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="861.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-complaints-48.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="liste_livreur" layoutX="278.0" layoutY="491.0" onAction="#affecterAction" prefHeight="25.0" prefWidth="312.0" />
+      <VBox alignment="TOP_CENTER" layoutX="-4.0" prefHeight="853.0" prefWidth="251.0" style="-fx-background-color: DC2812;" styleClass="transparent" stylesheets="@../src/home/style_1.css">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/images/jimmy-fallon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Administrateur" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="home" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Accueill">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ligne" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourLigne" prefHeight="36.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des lignecommandes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="commande" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCom" prefHeight="37.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des commandes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/shopping_bag_full_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne1" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourEvent" prefHeight="37.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des evenement">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne11" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourTicket" prefHeight="36.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des ticket">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourSalle" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Salle">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne1111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCours" prefHeight="34.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Cours">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne11111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourProduit" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCatCours" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Categorie cours">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne1111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retoutCatProd" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Categorie produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne11111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourReclamation" prefHeight="35.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Reclamation">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne111111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourReponses" prefHeight="37.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Reponses">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne112" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourUtilisaateur" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Liste des Utilisateurs">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="287.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@styleTournoi.css" text="Sign Out">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logout_rounded_left_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

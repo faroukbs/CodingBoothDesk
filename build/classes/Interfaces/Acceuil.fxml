@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Admincontroller">
+   <left>
+      <VBox prefHeight="526.0" prefWidth="209.0" style="-fx-background-color: #0A0232;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="541.0" prefWidth="209.0" style="-fx-background-color: red;">
+               <children>
+                  <VBox prefHeight="342.0" prefWidth="212.0" AnchorPane.topAnchor="180.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#changeUser" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: black;" text="list users" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: black;" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: black;" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: black;" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: black;" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
+                     
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: black;" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <AnchorPane layoutY="-2.0" prefHeight="642.0" prefWidth="43.0" style="-fx-background-color: red;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+                  <ImageView fitHeight="128.0" fitWidth="155.0" layoutX="62.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Admin.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="acpane" layoutY="-1.0" prefHeight="642.0" prefWidth="796.0" />
+         </children></AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="658.0" prefWidth="1445.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserController">
+   <children>
+      <TabPane layoutX="161.0" prefHeight="658.0" prefWidth="1279.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text=" Gérer Utilisateur">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="854.0" styleClass="white_backgroud" stylesheets="@../Gui/dashboard.css">
+                     <children>
+                        <HBox layoutX="936.0" layoutY="30.0" prefHeight="30.0" prefWidth="299.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/recherche.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="txt_search" layoutX="966.0" layoutY="30.0" prefHeight="30.0" prefWidth="257.0" promptText="Rechercher" />
+                        <TableView fx:id="apprenants" layoutX="412.0" layoutY="91.0" prefHeight="330.0" prefWidth="800.0" styleClass="table-row-cell" stylesheets="@../Gui/style.css">
+                           <columns>
+                              <TableColumn fx:id="iduser" prefWidth="40.0" text="id" />
+                              <TableColumn fx:id="nom" prefWidth="64.0" text="name" />
+                              <TableColumn fx:id="nomp" prefWidth="75.0" text="firstname" />
+                              <TableColumn fx:id="num" text="telephone" />
+                              <TableColumn fx:id="passe" prefWidth="92.0" text="password" />
+                              <TableColumn fx:id="genre" prefWidth="65.0" text="date_naiss" />
+                              <TableColumn fx:id="email" prefWidth="164.0" text="email" />
+                              <TableColumn fx:id="role" prefWidth="75.0" text="role" />
+                              <TableColumn fx:id="image" prefWidth="100.0" text="image" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btn_supp" layoutX="365.0" layoutY="450.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#delete" prefHeight="32.0" prefWidth="93.0" styleClass="Button" stylesheets="@../Gui/dashboard.css" text="Supprimer" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="1.26" specularConstant="0.7" specularExponent="33.95" surfaceScale="1.73">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant>
+                                       <color>
+                                          <Color blue="0.12037037312984467" green="0.12037037312984467" red="1.0" />
+                                       </color>
+                                    </Light.Distant>
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                        <Button layoutX="463.0" layoutY="451.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#click" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" styleClass="Button" stylesheets="@../Gui/dashboard.css" text="Modifier" textFill="#210808" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="1.26" specularConstant="0.7" specularExponent="33.95" surfaceScale="1.73">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Button>
+                        <Label contentDisplay="CENTER" layoutX="572.0" layoutY="25.0" text="Listes des Utilisateurs" textFill="#ed0505">
+                           <font>
+                              <Font name="Tahoma" size="32.0" />
+                           </font>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="rechercherMembre" layoutX="594.0" layoutY="451.0" onAction="#affichageTabMembre" onKeyReleased="#affichageTabMembre" prefHeight="31.0" prefWidth="241.0" promptText=" rehchercher par email " />
+                        <CheckBox fx:id="trierNomMembre" layoutX="853.0" layoutY="458.0" mnemonicParsing="false" onAction="#affichageTabMembre" text="Nom" textFill="#da5454" />
+                        <CheckBox fx:id="trierTelMembre" layoutX="853.0" layoutY="481.0" mnemonicParsing="false" onAction="#affichageTabMembre" text="ID" textFill="#eb6f6f" />
+                        <Button fx:id="bann" layoutX="951.0" layoutY="456.0" mnemonicParsing="false" onAction="#bann" prefHeight="33.0" prefWidth="99.0" style="-fx-border-radius: 20; -fx-border-color: transparent;" styleClass="Button2" stylesheets="@../Gui/dashboard.css" text="Bloquer" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font></Button>
+                        <Button fx:id="unbann" layoutX="951.0" layoutY="503.0" mnemonicParsing="false" onAction="#unbann" prefHeight="33.0" prefWidth="100.0" style="-fx-border-radius: 20; -fx-border-color: transparent;" styleClass="Button2" stylesheets="@../Gui/dashboard.css" text="Debloquer" textFill="#f5f5f5">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <VBox alignment="TOP_CENTER" layoutX="-10.0" prefHeight="853.0" prefWidth="280.0" style="-fx-background-color: DC2812;" styleClass="transparent" stylesheets="@../src/home/style_1.css">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/images/jimmy-fallon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Administrateur" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="home" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Accueill">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ligne" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourLigne" prefHeight="36.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des lignecommandes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="commande" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCom" prefHeight="37.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des commandes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/shopping_bag_full_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne1" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourEvent" prefHeight="37.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des evenement">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne11" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourTicket" prefHeight="36.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des ticket">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourSalle" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Salle">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne1111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCours" prefHeight="34.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Cours">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne11111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourProduit" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourCatCours" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Categorie cours">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne1111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retoutCatProd" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Categorie produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne11111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourReclamation" prefHeight="35.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Reclamation">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne111111111" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourReponses" prefHeight="37.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Reponses">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ligne112" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#retourUtilisaateur" prefHeight="38.0" prefWidth="237.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Liste des Utilisateurs">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tournament_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="287.0" style="-fx-background-color: DC2812;" styleClass="button1" stylesheets="@../Gui/styleTournoi.css" text="Sign Out">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logout_rounded_left_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

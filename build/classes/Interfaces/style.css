@@ -1,0 +1,24 @@
+.add-btn{
+    -fx-background-color: #b5794e;
+    -fx-background-radius: 100;
+}
+.add-btnn{
+    -fx-background-color: #ffe32b;
+    -fx-background-radius: 100;
+}
+.add-btn2{
+    -fx-background-color: #cc692f;
+    -fx-background-radius: 100;
+}
+.profile-layout{
+    -fx-background-color : #6fbf73;
+    -fx-background-radius : 0 0 50 50 ;
+}
+.white-backgroud{
+    -fx-background-color :#ffffff;
+}
+
+.most-contacted-layout{
+    -fx-background-color: #ffea29;
+    -fx-background-radius : 0 50 50 50;
+}

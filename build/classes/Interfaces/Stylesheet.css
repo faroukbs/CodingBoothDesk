@@ -1,0 +1,47 @@
+.white-bg{
+    -fx-background-color: white;
+}
+.blue-bg{
+    -fx-background-color: #3F51B5;
+}
+.cyan-bg{
+    -fx-background-color: #00AEFF;
+}
+.get-started-btn{
+    -fx-background-color: #00AEFF;
+    -fx-background-radius: 3px;
+    -fx-border-color: white;
+    -fx-border-radius: 3px;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+.text-field{
+    -fx-background-color:white;
+}
+.loginButton{
+    -fx-background-color:#00AEFF;
+    -fx-text-fill:white; 
+}
+.grey-bg{
+    
+     -fx-background-color: #EAEAEA;
+
+}
+.sidebar{
+     -fx-background-color: white;
+     -fx-border-color: #EAEAEA;
+    -fx-border-radius: 2px;
+    -fx-border-width: 0.5px;
+}
+
+.nav {
+        -fx-background-color: white;
+     -fx-border-color: #EAEAEA;
+    -fx-border-radius: 2px;
+    -fx-border-width: 0.5px; 
+    
+}
+.head-background
+{
+    -fx-background-color: linear-gradient(to left,#795AF3 ,#76FFFB);
+}
